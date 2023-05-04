@@ -41,7 +41,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaFormat
 :maticnaImaFormat rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty .
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :MaticnaPloca ;
+                  rdfs:range :FormatMaticnePloce .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaPodnozje
@@ -79,21 +81,9 @@
            rdfs:range :TipRamMemorije .
 
 
-###  http://www.w3.org/2002/07/owl#topObjectProperty
-owl:topObjectProperty rdfs:domain :MaticnaPloca ;
-                      rdfs:range :FormatMaticnePloce .
-
-
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaImaRAMSlotova
-:maticnaImaRAMSlotova rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf owl:topDataProperty ;
-                      rdfs:domain :MaticnaPloca ;
-                      rdfs:range xsd:integer .
-
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaDVIInterfejs
 :grafickaImaDVIInterfejs rdf:type owl:DatatypeProperty ;
@@ -162,27 +152,7 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
 :imaNamenu rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :Komponenta ;
-           rdfs:range [ rdf:type rdfs:Datatype ;
-                        owl:oneOf [ rdf:type rdf:List ;
-                                    rdf:first "Gaming" ;
-                                    rdf:rest [ rdf:type rdf:List ;
-                                               rdf:first "Hosting" ;
-                                               rdf:rest [ rdf:type rdf:List ;
-                                                          rdf:first "Kucna upotreba" ;
-                                                          rdf:rest [ rdf:type rdf:List ;
-                                                                     rdf:first "Profesionalna" ;
-                                                                     rdf:rest [ rdf:type rdf:List ;
-                                                                                rdf:first "Razvoj aplikacija" ;
-                                                                                rdf:rest [ rdf:type rdf:List ;
-                                                                                           rdf:first "Rudarenje kriptovaluta" ;
-                                                                                           rdf:rest rdf:nil
-                                                                                         ]
-                                                                              ]
-                                                                   ]
-                                                        ]
-                                             ]
-                                  ]
-                      ] .
+           rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/jeRGB
@@ -206,6 +176,13 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                              rdfs:range xsd:integer .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaRAMSlotova
+:maticnaImaRAMSlotova rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :MaticnaPloca ;
+                      rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaSataSlotova
 :maticnaImaSataSlotova rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf owl:topDataProperty ;
@@ -217,54 +194,14 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
 :procesorImaBrojJezgara rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf owl:topDataProperty ;
                         rdfs:domain :Procesor ;
-                        rdfs:range [ rdf:type rdfs:Datatype ;
-                                     owl:oneOf [ rdf:type rdf:List ;
-                                                 rdf:first "10" ;
-                                                 rdf:rest [ rdf:type rdf:List ;
-                                                            rdf:first "12" ;
-                                                            rdf:rest [ rdf:type rdf:List ;
-                                                                       rdf:first "16" ;
-                                                                       rdf:rest [ rdf:type rdf:List ;
-                                                                                  rdf:first "4" ;
-                                                                                  rdf:rest [ rdf:type rdf:List ;
-                                                                                             rdf:first "6" ;
-                                                                                             rdf:rest [ rdf:type rdf:List ;
-                                                                                                        rdf:first "8" ;
-                                                                                                        rdf:rest rdf:nil
-                                                                                                      ]
-                                                                                           ]
-                                                                                ]
-                                                                     ]
-                                                          ]
-                                               ]
-                                   ] .
+                        rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/procesorImaBrojNiti
 :procesorImaBrojNiti rdf:type owl:DatatypeProperty ;
                      rdfs:subPropertyOf owl:topDataProperty ;
                      rdfs:domain :Procesor ;
-                     rdfs:range [ rdf:type rdfs:Datatype ;
-                                  owl:oneOf [ rdf:type rdf:List ;
-                                              rdf:first "12" ;
-                                              rdf:rest [ rdf:type rdf:List ;
-                                                         rdf:first "16" ;
-                                                         rdf:rest [ rdf:type rdf:List ;
-                                                                    rdf:first "20" ;
-                                                                    rdf:rest [ rdf:type rdf:List ;
-                                                                               rdf:first "4" ;
-                                                                               rdf:rest [ rdf:type rdf:List ;
-                                                                                          rdf:first "6" ;
-                                                                                          rdf:rest [ rdf:type rdf:List ;
-                                                                                                     rdf:first "8" ;
-                                                                                                     rdf:rest rdf:nil
-                                                                                                   ]
-                                                                                        ]
-                                                                             ]
-                                                                  ]
-                                                       ]
-                                            ]
-                                ] .
+                     rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/procesorImaIntegrisanuGrafiku
@@ -333,49 +270,6 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mikrofon
-:Mikrofon rdf:type owl:Class ;
-          rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mis
-:Mis rdf:type owl:Class ;
-     rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Monitor
-:Monitor rdf:type owl:Class ;
-         rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Periferija
-:Periferija rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Mikrofon
-                                                :Mis
-                                                :Monitor
-                                                :Slusalice
-                                                :Tastatura
-                                                :Zvucnici
-                                              )
-                                ] .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Slusalice
-:Slusalice rdf:type owl:Class ;
-           rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Tastatura
-:Tastatura rdf:type owl:Class ;
-           rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Zvucnici
-:Zvucnici rdf:type owl:Class ;
-          rdfs:subClassOf :Periferija .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ChipsetMaticnePloce
 :ChipsetMaticnePloce rdf:type owl:Class .
 
@@ -440,9 +334,37 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
           rdfs:subClassOf :Hardverska .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Mikrofon
+:Mikrofon rdf:type owl:Class ;
+          rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Mis
+:Mis rdf:type owl:Class ;
+     rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Monitor
+:Monitor rdf:type owl:Class ;
+         rdfs:subClassOf :Periferija .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Napajanje
 :Napajanje rdf:type owl:Class ;
            rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Periferija
+:Periferija rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Mikrofon
+                                                :Mis
+                                                :Monitor
+                                                :Slusalice
+                                                :Tastatura
+                                                :Zvucnici
+                                              )
+                                ] .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/PodnozjeProcesora
@@ -468,9 +390,19 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
      rdfs:subClassOf :Memorija .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Slusalice
+:Slusalice rdf:type owl:Class ;
+           rdfs:subClassOf :Periferija .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Softverska
 :Softverska rdf:type owl:Class ;
             rdfs:subClassOf :Komponenta .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Tastatura
+:Tastatura rdf:type owl:Class ;
+           rdfs:subClassOf :Periferija .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/TipMemorijeGraficke
@@ -492,581 +424,14 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
         rdfs:subClassOf :Hladjenje .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Zvucnici
+:Zvucnici rdf:type owl:Class ;
+          rdfs:subClassOf :Periferija .
+
+
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_Ryzen_3_3200G_3.6GHz
-:AMD_Ryzen_3_3200G_3.6GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
-                          :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM4 ;
-                          :imaCenuURSD 11999 ;
-                          :imaNamenu "Kucna upotreba" ;
-                          :procesorImaBrojJezgara 4 ;
-                          :procesorImaBrojNiti 4 ;
-                          :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
-                          :procesorImaRadnuFrekvencijuUGigahercima 3.6 ;
-                          :procesorImaTehnologijuIzradeUNanometrima 12 ;
-                          :procesorImaTermickuSnaguUVatima 65 ;
-                          :procesorSeMozeOverclockovati "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_Ryzen_9_7900X_4.7GHz
-:AMD_Ryzen_9_7900X_4.7GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
-                          :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM5 ;
-                          :imaCenuURSD 64999 ;
-                          :imaNamenu "Profesionalna" ;
-                          :procesorImaBrojJezgara 12 ;
-                          :procesorImaBrojNiti 24 ;
-                          :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
-                          :procesorImaRadnuFrekvencijuUGigahercima 4.7 ;
-                          :procesorImaTehnologijuIzradeUNanometrima 5 ;
-                          :procesorImaTermickuSnaguUVatima 170 ;
-                          :procesorSeMozeOverclockovati "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5
-:ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 rdf:type owl:NamedIndividual ,
-                                                   :GrafickaKartica ;
-                                          :grafickaImaProizvodjacaCipa :Nvidia ;
-                                          :grafickaImaTipMemorije :GDDR5 ;
-                                          :imaProizvodjaca :ASUS ;
-                                          :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaKolicinuMemorijeUGigabajtima 4 ;
-                                          :grafickaImaMagistraluMemorijeUBitima 128 ;
-                                          :grafickaImaPCIExpressInterfejsVerzije 3 ;
-                                          :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                          :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                          :imaCenuURSD 24999 ;
-                                          :imaNamenu "Profesionalna" ;
-                                          :jeRGB "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Prime_B550M_DDR4
-:ASUS_Prime_B550M_DDR4 rdf:type owl:NamedIndividual ,
-                                :MaticnaPloca ;
-                       :imaProizvodjaca :ASUS ;
-                       :maticnaImaChipset :AMD_B550 ;
-                       :maticnaImaFormat :Micro_ATX ;
-                       :maticnaImaPodnozje :AMD_AM4 ;
-                       :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                       :maticnaPodrzavaRamMemoriju :DDR4 ;
-                       :maticnaImaRAMSlotova 4 ;
-                       :imaCenuURSD 11999 ;
-                       :imaNamenu "Kucna upotreba" ;
-                       :jeRGB "false"^^xsd:boolean ;
-                       :maticnaImaM2Slotova 2 ;
-                       :maticnaImaPCIExpressSlotova 4 ;
-                       :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6
-:ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                     :GrafickaKartica ;
-                                            :grafickaImaProizvodjacaCipa :Nvidia ;
-                                            :grafickaImaTipMemorije :GDDR6 ;
-                                            :imaProizvodjaca :ASUS ;
-                                            :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                            :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                            :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                            :grafickaImaKolicinuMemorijeUGigabajtima 24 ;
-                                            :grafickaImaMagistraluMemorijeUBitima 384 ;
-                                            :grafickaImaPCIExpressInterfejsVerzije 4 ;
-                                            :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                            :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                            :imaCenuURSD 319999 ;
-                                            :imaNamenu "Razvoj aplikacija" ;
-                                            :jeRGB "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Rog_Strix_Z790F_DDR5
-:ASUS_Rog_Strix_Z790F_DDR5 rdf:type owl:NamedIndividual ,
-                                    :MaticnaPloca ;
-                           :imaProizvodjaca :ASUS ;
-                           :maticnaImaChipset :Intel_Z790 ;
-                           :maticnaImaFormat :ATX ;
-                           :maticnaImaPodnozje :Intel_1700 ;
-                           :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                           :maticnaPodrzavaRamMemoriju :DDR5 ;
-                           :maticnaImaRAMSlotova 4 ;
-                           :imaCenuURSD 69999 ;
-                           :imaNamenu "Rudarenje kriptovaluta" ;
-                           :jeRGB "true"^^xsd:boolean ;
-                           :maticnaImaM2Slotova 4 ;
-                           :maticnaImaPCIExpressSlotova 4 ;
-                           :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Tuf_B650_DDR5
-:ASUS_Tuf_B650_DDR5 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
-                    :imaProizvodjaca :ASUS ;
-                    :maticnaImaChipset :AMD_B650 ;
-                    :maticnaImaFormat :ATX ;
-                    :maticnaImaPodnozje :AMD_AM5 ;
-                    :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                    :maticnaPodrzavaRamMemoriju :DDR5 ;
-                    :maticnaImaRAMSlotova 4 ;
-                    :imaCenuURSD 34999 ;
-                    :imaNamenu "Gaming" ;
-                    :jeRGB "false"^^xsd:boolean ;
-                    :maticnaImaM2Slotova 3 ;
-                    :maticnaImaPCIExpressSlotova 4 ;
-                    :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Tuf_Z690_DDR4
-:ASUS_Tuf_Z690_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
-                    :imaProizvodjaca :ASUS ;
-                    :maticnaImaChipset :Intel_Z690 ;
-                    :maticnaImaFormat :ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
-                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
-                    :maticnaImaRAMSlotova 4 ;
-                    :imaCenuURSD 43499 ;
-                    :imaNamenu "Gaming" ;
-                    :jeRGB "false"^^xsd:boolean ;
-                    :maticnaImaM2Slotova 4 ;
-                    :maticnaImaPCIExpressSlotova 4 ;
-                    :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AS_Rock_B660M_DDR4
-:AS_Rock_B660M_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
-                    :imaProizvodjaca :AS_Rock ;
-                    :maticnaImaChipset :Intel_B660 ;
-                    :maticnaImaFormat :Micro_ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
-                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
-                    :maticnaImaRAMSlotova 2 ;
-                    :imaCenuURSD 14999 ;
-                    :imaNamenu "Hostovanje" ;
-                    :jeRGB "false"^^xsd:boolean ;
-                    :maticnaImaM2Slotova 1 ;
-                    :maticnaImaPCIExpressSlotova 3 ;
-                    :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#GDDR6
-:GDDR6 rdf:type owl:NamedIndividual ,
-                :TipMemorijeGraficke .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Gigabyte_B550I_Aorus_Pro_DDR4
-:Gigabyte_B550I_Aorus_Pro_DDR4 rdf:type owl:NamedIndividual ,
-                                        :MaticnaPloca ;
-                               :imaProizvodjaca :Gigabyte ;
-                               :maticnaImaChipset :AMD_B550 ;
-                               :maticnaImaFormat :Mini_ITX ;
-                               :maticnaImaPodnozje :AMD_AM4 ;
-                               :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                               :maticnaPodrzavaRamMemoriju :DDR4 ;
-                               :maticnaImaRAMSlotova 2 ;
-                               :imaCenuURSD 27999 ;
-                               :imaNamenu "Razvoj aplikacija" ;
-                               :jeRGB "true"^^xsd:boolean ;
-                               :maticnaImaM2Slotova 2 ;
-                               :maticnaImaPCIExpressSlotova 1 ;
-                               :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Gigabyte_B660M_DDR4
-:Gigabyte_B660M_DDR4 rdf:type owl:NamedIndividual ,
-                              :MaticnaPloca ;
-                     :imaProizvodjaca :Gigabyte ;
-                     :maticnaImaChipset :Intel_B660 ;
-                     :maticnaImaFormat :Micro_ATX ;
-                     :maticnaImaPodnozje :Intel_1700 ;
-                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                     :maticnaPodrzavaRamMemoriju :DDR4 ;
-                     :maticnaImaRAMSlotova 2 ;
-                     :imaCenuURSD 18999 ;
-                     :imaNamenu "Gaming" ;
-                     :jeRGB "false"^^xsd:boolean ;
-                     :maticnaImaM2Slotova 1 ;
-                     :maticnaImaPCIExpressSlotova 2 ;
-                     :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5
-:Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 rdf:type owl:NamedIndividual ,
-                                                     :GrafickaKartica ;
-                                            :grafickaImaProizvodjacaCipa :Nvidia ;
-                                            :grafickaImaTipMemorije :GDDR5 ;
-                                            :imaProizvodjaca :Gigabyte ;
-                                            :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                            :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                            :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                            :grafickaImaKolicinuMemorijeUGigabajtima 4 ;
-                                            :grafickaImaMagistraluMemorijeUBitima 128 ;
-                                            :grafickaImaPCIExpressInterfejsVerzije 3 ;
-                                            :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                            :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                            :imaCenuURSD 26999 ;
-                                            :imaNamenu "Kucna upotreba" ;
-                                            :jeRGB "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6
-:Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                      :GrafickaKartica ;
-                                             :grafickaImaProizvodjacaCipa :Nvidia ;
-                                             :grafickaImaTipMemorije :GDDR6 ;
-                                             :imaProizvodjaca :Gigabyte ;
-                                             :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                             :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                             :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                             :grafickaImaKolicinuMemorijeUGigabajtima 16 ;
-                                             :grafickaImaMagistraluMemorijeUBitima 256 ;
-                                             :grafickaImaPCIExpressInterfejsVerzije 4 ;
-                                             :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                             :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                             :imaCenuURSD 209999 ;
-                                             :imaNamenu "Gaming" ;
-                                             :jeRGB "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_Core_i5_11400F_2.6GHz
-:Intel_Core_i5_11400F_2.6GHz rdf:type owl:NamedIndividual ,
-                                      :Procesor ;
-                             :imaProizvodjaca :Intel ;
-                             :procesorImaPodnozje :Intel_1200 ;
-                             :imaCenuURSD 16999 ;
-                             :imaNamenu "Kucna upotreba" ;
-                             :procesorImaBrojJezgara 6 ;
-                             :procesorImaBrojNiti 12 ;
-                             :procesorImaIntegrisanuGrafiku "false"^^xsd:boolean ;
-                             :procesorImaRadnuFrekvencijuUGigahercima 2.6 ;
-                             :procesorImaTehnologijuIzradeUNanometrima 14 ;
-                             :procesorImaTermickuSnaguUVatima 65 ;
-                             :procesorSeMozeOverclockovati "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_Core_i7_11700_2.5GHz
-:Intel_Core_i7_11700_2.5GHz rdf:type owl:NamedIndividual ,
-                                     :Procesor ;
-                            :imaProizvodjaca :Intel ;
-                            :procesorImaPodnozje :Intel_1200 ;
-                            :imaCenuURSD 44999 ;
-                            :imaNamenu "Gaming" ;
-                            :procesorImaBrojJezgara 8 ;
-                            :procesorImaBrojNiti 16 ;
-                            :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
-                            :procesorImaRadnuFrekvencijuUGigahercima 2.5 ;
-                            :procesorImaTehnologijuIzradeUNanometrima 14 ;
-                            :procesorImaTermickuSnaguUVatima 65 ;
-                            :procesorSeMozeOverclockovati "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_Core_i9_13900K_3GHz
-:Intel_Core_i9_13900K_3GHz rdf:type owl:NamedIndividual ,
-                                    :Procesor ;
-                           :imaProizvodjaca :Intel ;
-                           :procesorImaPodnozje :Intel_1700 ;
-                           :imaCenuURSD 94999 ;
-                           :imaNamenu "Razvoj aplikacija" ;
-                           :procesorImaBrojJezgara 24 ;
-                           :procesorImaBrojNiti 32 ;
-                           :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
-                           :procesorImaRadnuFrekvencijuUGigahercima 3.0 ;
-                           :procesorImaTehnologijuIzradeUNanometrima 7 ;
-                           :procesorImaTermickuSnaguUVatima 125 ;
-                           :procesorSeMozeOverclockovati "true"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_4GB_DDR3_1600MHz_CL11
-:Kingston_4GB_DDR3_1600MHz_CL11 rdf:type owl:NamedIndividual ,
-                                         :RAM ;
-                                :imaProizvodjaca :Kingston ;
-                                :ramJeTipa :DDR3 ;
-                                :imaCenuURSD 3499 ;
-                                :imaNamenu "Kucna upotreba" ;
-                                :jeRGB "false"^^xsd:boolean ;
-                                :ramImaKapacitetUGigabajtima 4 ;
-                                :ramImaLatencijuUCL 11 ;
-                                :ramImaRadnuFrekvencijuUMegahercima 1600 ;
-                                :ramPodrzavaNaponUVoltima 1.5 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_8GB_DDR4_3200MHz_CL22
-:Kingston_8GB_DDR4_3200MHz_CL22 rdf:type owl:NamedIndividual ,
-                                         :RAM ;
-                                :imaProizvodjaca :Kingston ;
-                                :ramJeTipa :DDR4 ;
-                                :imaCenuURSD 2999 ;
-                                :imaNamenu "Kucna upotreba" ;
-                                :jeRGB "false"^^xsd:boolean ;
-                                :ramImaKapacitetUGigabajtima 8 ;
-                                :ramImaLatencijuUCL 22 ;
-                                :ramImaRadnuFrekvencijuUMegahercima 3200 ;
-                                :ramPodrzavaNaponUVoltima 1.2 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Beast_128GB_DDR4_3600MHz_CL18
-:Kingston_Beast_128GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
-                                                 :RAM ;
-                                        :imaProizvodjaca :Kingston ;
-                                        :ramJeTipa :DDR4 ;
-                                        :imaCenuURSD 84999 ;
-                                        :imaNamenu "Hostovanje" ;
-                                        :jeRGB "true"^^xsd:boolean ;
-                                        :ramImaKapacitetUGigabajtima 128 ;
-                                        :ramImaLatencijuUCL 18 ;
-                                        :ramImaRadnuFrekvencijuUMegahercima 3600 ;
-                                        :ramPodrzavaNaponUVoltima 1.35 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_16GB_DDR4_5000MHz_CL19
-:Kingston_Fury_16GB_DDR4_5000MHz_CL19 rdf:type owl:NamedIndividual ,
-                                               :RAM ;
-                                      :imaProizvodjaca :Kingston ;
-                                      :ramJeTipa :DDR4 ;
-                                      :imaCenuURSD 44999 ;
-                                      :imaNamenu "Profesionalna" ;
-                                      :jeRGB "false"^^xsd:boolean ;
-                                      :ramImaKapacitetUGigabajtima 16 ;
-                                      :ramImaLatencijuUCL 19 ;
-                                      :ramImaRadnuFrekvencijuUMegahercima 5000 ;
-                                      :ramPodrzavaNaponUVoltima 1.55 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40
-:Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                     :RAM ;
-                                            :imaProizvodjaca :Kingston ;
-                                            :ramJeTipa :DDR5 ;
-                                            :imaCenuURSD 35999 ;
-                                            :imaNamenu "Gaming" ;
-                                            :jeRGB "false"^^xsd:boolean ;
-                                            :ramImaKapacitetUGigabajtima 64 ;
-                                            :ramImaLatencijuUCL 40 ;
-                                            :ramImaRadnuFrekvencijuUMegahercima 5200 ;
-                                            :ramPodrzavaNaponUVoltima 1.25 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40
-:Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                     :RAM ;
-                                            :imaProizvodjaca :Kingston ;
-                                            :ramJeTipa :DDR5 ;
-                                            :imaCenuURSD 44999 ;
-                                            :imaNamenu "Razvoj aplikacija" ;
-                                            :jeRGB "true"^^xsd:boolean ;
-                                            :ramImaKapacitetUGigabajtima 64 ;
-                                            :ramImaLatencijuUCL 40 ;
-                                            :ramImaRadnuFrekvencijuUMegahercima 5600 ;
-                                            :ramPodrzavaNaponUVoltima 1.25 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40
-:Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                    :RAM ;
-                                           :imaProizvodjaca :Kingston ;
-                                           :ramJeTipa :DDR5 ;
-                                           :imaCenuURSD 6499 ;
-                                           :imaNamenu "Gaming" ;
-                                           :jeRGB "false"^^xsd:boolean ;
-                                           :ramImaKapacitetUGigabajtima 8 ;
-                                           :ramImaLatencijuUCL 40 ;
-                                           :ramImaRadnuFrekvencijuUMegahercima 5600 ;
-                                           :ramPodrzavaNaponUVoltima 1.1 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40
-:Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                      :RAM ;
-                                             :imaProizvodjaca :Kingston ;
-                                             :ramJeTipa :DDR5 ;
-                                             :imaCenuURSD 16999 ;
-                                             :imaNamenu "Kucna upotreba" ;
-                                             :jeRGB "false"^^xsd:boolean ;
-                                             :ramImaKapacitetUGigabajtima 32 ;
-                                             :ramImaLatencijuUCL 40 ;
-                                             :ramImaRadnuFrekvencijuUMegahercima 5600 ;
-                                             :ramPodrzavaNaponUVoltima 1.1 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32
-:Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
-                                               :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
-                                               :imaCenuURSD 11999 ;
-                                               :imaNamenu "Rudarenje kriptovaluta" ;
-                                               :jeRGB "true"^^xsd:boolean ;
-                                               :ramImaKapacitetUGigabajtima 16 ;
-                                               :ramImaLatencijuUCL 32 ;
-                                               :ramImaRadnuFrekvencijuUMegahercima 1.4 ,
-                                                                                   6400 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36
-:Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
-                                               :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
-                                               :imaCenuURSD 41999 ;
-                                               :imaNamenu "Gaming" ;
-                                               :jeRGB "true"^^xsd:boolean ;
-                                               :ramImaKapacitetUGigabajtima 32 ;
-                                               :ramImaLatencijuUCL 36 ;
-                                               :ramImaRadnuFrekvencijuUMegahercima 6800 ;
-                                               :ramPodrzavaNaponUVoltima 1.25 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38
-:Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
-                                               :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
-                                               :imaCenuURSD 30999 ;
-                                               :imaNamenu "Gaming" ;
-                                               :jeRGB "true"^^xsd:boolean ;
-                                               :ramImaKapacitetUGigabajtima 32 ;
-                                               :ramImaLatencijuUCL 38 ;
-                                               :ramImaRadnuFrekvencijuUMegahercima 7200 ;
-                                               :ramPodrzavaNaponUVoltima 1.25 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_Renegade_32GB_DDR4_3600MHz_CL18
-:Kingston_Renegade_32GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
-                                                   :RAM ;
-                                          :imaProizvodjaca :Kingston ;
-                                          :ramJeTipa :DDR4 ;
-                                          :imaCenuURSD 13999 ;
-                                          :imaNamenu "Kucna upotreba" ;
-                                          :jeRGB "false"^^xsd:boolean ;
-                                          :ramImaKapacitetUGigabajtima 32 ;
-                                          :ramImaLatencijuUCL 18 ;
-                                          :ramImaRadnuFrekvencijuUMegahercima 3600 ;
-                                          :ramPodrzavaNaponUVoltima 1.35 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MSI_Carbon_Z690_DDR5
-:MSI_Carbon_Z690_DDR5 rdf:type owl:NamedIndividual ,
-                               :MaticnaPloca ;
-                      :imaProizvodjaca :MSI ;
-                      :maticnaImaChipset :Intel_Z690 ;
-                      :maticnaImaFormat :ATX ;
-                      :maticnaImaPodnozje :Intel_1700 ;
-                      :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                      :maticnaPodrzavaRamMemoriju :DDR5 ;
-                      :maticnaImaRAMSlotova 4 ;
-                      :imaCenuURSD 64999 ;
-                      :imaNamenu "Gaming" ;
-                      :jeRGB "true"^^xsd:boolean ;
-                      :maticnaImaM2Slotova 5 ;
-                      :maticnaImaPCIExpressSlotova 3 ;
-                      :maticnaImaSataSlotova 6 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4
-:MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4 rdf:type owl:NamedIndividual ,
-                                               :GrafickaKartica ;
-                                      :grafickaImaProizvodjacaCipa :Nvidia ;
-                                      :grafickaImaTipMemorije :GDDR4 ;
-                                      :imaProizvodjaca :MSI ;
-                                      :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                      :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                      :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                      :grafickaImaKolicinuMemorijeUGigabajtima 2 ;
-                                      :grafickaImaMagistraluMemorijeUBitima 64 ;
-                                      :grafickaImaPCIExpressInterfejsVerzije 3 ;
-                                      :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                      :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                      :imaCenuURSD 14999 ;
-                                      :imaNamenu "Kucna upotreba" ;
-                                      :jeRGB "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MSI_Nvidia_GeForce_GT_710_2GB_GDDR3
-:MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 rdf:type owl:NamedIndividual ,
-                                              :GrafickaKartica ;
-                                     :grafickaImaProizvodjacaCipa :Nvidia ;
-                                     :grafickaImaTipMemorije :GDDR3 ;
-                                     :imaProizvodjaca :MSI ;
-                                     :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
-                                     :grafickaImaDisplayPortInterfejs "false"^^xsd:boolean ;
-                                     :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                     :grafickaImaKolicinuMemorijeUGigabajtima 2 ;
-                                     :grafickaImaMagistraluMemorijeUBitima 64 ;
-                                     :grafickaImaPCIExpressInterfejsVerzije 2 ;
-                                     :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                     :grafickaImaVGAInterfejs "true"^^xsd:boolean ;
-                                     :imaCenuURSD 7999 ;
-                                     :imaNamenu "Kucna upotreba" ;
-                                     :jeRGB "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MSI_Pro_B760M_DDR4
-:MSI_Pro_B760M_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
-                    :imaProizvodjaca :MSI ;
-                    :maticnaImaChipset :Intel_B760 ;
-                    :maticnaImaFormat :Micro_ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
-                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
-                    :maticnaImaRAMSlotova 4 ;
-                    :imaCenuURSD 17999 ;
-                    :imaNamenu "Profesionalna" ;
-                    :jeRGB "false"^^xsd:boolean ;
-                    :maticnaImaM2Slotova 2 ;
-                    :maticnaImaPCIExpressSlotova 3 ;
-                    :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Nvidia
-:Nvidia rdf:type owl:NamedIndividual ,
-                 :Proizvodjac .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6
-:Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                  :GrafickaKartica ;
-                                         :grafickaImaProizvodjacaCipa :AMD ;
-                                         :grafickaImaTipMemorije :GDDR6 ;
-                                         :imaProizvodjaca :Powercolor ;
-                                         :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                         :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                         :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                         :grafickaImaKolicinuMemorijeUGigabajtima 8 ;
-                                         :grafickaImaMagistraluMemorijeUBitima 128 ;
-                                         :grafickaImaPCIExpressInterfejsVerzije 4 ;
-                                         :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
-                                         :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                         :imaCenuURSD 36999 ;
-                                         :imaNamenu "Hostovanje" ;
-                                         :jeRGB "false"^^xsd:boolean .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6
-:Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                   :GrafickaKartica ;
-                                          :grafickaImaProizvodjacaCipa :AMD ;
-                                          :grafickaImaTipMemorije :GDDR6 ;
-                                          :imaProizvodjaca :Sapphire ;
-                                          :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
-                                          :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaKolicinuMemorijeUGigabajtima 20 ;
-                                          :grafickaImaMagistraluMemorijeUBitima 320 ;
-                                          :grafickaImaPCIExpressInterfejsVerzije 4 ;
-                                          :grafickaImaUSBCInterfejs "true"^^xsd:boolean ;
-                                          :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
-                                          :imaCenuURSD 159999 ;
-                                          :imaNamenu "Rudarenje kriptovaluta" ;
-                                          :jeRGB "false"^^xsd:boolean .
-
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
 :AMD rdf:type owl:NamedIndividual ,
@@ -1091,6 +456,22 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_B650
 :AMD_B650 rdf:type owl:NamedIndividual ,
                    :ChipsetMaticnePloce .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_3_3200G_3.6GHz
+:AMD_Ryzen_3_3200G_3.6GHz rdf:type owl:NamedIndividual ,
+                                   :Procesor ;
+                          :imaProizvodjaca :AMD ;
+                          :procesorImaPodnozje :AMD_AM4 ;
+                          :imaCenuURSD 11999 ;
+                          :imaNamenu "Kucna upotreba" ;
+                          :procesorImaBrojJezgara 4 ;
+                          :procesorImaBrojNiti 4 ;
+                          :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
+                          :procesorImaRadnuFrekvencijuUGigahercima 3.6 ;
+                          :procesorImaTehnologijuIzradeUNanometrima 12 ;
+                          :procesorImaTermickuSnaguUVatima 65 ;
+                          :procesorSeMozeOverclockovati "true"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_5_5600G_3.9GHz
@@ -1157,14 +538,158 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                           :procesorSeMozeOverclockovati "true"^^xsd:boolean .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_9_7900X_4.7GHz
+:AMD_Ryzen_9_7900X_4.7GHz rdf:type owl:NamedIndividual ,
+                                   :Procesor ;
+                          :imaProizvodjaca :AMD ;
+                          :procesorImaPodnozje :AMD_AM5 ;
+                          :imaCenuURSD 64999 ;
+                          :imaNamenu "Profesionalna" ;
+                          :procesorImaBrojJezgara 12 ;
+                          :procesorImaBrojNiti 24 ;
+                          :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
+                          :procesorImaRadnuFrekvencijuUGigahercima 4.7 ;
+                          :procesorImaTehnologijuIzradeUNanometrima 5 ;
+                          :procesorImaTermickuSnaguUVatima 170 ;
+                          :procesorSeMozeOverclockovati "true"^^xsd:boolean .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS
 :ASUS rdf:type owl:NamedIndividual ,
                :Proizvodjac .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5
+:ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 rdf:type owl:NamedIndividual ,
+                                                   :GrafickaKartica ;
+                                          :grafickaImaProizvodjacaCipa :Nvidia ;
+                                          :grafickaImaTipMemorije :GDDR5 ;
+                                          :imaProizvodjaca :ASUS ;
+                                          :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaKolicinuMemorijeUGigabajtima 4 ;
+                                          :grafickaImaMagistraluMemorijeUBitima 128 ;
+                                          :grafickaImaPCIExpressInterfejsVerzije 3 ;
+                                          :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                          :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                          :imaCenuURSD 24999 ;
+                                          :imaNamenu "Profesionalna" ;
+                                          :jeRGB "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Prime_B550M_DDR4
+:ASUS_Prime_B550M_DDR4 rdf:type owl:NamedIndividual ,
+                                :MaticnaPloca ;
+                       :imaProizvodjaca :ASUS ;
+                       :maticnaImaChipset :AMD_B550 ;
+                       :maticnaImaFormat :Micro_ATX ;
+                       :maticnaImaPodnozje :AMD_AM4 ;
+                       :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                       :maticnaPodrzavaRamMemoriju :DDR4 ;
+                       :imaCenuURSD 11999 ;
+                       :imaNamenu "Kucna upotreba" ;
+                       :jeRGB "false"^^xsd:boolean ;
+                       :maticnaImaM2Slotova 2 ;
+                       :maticnaImaPCIExpressSlotova 4 ;
+                       :maticnaImaRAMSlotova 4 ;
+                       :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6
+:ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 rdf:type owl:NamedIndividual ,
+                                                     :GrafickaKartica ;
+                                            :grafickaImaProizvodjacaCipa :Nvidia ;
+                                            :grafickaImaTipMemorije :GDDR6 ;
+                                            :imaProizvodjaca :ASUS ;
+                                            :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                            :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                            :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                            :grafickaImaKolicinuMemorijeUGigabajtima 24 ;
+                                            :grafickaImaMagistraluMemorijeUBitima 384 ;
+                                            :grafickaImaPCIExpressInterfejsVerzije 4 ;
+                                            :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                            :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                            :imaCenuURSD 319999 ;
+                                            :imaNamenu "Razvoj aplikacija" ;
+                                            :jeRGB "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_Z790F_DDR5
+:ASUS_Rog_Strix_Z790F_DDR5 rdf:type owl:NamedIndividual ,
+                                    :MaticnaPloca ;
+                           :imaProizvodjaca :ASUS ;
+                           :maticnaImaChipset :Intel_Z790 ;
+                           :maticnaImaFormat :ATX ;
+                           :maticnaImaPodnozje :Intel_1700 ;
+                           :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                           :maticnaPodrzavaRamMemoriju :DDR5 ;
+                           :imaCenuURSD 69999 ;
+                           :imaNamenu "Rudarenje kriptovaluta" ;
+                           :jeRGB "true"^^xsd:boolean ;
+                           :maticnaImaM2Slotova 4 ;
+                           :maticnaImaPCIExpressSlotova 4 ;
+                           :maticnaImaRAMSlotova 4 ;
+                           :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_B650_DDR5
+:ASUS_Tuf_B650_DDR5 rdf:type owl:NamedIndividual ,
+                             :MaticnaPloca ;
+                    :imaProizvodjaca :ASUS ;
+                    :maticnaImaChipset :AMD_B650 ;
+                    :maticnaImaFormat :ATX ;
+                    :maticnaImaPodnozje :AMD_AM5 ;
+                    :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                    :maticnaPodrzavaRamMemoriju :DDR5 ;
+                    :imaCenuURSD 34999 ;
+                    :imaNamenu "Gaming" ;
+                    :jeRGB "false"^^xsd:boolean ;
+                    :maticnaImaM2Slotova 3 ;
+                    :maticnaImaPCIExpressSlotova 4 ;
+                    :maticnaImaRAMSlotova 4 ;
+                    :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_Z690_DDR4
+:ASUS_Tuf_Z690_DDR4 rdf:type owl:NamedIndividual ,
+                             :MaticnaPloca ;
+                    :imaProizvodjaca :ASUS ;
+                    :maticnaImaChipset :Intel_Z690 ;
+                    :maticnaImaFormat :ATX ;
+                    :maticnaImaPodnozje :Intel_1700 ;
+                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaRamMemoriju :DDR4 ;
+                    :imaCenuURSD 43499 ;
+                    :imaNamenu "Gaming" ;
+                    :jeRGB "false"^^xsd:boolean ;
+                    :maticnaImaM2Slotova 4 ;
+                    :maticnaImaPCIExpressSlotova 4 ;
+                    :maticnaImaRAMSlotova 4 ;
+                    :maticnaImaSataSlotova 4 .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AS_Rock
 :AS_Rock rdf:type owl:NamedIndividual ,
                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AS_Rock_B660M_DDR4
+:AS_Rock_B660M_DDR4 rdf:type owl:NamedIndividual ,
+                             :MaticnaPloca ;
+                    :imaProizvodjaca :AS_Rock ;
+                    :maticnaImaChipset :Intel_B660 ;
+                    :maticnaImaFormat :Micro_ATX ;
+                    :maticnaImaPodnozje :Intel_1700 ;
+                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaRamMemoriju :DDR4 ;
+                    :imaCenuURSD 14999 ;
+                    :imaNamenu "Hostovanje" ;
+                    :jeRGB "false"^^xsd:boolean ;
+                    :maticnaImaM2Slotova 1 ;
+                    :maticnaImaPCIExpressSlotova 3 ;
+                    :maticnaImaRAMSlotova 2 ;
+                    :maticnaImaSataSlotova 4 .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ATX
@@ -1202,9 +727,88 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                 :TipMemorijeGraficke .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GDDR6
+:GDDR6 rdf:type owl:NamedIndividual ,
+                :TipMemorijeGraficke .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte
 :Gigabyte rdf:type owl:NamedIndividual ,
                    :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_B550I_Aorus_Pro_DDR4
+:Gigabyte_B550I_Aorus_Pro_DDR4 rdf:type owl:NamedIndividual ,
+                                        :MaticnaPloca ;
+                               :imaProizvodjaca :Gigabyte ;
+                               :maticnaImaChipset :AMD_B550 ;
+                               :maticnaImaFormat :Mini_ITX ;
+                               :maticnaImaPodnozje :AMD_AM4 ;
+                               :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                               :maticnaPodrzavaRamMemoriju :DDR4 ;
+                               :imaCenuURSD 27999 ;
+                               :imaNamenu "Razvoj aplikacija" ;
+                               :jeRGB "true"^^xsd:boolean ;
+                               :maticnaImaM2Slotova 2 ;
+                               :maticnaImaPCIExpressSlotova 1 ;
+                               :maticnaImaRAMSlotova 2 ;
+                               :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_B660M_DDR4
+:Gigabyte_B660M_DDR4 rdf:type owl:NamedIndividual ,
+                              :MaticnaPloca ;
+                     :imaProizvodjaca :Gigabyte ;
+                     :maticnaImaChipset :Intel_B660 ;
+                     :maticnaImaFormat :Micro_ATX ;
+                     :maticnaImaPodnozje :Intel_1700 ;
+                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                     :maticnaPodrzavaRamMemoriju :DDR4 ;
+                     :imaCenuURSD 18999 ;
+                     :imaNamenu "Gaming" ;
+                     :jeRGB "false"^^xsd:boolean ;
+                     :maticnaImaM2Slotova 1 ;
+                     :maticnaImaPCIExpressSlotova 2 ;
+                     :maticnaImaRAMSlotova 2 ;
+                     :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5
+:Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 rdf:type owl:NamedIndividual ,
+                                                     :GrafickaKartica ;
+                                            :grafickaImaProizvodjacaCipa :Nvidia ;
+                                            :grafickaImaTipMemorije :GDDR5 ;
+                                            :imaProizvodjaca :Gigabyte ;
+                                            :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                            :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                            :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                            :grafickaImaKolicinuMemorijeUGigabajtima 4 ;
+                                            :grafickaImaMagistraluMemorijeUBitima 128 ;
+                                            :grafickaImaPCIExpressInterfejsVerzije 3 ;
+                                            :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                            :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                            :imaCenuURSD 26999 ;
+                                            :imaNamenu "Kucna upotreba" ;
+                                            :jeRGB "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6
+:Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6 rdf:type owl:NamedIndividual ,
+                                                      :GrafickaKartica ;
+                                             :grafickaImaProizvodjacaCipa :Nvidia ;
+                                             :grafickaImaTipMemorije :GDDR6 ;
+                                             :imaProizvodjaca :Gigabyte ;
+                                             :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                             :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                             :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                             :grafickaImaKolicinuMemorijeUGigabajtima 16 ;
+                                             :grafickaImaMagistraluMemorijeUBitima 256 ;
+                                             :grafickaImaPCIExpressInterfejsVerzije 4 ;
+                                             :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                             :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                             :imaCenuURSD 209999 ;
+                                             :imaNamenu "Gaming" ;
+                                             :jeRGB "true"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel
@@ -1232,6 +836,22 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                      :ChipsetMaticnePloce .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i5_11400F_2.6GHz
+:Intel_Core_i5_11400F_2.6GHz rdf:type owl:NamedIndividual ,
+                                      :Procesor ;
+                             :imaProizvodjaca :Intel ;
+                             :procesorImaPodnozje :Intel_1200 ;
+                             :imaCenuURSD 16999 ;
+                             :imaNamenu "Kucna upotreba" ;
+                             :procesorImaBrojJezgara 6 ;
+                             :procesorImaBrojNiti 12 ;
+                             :procesorImaIntegrisanuGrafiku "false"^^xsd:boolean ;
+                             :procesorImaRadnuFrekvencijuUGigahercima 2.6 ;
+                             :procesorImaTehnologijuIzradeUNanometrima 14 ;
+                             :procesorImaTermickuSnaguUVatima 65 ;
+                             :procesorSeMozeOverclockovati "true"^^xsd:boolean .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i5_12600_3.3GHz
 :Intel_Core_i5_12600_3.3GHz rdf:type owl:NamedIndividual ,
                                      :Procesor ;
@@ -1246,6 +866,38 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                             :procesorImaTehnologijuIzradeUNanometrima 7 ;
                             :procesorImaTermickuSnaguUVatima 65 ;
                             :procesorSeMozeOverclockovati "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i7_11700_2.5GHz
+:Intel_Core_i7_11700_2.5GHz rdf:type owl:NamedIndividual ,
+                                     :Procesor ;
+                            :imaProizvodjaca :Intel ;
+                            :procesorImaPodnozje :Intel_1200 ;
+                            :imaCenuURSD 44999 ;
+                            :imaNamenu "Gaming" ;
+                            :procesorImaBrojJezgara 8 ;
+                            :procesorImaBrojNiti 16 ;
+                            :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
+                            :procesorImaRadnuFrekvencijuUGigahercima 2.5 ;
+                            :procesorImaTehnologijuIzradeUNanometrima 14 ;
+                            :procesorImaTermickuSnaguUVatima 65 ;
+                            :procesorSeMozeOverclockovati "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i9_13900K_3GHz
+:Intel_Core_i9_13900K_3GHz rdf:type owl:NamedIndividual ,
+                                    :Procesor ;
+                           :imaProizvodjaca :Intel ;
+                           :procesorImaPodnozje :Intel_1700 ;
+                           :imaCenuURSD 94999 ;
+                           :imaNamenu "Razvoj aplikacija" ;
+                           :procesorImaBrojJezgara 24 ;
+                           :procesorImaBrojNiti 32 ;
+                           :procesorImaIntegrisanuGrafiku "true"^^xsd:boolean ;
+                           :procesorImaRadnuFrekvencijuUGigahercima 3.0 ;
+                           :procesorImaTehnologijuIzradeUNanometrima 7 ;
+                           :procesorImaTermickuSnaguUVatima 125 ;
+                           :procesorSeMozeOverclockovati "true"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Pentium_Gold_G6405_4.1GHz
@@ -1279,9 +931,251 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                    :Proizvodjac .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_4GB_DDR3_1600MHz_CL11
+:Kingston_4GB_DDR3_1600MHz_CL11 rdf:type owl:NamedIndividual ,
+                                         :RAM ;
+                                :imaProizvodjaca :Kingston ;
+                                :ramJeTipa :DDR3 ;
+                                :imaCenuURSD 3499 ;
+                                :imaNamenu "Kucna upotreba" ;
+                                :jeRGB "false"^^xsd:boolean ;
+                                :ramImaKapacitetUGigabajtima 4 ;
+                                :ramImaLatencijuUCL 11 ;
+                                :ramImaRadnuFrekvencijuUMegahercima 1600 ;
+                                :ramPodrzavaNaponUVoltima 1.5 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_8GB_DDR4_3200MHz_CL22
+:Kingston_8GB_DDR4_3200MHz_CL22 rdf:type owl:NamedIndividual ,
+                                         :RAM ;
+                                :imaProizvodjaca :Kingston ;
+                                :ramJeTipa :DDR4 ;
+                                :imaCenuURSD 2999 ;
+                                :imaNamenu "Kucna upotreba" ;
+                                :jeRGB "false"^^xsd:boolean ;
+                                :ramImaKapacitetUGigabajtima 8 ;
+                                :ramImaLatencijuUCL 22 ;
+                                :ramImaRadnuFrekvencijuUMegahercima 3200 ;
+                                :ramPodrzavaNaponUVoltima 1.2 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Beast_128GB_DDR4_3600MHz_CL18
+:Kingston_Beast_128GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
+                                                 :RAM ;
+                                        :imaProizvodjaca :Kingston ;
+                                        :ramJeTipa :DDR4 ;
+                                        :imaCenuURSD 84999 ;
+                                        :imaNamenu "Hostovanje" ;
+                                        :jeRGB "true"^^xsd:boolean ;
+                                        :ramImaKapacitetUGigabajtima 128 ;
+                                        :ramImaLatencijuUCL 18 ;
+                                        :ramImaRadnuFrekvencijuUMegahercima 3600 ;
+                                        :ramPodrzavaNaponUVoltima 1.35 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_16GB_DDR4_5000MHz_CL19
+:Kingston_Fury_16GB_DDR4_5000MHz_CL19 rdf:type owl:NamedIndividual ,
+                                               :RAM ;
+                                      :imaProizvodjaca :Kingston ;
+                                      :ramJeTipa :DDR4 ;
+                                      :imaCenuURSD 44999 ;
+                                      :imaNamenu "Profesionalna" ;
+                                      :jeRGB "false"^^xsd:boolean ;
+                                      :ramImaKapacitetUGigabajtima 16 ;
+                                      :ramImaLatencijuUCL 19 ;
+                                      :ramImaRadnuFrekvencijuUMegahercima 5000 ;
+                                      :ramPodrzavaNaponUVoltima 1.55 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40
+:Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40 rdf:type owl:NamedIndividual ,
+                                                     :RAM ;
+                                            :imaProizvodjaca :Kingston ;
+                                            :ramJeTipa :DDR5 ;
+                                            :imaCenuURSD 35999 ;
+                                            :imaNamenu "Gaming" ;
+                                            :jeRGB "false"^^xsd:boolean ;
+                                            :ramImaKapacitetUGigabajtima 64 ;
+                                            :ramImaLatencijuUCL 40 ;
+                                            :ramImaRadnuFrekvencijuUMegahercima 5200 ;
+                                            :ramPodrzavaNaponUVoltima 1.25 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40
+:Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
+                                                     :RAM ;
+                                            :imaProizvodjaca :Kingston ;
+                                            :ramJeTipa :DDR5 ;
+                                            :imaCenuURSD 44999 ;
+                                            :imaNamenu "Razvoj aplikacija" ;
+                                            :jeRGB "true"^^xsd:boolean ;
+                                            :ramImaKapacitetUGigabajtima 64 ;
+                                            :ramImaLatencijuUCL 40 ;
+                                            :ramImaRadnuFrekvencijuUMegahercima 5600 ;
+                                            :ramPodrzavaNaponUVoltima 1.25 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40
+:Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
+                                                    :RAM ;
+                                           :imaProizvodjaca :Kingston ;
+                                           :ramJeTipa :DDR5 ;
+                                           :imaCenuURSD 6499 ;
+                                           :imaNamenu "Gaming" ;
+                                           :jeRGB "false"^^xsd:boolean ;
+                                           :ramImaKapacitetUGigabajtima 8 ;
+                                           :ramImaLatencijuUCL 40 ;
+                                           :ramImaRadnuFrekvencijuUMegahercima 5600 ;
+                                           :ramPodrzavaNaponUVoltima 1.1 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40
+:Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
+                                                      :RAM ;
+                                             :imaProizvodjaca :Kingston ;
+                                             :ramJeTipa :DDR5 ;
+                                             :imaCenuURSD 16999 ;
+                                             :imaNamenu "Kucna upotreba" ;
+                                             :jeRGB "false"^^xsd:boolean ;
+                                             :ramImaKapacitetUGigabajtima 32 ;
+                                             :ramImaLatencijuUCL 40 ;
+                                             :ramImaRadnuFrekvencijuUMegahercima 5600 ;
+                                             :ramPodrzavaNaponUVoltima 1.1 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32
+:Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 rdf:type owl:NamedIndividual ,
+                                                        :RAM ;
+                                               :imaProizvodjaca :Kingston ;
+                                               :ramJeTipa :DDR5 ;
+                                               :imaCenuURSD 11999 ;
+                                               :imaNamenu "Rudarenje kriptovaluta" ;
+                                               :jeRGB "true"^^xsd:boolean ;
+                                               :ramImaKapacitetUGigabajtima 16 ;
+                                               :ramImaLatencijuUCL 32 ;
+                                               :ramImaRadnuFrekvencijuUMegahercima 6400 ;
+                                               :ramPodrzavaNaponUVoltima 1 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36
+:Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 rdf:type owl:NamedIndividual ,
+                                                        :RAM ;
+                                               :imaProizvodjaca :Kingston ;
+                                               :ramJeTipa :DDR5 ;
+                                               :imaCenuURSD 41999 ;
+                                               :imaNamenu "Gaming" ;
+                                               :jeRGB "true"^^xsd:boolean ;
+                                               :ramImaKapacitetUGigabajtima 32 ;
+                                               :ramImaLatencijuUCL 36 ;
+                                               :ramImaRadnuFrekvencijuUMegahercima 6800 ;
+                                               :ramPodrzavaNaponUVoltima 1.25 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38
+:Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38 rdf:type owl:NamedIndividual ,
+                                                        :RAM ;
+                                               :imaProizvodjaca :Kingston ;
+                                               :ramJeTipa :DDR5 ;
+                                               :imaCenuURSD 30999 ;
+                                               :imaNamenu "Gaming" ;
+                                               :jeRGB "true"^^xsd:boolean ;
+                                               :ramImaKapacitetUGigabajtima 32 ;
+                                               :ramImaLatencijuUCL 38 ;
+                                               :ramImaRadnuFrekvencijuUMegahercima 7200 ;
+                                               :ramPodrzavaNaponUVoltima 1.25 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Renegade_32GB_DDR4_3600MHz_CL18
+:Kingston_Renegade_32GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
+                                                   :RAM ;
+                                          :imaProizvodjaca :Kingston ;
+                                          :ramJeTipa :DDR4 ;
+                                          :imaCenuURSD 13999 ;
+                                          :imaNamenu "Kucna upotreba" ;
+                                          :jeRGB "false"^^xsd:boolean ;
+                                          :ramImaKapacitetUGigabajtima 32 ;
+                                          :ramImaLatencijuUCL 18 ;
+                                          :ramImaRadnuFrekvencijuUMegahercima 3600 ;
+                                          :ramPodrzavaNaponUVoltima 1.35 .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI
 :MSI rdf:type owl:NamedIndividual ,
               :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Carbon_Z690_DDR5
+:MSI_Carbon_Z690_DDR5 rdf:type owl:NamedIndividual ,
+                               :MaticnaPloca ;
+                      :imaProizvodjaca :MSI ;
+                      :maticnaImaChipset :Intel_Z690 ;
+                      :maticnaImaFormat :ATX ;
+                      :maticnaImaPodnozje :Intel_1700 ;
+                      :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                      :maticnaPodrzavaRamMemoriju :DDR5 ;
+                      :imaCenuURSD 64999 ;
+                      :imaNamenu "Gaming" ;
+                      :jeRGB "true"^^xsd:boolean ;
+                      :maticnaImaM2Slotova 5 ;
+                      :maticnaImaPCIExpressSlotova 3 ;
+                      :maticnaImaRAMSlotova 4 ;
+                      :maticnaImaSataSlotova 6 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4
+:MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4 rdf:type owl:NamedIndividual ,
+                                               :GrafickaKartica ;
+                                      :grafickaImaProizvodjacaCipa :Nvidia ;
+                                      :grafickaImaTipMemorije :GDDR4 ;
+                                      :imaProizvodjaca :MSI ;
+                                      :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                      :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                      :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                      :grafickaImaKolicinuMemorijeUGigabajtima 2 ;
+                                      :grafickaImaMagistraluMemorijeUBitima 64 ;
+                                      :grafickaImaPCIExpressInterfejsVerzije 3 ;
+                                      :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                      :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                      :imaCenuURSD 14999 ;
+                                      :imaNamenu "Kucna upotreba" ;
+                                      :jeRGB "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Nvidia_GeForce_GT_710_2GB_GDDR3
+:MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 rdf:type owl:NamedIndividual ,
+                                              :GrafickaKartica ;
+                                     :grafickaImaProizvodjacaCipa :Nvidia ;
+                                     :grafickaImaTipMemorije :GDDR3 ;
+                                     :imaProizvodjaca :MSI ;
+                                     :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
+                                     :grafickaImaDisplayPortInterfejs "false"^^xsd:boolean ;
+                                     :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                     :grafickaImaKolicinuMemorijeUGigabajtima 2 ;
+                                     :grafickaImaMagistraluMemorijeUBitima 64 ;
+                                     :grafickaImaPCIExpressInterfejsVerzije 2 ;
+                                     :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                     :grafickaImaVGAInterfejs "true"^^xsd:boolean ;
+                                     :imaCenuURSD 7999 ;
+                                     :imaNamenu "Kucna upotreba" ;
+                                     :jeRGB "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Pro_B760M_DDR4
+:MSI_Pro_B760M_DDR4 rdf:type owl:NamedIndividual ,
+                             :MaticnaPloca ;
+                    :imaProizvodjaca :MSI ;
+                    :maticnaImaChipset :Intel_B760 ;
+                    :maticnaImaFormat :Micro_ATX ;
+                    :maticnaImaPodnozje :Intel_1700 ;
+                    :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaRamMemoriju :DDR4 ;
+                    :imaCenuURSD 17999 ;
+                    :imaNamenu "Profesionalna" ;
+                    :jeRGB "false"^^xsd:boolean ;
+                    :maticnaImaM2Slotova 2 ;
+                    :maticnaImaPCIExpressSlotova 3 ;
+                    :maticnaImaRAMSlotova 4 ;
+                    :maticnaImaSataSlotova 4 .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Micro_ATX
@@ -1294,9 +1188,33 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                    :FormatMaticnePloce .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Nvidia
+:Nvidia rdf:type owl:NamedIndividual ,
+                 :Proizvodjac .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Powercolor
 :Powercolor rdf:type owl:NamedIndividual ,
                      :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6
+:Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 rdf:type owl:NamedIndividual ,
+                                                  :GrafickaKartica ;
+                                         :grafickaImaProizvodjacaCipa :AMD ;
+                                         :grafickaImaTipMemorije :GDDR6 ;
+                                         :imaProizvodjaca :Powercolor ;
+                                         :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                         :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                         :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                         :grafickaImaKolicinuMemorijeUGigabajtima 8 ;
+                                         :grafickaImaMagistraluMemorijeUBitima 128 ;
+                                         :grafickaImaPCIExpressInterfejsVerzije 4 ;
+                                         :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
+                                         :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                         :imaCenuURSD 36999 ;
+                                         :imaNamenu "Hostovanje" ;
+                                         :jeRGB "false"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Sapphire
@@ -1304,20 +1222,28 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                    :Proizvodjac .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6
+:Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6 rdf:type owl:NamedIndividual ,
+                                                   :GrafickaKartica ;
+                                          :grafickaImaProizvodjacaCipa :AMD ;
+                                          :grafickaImaTipMemorije :GDDR6 ;
+                                          :imaProizvodjaca :Sapphire ;
+                                          :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
+                                          :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaKolicinuMemorijeUGigabajtima 20 ;
+                                          :grafickaImaMagistraluMemorijeUBitima 320 ;
+                                          :grafickaImaPCIExpressInterfejsVerzije 4 ;
+                                          :grafickaImaUSBCInterfejs "true"^^xsd:boolean ;
+                                          :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
+                                          :imaCenuURSD 159999 ;
+                                          :imaNamenu "Rudarenje kriptovaluta" ;
+                                          :jeRGB "false"^^xsd:boolean .
+
+
 #################################################################
 #    General axioms
 #################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Mikrofon
-                :Mis
-                :Monitor
-                :Slusalice
-                :Tastatura
-                :Zvucnici
-              )
-] .
-
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :GrafickaKartica
@@ -1328,6 +1254,17 @@ owl:topObjectProperty rdfs:domain :MaticnaPloca ;
                 :Napajanje
                 :Procesor
                 :RAM
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Mikrofon
+                :Mis
+                :Monitor
+                :Slusalice
+                :Tastatura
+                :Zvucnici
               )
 ] .
 
