@@ -72,6 +72,62 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HDDImaBrojObrtaja
+:HDDImaBrojObrtaja rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :HDD ;
+                   rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HDDImaFormatUIncima
+:HDDImaFormatUIncima rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :HDD ;
+                     rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HDDImaKapacitetUGigabajtima
+:HDDImaKapacitetUGigabajtima rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :HDD ;
+                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HDDImaKapactitetBufferaUMegabajtima
+:HDDImaKapactitetBufferaUMegabajtima rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain :HDD ;
+                                     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SSDImaBrzinuCitanjaUMBPS
+:SSDImaBrzinuCitanjaUMBPS rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :SSD ;
+                          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SSDImaBrzinuPisanjaUMBPS
+:SSDImaBrzinuPisanjaUMBPS rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :SSD ;
+                          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SSDImaDebljinuUMilimetrima
+:SSDImaDebljinuUMilimetrima rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:domain :SSD ;
+                            rdfs:range xsd:decimal .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SSDImaKapacitetUGigabajtima
+:SSDImaKapacitetUGigabajtima rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :SSD ;
+                             rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#kucisteImaMestaZaPCIKartice
 :kucisteImaMestaZaPCIKartice rdf:type owl:DatatypeProperty ;
                              rdfs:subPropertyOf owl:topDataProperty ;
@@ -783,6 +839,54 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                     :imaNamenu "Razvoj aplikacija" .
 
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SAMSUNG_SSD_970_EVO_PLUS_500GB_NVMe_M2_2280
+:SAMSUNG_SSD_970_EVO_PLUS_500GB_NVMe_M2_2280 rdf:type owl:NamedIndividual ,
+                                                      :SSD ;
+                                             :imaProizvodjaca :SAMSUNG ;
+                                             :SSDImaBrzinuCitanjaUMBPS 3500 ;
+                                             :SSDImaBrzinuPisanjaUMBPS 4500 ;
+                                             :SSDImaDebljinuUMilimetrima 2.38 ;
+                                             :SSDImaKapacitetUGigabajtima 500 ;
+                                             :imaCenuURSD 7999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SAMSUNG_SSD_970_Evo_Plus_250GB_-_MZ-V7S250BW
+:SAMSUNG_SSD_970_Evo_Plus_250GB_-_MZ-V7S250BW rdf:type owl:NamedIndividual ,
+                                                       :SSD ;
+                                              :imaProizvodjaca :SAMSUNG ;
+                                              :SSDImaBrzinuCitanjaUMBPS 3500 ;
+                                              :SSDImaBrzinuPisanjaUMBPS 4500 ;
+                                              :SSDImaDebljinuUMilimetrima 2.38 ;
+                                              :SSDImaKapacitetUGigabajtima 250 ;
+                                              :imaCenuURSD 5999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SEAGATE_8TB_SATA3_256MB_Ironwolf_PRO
+:SEAGATE_8TB_SATA3_256MB_Ironwolf_PRO rdf:type owl:NamedIndividual ,
+                                               :HDD ;
+                                      :imaProizvodjaca :Seagate ;
+                                      :HDDImaBrojObrtaja 7200 ;
+                                      :HDDImaFormatUIncima 3.5 ;
+                                      :HDDImaKapacitetUGigabajtima 8000 ;
+                                      :HDDImaKapactitetBufferaUMegabajtima 256 ;
+                                      :imaCenuURSD 37999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SEAGATE_BarraCuda_ST8000DM004
+:SEAGATE_BarraCuda_ST8000DM004 rdf:type owl:NamedIndividual ;
+                               :imaProizvodjaca :Seagate ;
+                               :HDDImaBrojObrtaja 5400 ;
+                               :HDDImaFormatUIncima 3.5 ;
+                               :HDDImaKapacitetUGigabajtima 8000 ;
+                               :HDDImaKapactitetBufferaUMegabajtima 256 ;
+                               :imaCenuURSD 21999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Seagate
+:Seagate rdf:type owl:NamedIndividual ,
+                  :Proizvodjac .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Sega
 :Sega rdf:type owl:NamedIndividual ,
                :Proizvodjac .
@@ -798,6 +902,49 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                      :TipNapajanja .
 
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WD_14TB_3.5_SATA3_512MB_7200RPM_RED_PLUS
+:WD_14TB_3.5_SATA3_512MB_7200RPM_RED_PLUS rdf:type owl:NamedIndividual ;
+                                          :imaProizvodjaca :Western_Digital ;
+                                          :HDDImaBrojObrtaja 7200 ;
+                                          :HDDImaFormatUIncima 3.5 ;
+                                          :HDDImaKapacitetUGigabajtima 14000 ;
+                                          :HDDImaKapactitetBufferaUMegabajtima 512 ;
+                                          :imaCenuURSD 69999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WD_8TB_3.5_SATA_256MB_7200RPM_RED_PLUS
+:WD_8TB_3.5_SATA_256MB_7200RPM_RED_PLUS rdf:type owl:NamedIndividual ,
+                                                 :HDD ;
+                                        :imaProizvodjaca :Western_Digital ;
+                                        :HDDImaBrojObrtaja 7200 ;
+                                        :HDDImaFormatUIncima 3.5 ;
+                                        :HDDImaKapacitetUGigabajtima 8000 ;
+                                        :HDDImaKapactitetBufferaUMegabajtima 256 ;
+                                        :imaCenuURSD 29999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WD_Black_SN850_SSD_2TB_NVMe
+:WD_Black_SN850_SSD_2TB_NVMe rdf:type owl:NamedIndividual ,
+                                      :SSD ;
+                             :imaProizvodjaca :Western_Digital ;
+                             :SSDImaBrzinuCitanjaUMBPS 7000 ;
+                             :SSDImaBrzinuPisanjaUMBPS 9000 ;
+                             :SSDImaDebljinuUMilimetrima 4 ;
+                             :SSDImaKapacitetUGigabajtima 2000 ;
+                             :imaCenuURSD 54999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WD_Green_480GB_SATA_2.5_WDS480G3G0A
+:WD_Green_480GB_SATA_2.5_WDS480G3G0A rdf:type owl:NamedIndividual ,
+                                              :SSD ;
+                                     :imaProizvodjaca :Western_Digital ;
+                                     :SSDImaBrzinuCitanjaUMBPS 545 ;
+                                     :SSDImaBrzinuPisanjaUMBPS 750 ;
+                                     :SSDImaDebljinuUMilimetrima 7 ;
+                                     :SSDImaKapacitetUGigabajtima 480 ;
+                                     :imaCenuURSD 4999 .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WWE_PS4_2K23
 :WWE_PS4_2K23 rdf:type owl:NamedIndividual ,
                        :VideoIgrica ;
@@ -806,6 +953,11 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
               :imaProizvodjaca <http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#2K> ;
               :videoIgricaJePogodnaZaDecu "false"^^xsd:boolean ;
               :imaCenuURSD 8999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Western_Digital
+:Western_Digital rdf:type owl:NamedIndividual ,
+                          :Proizvodjac .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#XBOX
