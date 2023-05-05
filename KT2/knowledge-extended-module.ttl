@@ -994,18 +994,18 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                    :monitorImaOsvezavanjeUHercima 60 .
 
 
-###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/DEL__Monitor_S2721HN
-:DEL__Monitor_S2721HN rdf:type owl:NamedIndividual ,
-                               :Monitor ;
-                      :imaProizvodjaca :DEL ;
-                      :monitorImaTipEkrana :LCD ;
-                      :imaCenuURSD 21999 ;
-                      :imaNamenu "Kucna upotreba" ;
-                      :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
-                      :monitorImaDuzinuDijagonaleUIncima 27 ;
-                      :monitorImaHDMIPort "true"^^xsd:boolean ;
-                      :monitorImaOdzivUMilisekundama 4 ;
-                      :monitorImaOsvezavanjeUHercima 75 .
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/DEL_Monitor_S2721HN
+:DEL_Monitor_S2721HN rdf:type owl:NamedIndividual ,
+                              :Monitor ;
+                     :imaProizvodjaca :DEL ;
+                     :monitorImaTipEkrana :LCD ;
+                     :imaCenuURSD 21999 ;
+                     :imaNamenu "Kucna upotreba" ;
+                     :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
+                     :monitorImaDuzinuDijagonaleUIncima 27 ;
+                     :monitorImaHDMIPort "true"^^xsd:boolean ;
+                     :monitorImaOdzivUMilisekundama 4 ;
+                     :monitorImaOsvezavanjeUHercima 75 .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/LCD
@@ -1066,8 +1066,8 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                   :Proizvodjac .
 
 
-###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Samsung_Odyssey_G5_LC32G55T
-:Samsung_Odyssey_G5_LC32G55T rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/SAMSUNG_Odyssey_G5_LC32G55T
+:SAMSUNG_Odyssey_G5_LC32G55T rdf:type owl:NamedIndividual ,
                                       :Monitor ;
                              :imaProizvodjaca :SAMSUNG ;
                              :monitorImaTipEkrana :LCD ;
@@ -1080,8 +1080,8 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                              :monitorImaOsvezavanjeUHercima 144 .
 
 
-###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Samsung_Smart_UHD_M80B
-:Samsung_Smart_UHD_M80B rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/SAMSUNG_Smart_UHD_M80B
+:SAMSUNG_Smart_UHD_M80B rdf:type owl:NamedIndividual ,
                                  :Monitor ;
                         :imaProizvodjaca :SAMSUNG ;
                         :monitorImaTipEkrana :LED ;
