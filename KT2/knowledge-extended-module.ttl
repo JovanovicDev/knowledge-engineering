@@ -12,6 +12,27 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#kucisteJeVelicine
+:kucisteJeVelicine rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Kuciste ;
+                   rdfs:range :VelicinaKucista .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#kucistePodrzavaFormatMaticnePloce
+:kucistePodrzavaFormatMaticnePloce rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                   rdfs:domain :Kuciste ;
+                                   rdfs:range :FormatMaticnePloce .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeJeTipa
+:napajanjeJeTipa rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Napajanje ;
+                 rdfs:range :TipNapajanja .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#periferniUredjajImaTipPovezivanja
 :periferniUredjajImaTipPovezivanja rdf:type owl:ObjectProperty ;
                                    rdfs:subPropertyOf owl:topObjectProperty ;
@@ -51,6 +72,55 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#kucisteImaMestaZaPCIKartice
+:kucisteImaMestaZaPCIKartice rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :Kuciste ;
+                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#kucisteImaNapajanje
+:kucisteImaNapajanje rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Kuciste ;
+                     rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeImaAktivnoHladjenje
+:napajanjeImaAktivnoHladjenje rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain :Napajanje ;
+                              rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeImaBrojMOLEXKonektora
+:napajanjeImaBrojMOLEXKonektora rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :Napajanje ;
+                                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeImaBrojSATAKonektora
+:napajanjeImaBrojSATAKonektora rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Napajanje ;
+                               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeImaIzlaznuSnaguUVatima
+:napajanjeImaIzlaznuSnaguUVatima rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                 rdfs:domain :Napajanje ;
+                                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#napajanjeImaPrecnikVentilatoraUCentimetrima
+:napajanjeImaPrecnikVentilatoraUCentimetrima rdf:type owl:DatatypeProperty ;
+                                             rdfs:subPropertyOf owl:topDataProperty ;
+                                             rdfs:domain :Napajanje ;
+                                             rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#slusaliceImajuMikrofon
 :slusaliceImajuMikrofon rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf owl:topDataProperty ;
@@ -73,7 +143,10 @@
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#videoIgricaJePogodnaZaDecu
-:videoIgricaJePogodnaZaDecu rdf:type owl:DatatypeProperty .
+:videoIgricaJePogodnaZaDecu rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:domain :VideoIgrica ;
+                            rdfs:range xsd:boolean .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/imaCenuURSD
@@ -139,8 +212,16 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
 :PlatformaVideoIgrice rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#TipNapajanja
+:TipNapajanja rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#TipPovezivanjaPerifernogUredjaja
 :TipPovezivanjaPerifernogUredjaja rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#VelicinaKucista
+:VelicinaKucista rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#VideoIgrica
@@ -319,9 +400,43 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#ANTEC_DF600_FLUX
+:ANTEC_DF600_FLUX rdf:type owl:NamedIndividual ,
+                           :Kuciste ;
+                  :kucisteJeVelicine :Mini-tower ;
+                  :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                  :imaProizvodjaca :Antec ;
+                  :kucisteImaMestaZaPCIKartice 4 ;
+                  :kucisteImaNapajanje "false"^^xsd:boolean ;
+                  :imaCenuURSD 11499 ;
+                  :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#ATX
+:ATX rdf:type owl:NamedIndividual ,
+              :FormatMaticnePloce .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Akciona
 :Akciona rdf:type owl:NamedIndividual ,
                   :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Antec
+:Antec rdf:type owl:NamedIndividual ,
+                :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Antec_P20C
+:Antec_P20C rdf:type owl:NamedIndividual ,
+                     :Kuciste ;
+            :kucisteJeVelicine :Mid-tower ;
+            :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+            :imaProizvodjaca :Antec ;
+            :kucisteImaMestaZaPCIKartice 6 ;
+            :kucisteImaNapajanje "false"^^xsd:boolean ;
+            :imaCenuURSD 16599 ;
+            :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Asus
@@ -363,6 +478,97 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                   :TipPovezivanjaPerifernogUredjaja .
 
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Chieftec
+:Chieftec rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Chieftec_GL_02B_OP
+:Chieftec_GL_02B_OP rdf:type owl:NamedIndividual ,
+                             :Kuciste ;
+                    :kucisteJeVelicine :Mid-tower ;
+                    :kucistePodrzavaFormatMaticnePloce :Mini_ITX ;
+                    :imaProizvodjaca :Chieftec ;
+                    :kucisteImaMestaZaPCIKartice 4 ;
+                    :kucisteImaNapajanje "false"^^xsd:boolean ;
+                    :imaCenuURSD 15699 ;
+                    :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Chieftec_Gamer_GL_02B_OP
+:Chieftec_Gamer_GL_02B_OP rdf:type owl:NamedIndividual ,
+                                   :Kuciste ;
+                          :kucisteJeVelicine :Mid-tower ;
+                          :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                          :imaProizvodjaca :Chieftec ;
+                          :kucisteImaMestaZaPCIKartice 8 ;
+                          :kucisteImaNapajanje "false"^^xsd:boolean ;
+                          :imaCenuURSD 21999 ;
+                          :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Chieftec_Polaris_850W_PPS
+:Chieftec_Polaris_850W_PPS rdf:type owl:NamedIndividual ,
+                                    :Napajanje ;
+                           :napajanjeJeTipa :Modularno ;
+                           :imaProizvodjaca :Chieftec ;
+                           :napajanjeImaAktivnoHladjenje "false"^^xsd:boolean ;
+                           :napajanjeImaBrojMOLEXKonektora 4 ;
+                           :napajanjeImaBrojSATAKonektora 6 ;
+                           :napajanjeImaIzlaznuSnaguUVatima 850 ;
+                           :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                           :imaCenuURSD 21799 ;
+                           :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#CoolerMaster_HAF_700
+:CoolerMaster_HAF_700 rdf:type owl:NamedIndividual ,
+                               :Kuciste ;
+                      :kucisteJeVelicine :Full-tower ;
+                      :kucistePodrzavaFormatMaticnePloce :ATX ;
+                      :imaProizvodjaca :Cooler_Master ;
+                      :kucisteImaMestaZaPCIKartice 12 ;
+                      :kucisteImaNapajanje "false"^^xsd:boolean ;
+                      :imaCenuURSD 49999 ;
+                      :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#CoolerMaster_MASTERBOX_MB520
+:CoolerMaster_MASTERBOX_MB520 rdf:type owl:NamedIndividual ,
+                                       :Kuciste ;
+                              :kucisteJeVelicine :Full-tower ;
+                              :kucistePodrzavaFormatMaticnePloce :ATX ;
+                              :imaProizvodjaca :Cooler_Master ;
+                              :kucisteImaMestaZaPCIKartice 12 ;
+                              :kucisteImaNapajanje "false"^^xsd:boolean ;
+                              :imaCenuURSD 32999 ;
+                              :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Cooler_Master
+:Cooler_Master rdf:type owl:NamedIndividual ,
+                        :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#DEEPCOOL_DA600_M
+:DEEPCOOL_DA600_M rdf:type owl:NamedIndividual ,
+                           :Napajanje ;
+                  :napajanjeJeTipa :Standardno ;
+                  :imaProizvodjaca :Deepcool ;
+                  :napajanjeImaAktivnoHladjenje "false"^^xsd:boolean ;
+                  :napajanjeImaBrojMOLEXKonektora 4 ;
+                  :napajanjeImaBrojSATAKonektora 6 ;
+                  :napajanjeImaIzlaznuSnaguUVatima 600 ;
+                  :napajanjeImaPrecnikVentilatoraUCentimetrima 8 ;
+                  :imaCenuURSD 8999 ;
+                  :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Deepcool
+:Deepcool rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#EA
 :EA rdf:type owl:NamedIndividual ,
              :Proizvodjac .
@@ -398,6 +604,58 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                               :imaCenuURSD 8999 .
 
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FSP
+:FSP rdf:type owl:NamedIndividual ,
+              :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FSP_200_50AHBCC_200W
+:FSP_200_50AHBCC_200W rdf:type owl:NamedIndividual ,
+                               :Napajanje ;
+                      :napajanjeJeTipa :Standardno ;
+                      :imaProizvodjaca :FSP ;
+                      :napajanjeImaAktivnoHladjenje "false"^^xsd:boolean ;
+                      :napajanjeImaBrojMOLEXKonektora 2 ;
+                      :napajanjeImaBrojSATAKonektora 4 ;
+                      :napajanjeImaIzlaznuSnaguUVatima 200 ;
+                      :napajanjeImaPrecnikVentilatoraUCentimetrima 6 ;
+                      :imaCenuURSD 3499 ;
+                      :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_1200W
+:FSP_HYDRO_PTM_PRO_1200W rdf:type owl:NamedIndividual ,
+                                  :Napajanje ;
+                         :napajanjeJeTipa :Modularno ;
+                         :imaProizvodjaca :FSP ;
+                         :napajanjeImaAktivnoHladjenje "true"^^xsd:boolean ;
+                         :napajanjeImaBrojMOLEXKonektora 8 ;
+                         :napajanjeImaBrojSATAKonektora 10 ;
+                         :napajanjeImaIzlaznuSnaguUVatima 1200 ;
+                         :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                         :imaCenuURSD 35999 ;
+                         :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_850W
+:FSP_HYDRO_PTM_PRO_850W rdf:type owl:NamedIndividual ,
+                                 :Napajanje ;
+                        :napajanjeJeTipa :Modularno ;
+                        :imaProizvodjaca :FSP ;
+                        :napajanjeImaAktivnoHladjenje "false"^^xsd:boolean ;
+                        :napajanjeImaBrojMOLEXKonektora 6 ;
+                        :napajanjeImaBrojSATAKonektora 8 ;
+                        :napajanjeImaIzlaznuSnaguUVatima 850 ;
+                        :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                        :imaCenuURSD 22999 ;
+                        :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Full-tower
+:Full-tower rdf:type owl:NamedIndividual ,
+                     :VelicinaKucista .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HyperX
 :HyperX rdf:type owl:NamedIndividual ,
                  :Proizvodjac .
@@ -425,6 +683,50 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
                    :slusaliceImajuVelicinuZvucnikaUMilimetrima 50 ;
                    :imaCenuURSD 7999 ;
                    :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LC_Power
+:LC_Power rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LC_Power_300W_LC300SFX
+:LC_Power_300W_LC300SFX rdf:type owl:NamedIndividual ,
+                                 :Napajanje ;
+                        :napajanjeJeTipa :Standardno ;
+                        :imaProizvodjaca :LC_Power ;
+                        :napajanjeImaAktivnoHladjenje "false"^^xsd:boolean ;
+                        :napajanjeImaBrojMOLEXKonektora 4 ;
+                        :napajanjeImaBrojSATAKonektora 5 ;
+                        :napajanjeImaIzlaznuSnaguUVatima 300 ;
+                        :napajanjeImaPrecnikVentilatoraUCentimetrima 7 ;
+                        :imaCenuURSD 4999 ;
+                        :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Micro_ATX
+:Micro_ATX rdf:type owl:NamedIndividual ,
+                    :FormatMaticnePloce .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Mid-tower
+:Mid-tower rdf:type owl:NamedIndividual ,
+                    :VelicinaKucista .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Mini-tower
+:Mini-tower rdf:type owl:NamedIndividual ,
+                     :VelicinaKucista .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Mini_ITX
+:Mini_ITX rdf:type owl:NamedIndividual ,
+                   :FormatMaticnePloce .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Modularno
+:Modularno rdf:type owl:NamedIndividual ,
+                    :TipNapajanja .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#NBA_2K23_PS5
@@ -489,6 +791,11 @@ owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Sportska
 :Sportska rdf:type owl:NamedIndividual ,
                    :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Standardno
+:Standardno rdf:type owl:NamedIndividual ,
+                     :TipNapajanja .
 
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WWE_PS4_2K23
