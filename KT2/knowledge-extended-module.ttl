@@ -12,6 +12,27 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#periferniUredjajImaTipPovezivanja
+:periferniUredjajImaTipPovezivanja rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                   rdfs:domain :Periferija ;
+                                   rdfs:range :TipPovezivanjaPerifernogUredjaja .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#videoIgricaImaZanr
+:videoIgricaImaZanr rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :VideoIgrica ;
+                    rdfs:range :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#videoIgricaPripadaPlatformi
+:videoIgricaPripadaPlatformi rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             rdfs:domain :VideoIgrica ;
+                             rdfs:range :PlatformaVideoIgrice .
+
+
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/imaProizvodjaca
 :imaProizvodjaca rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
@@ -29,6 +50,31 @@
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#slusaliceImajuMikrofon
+:slusaliceImajuMikrofon rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Slusalice ;
+                        rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#slusaliceImajuOsetljivostUDecibelima
+:slusaliceImajuOsetljivostUDecibelima rdf:type owl:DatatypeProperty ;
+                                      rdfs:subPropertyOf owl:topDataProperty ;
+                                      rdfs:domain :Slusalice ;
+                                      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#slusaliceImajuVelicinuZvucnikaUMilimetrima
+:slusaliceImajuVelicinuZvucnikaUMilimetrima rdf:type owl:DatatypeProperty ;
+                                            rdfs:subPropertyOf owl:topDataProperty ;
+                                            rdfs:domain :Slusalice ;
+                                            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#videoIgricaJePogodnaZaDecu
+:videoIgricaJePogodnaZaDecu rdf:type owl:DatatypeProperty .
+
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/imaCenuURSD
 :imaCenuURSD rdf:type owl:DatatypeProperty ;
@@ -79,9 +125,32 @@
                                rdfs:range xsd:integer .
 
 
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :VideoIgrica ;
+                    rdfs:range xsd:boolean .
+
+
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#PlatformaVideoIgrice
+:PlatformaVideoIgrice rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#TipPovezivanjaPerifernogUredjaja
+:TipPovezivanjaPerifernogUredjaja rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#VideoIgrica
+:VideoIgrica rdf:type owl:Class ;
+             rdfs:subClassOf :Softverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#ZanrVideoIgrice
+:ZanrVideoIgrice rdf:type owl:Class .
+
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/ChipsetMaticnePloce
 :ChipsetMaticnePloce rdf:type owl:Class .
@@ -249,6 +318,203 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Akciona
+:Akciona rdf:type owl:NamedIndividual ,
+                  :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Asus
+:Asus rdf:type owl:NamedIndividual ,
+               :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Asus_ROG_Strix_Go_Core
+:Asus_ROG_Strix_Go_Core rdf:type owl:NamedIndividual ,
+                                 :Slusalice ;
+                        :periferniUredjajImaTipPovezivanja :BEZICNI ;
+                        :imaProizvodjaca :Asus ;
+                        :slusaliceImajuMikrofon "true"^^xsd:boolean ;
+                        :slusaliceImajuOsetljivostUDecibelima 140 ;
+                        :slusaliceImajuVelicinuZvucnikaUMilimetrima 35 ;
+                        :imaCenuURSD 7990 ;
+                        :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Asus_Rog_Delta
+:Asus_Rog_Delta rdf:type owl:NamedIndividual ,
+                         :Slusalice ;
+                :periferniUredjajImaTipPovezivanja :ZICANI ;
+                :imaProizvodjaca :Asus ;
+                :slusaliceImajuMikrofon "true"^^xsd:boolean ;
+                :slusaliceImajuOsetljivostUDecibelima 120 ;
+                :slusaliceImajuVelicinuZvucnikaUMilimetrima 45 ;
+                :imaCenuURSD 24999 ;
+                :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Avanturisticka
+:Avanturisticka rdf:type owl:NamedIndividual ,
+                         :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#BEZICNI
+:BEZICNI rdf:type owl:NamedIndividual ,
+                  :TipPovezivanjaPerifernogUredjaja .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#EA
+:EA rdf:type owl:NamedIndividual ,
+             :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Endless_Dungeon_PC_Day_One_Edition
+:Endless_Dungeon_PC_Day_One_Edition rdf:type owl:NamedIndividual ,
+                                             :VideoIgrica ;
+                                    :videoIgricaImaZanr :Akciona ;
+                                    :videoIgricaPripadaPlatformi :PC ;
+                                    :imaProizvodjaca :Sega ;
+                                    :videoIgricaJePogodnaZaDecu "false"^^xsd:boolean ;
+                                    :imaCenuURSD 4749 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FIFA_22_PS4
+:FIFA_22_PS4 rdf:type owl:NamedIndividual ,
+                      :VideoIgrica ;
+             :videoIgricaImaZanr :Sportska ;
+             :videoIgricaPripadaPlatformi :PS4 ;
+             :imaProizvodjaca :EA ;
+             :videoIgricaJePogodnaZaDecu "true"^^xsd:boolean ;
+             :imaCenuURSD 5990 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#FIFA_23_PS5_ULTIMATE_Edition
+:FIFA_23_PS5_ULTIMATE_Edition rdf:type owl:NamedIndividual ,
+                                       :VideoIgrica ;
+                              :videoIgricaImaZanr :Sportska ;
+                              :videoIgricaPripadaPlatformi :PS5 ;
+                              :imaProizvodjaca :EA ;
+                              :videoIgricaJePogodnaZaDecu "true"^^xsd:boolean ;
+                              :imaCenuURSD 8999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HyperX
+:HyperX rdf:type owl:NamedIndividual ,
+                 :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HyperX_CloudX_Stinger_HX
+:HyperX_CloudX_Stinger_HX rdf:type owl:NamedIndividual ,
+                                   :Slusalice ;
+                          :periferniUredjajImaTipPovezivanja :ZICANI ;
+                          :imaProizvodjaca :HyperX ;
+                          :slusaliceImajuMikrofon "true"^^xsd:boolean ;
+                          :slusaliceImajuOsetljivostUDecibelima 120 ;
+                          :slusaliceImajuVelicinuZvucnikaUMilimetrima 55 ;
+                          :imaCenuURSD 8619 ;
+                          :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#HyperX_HX_HSCS_BK
+:HyperX_HX_HSCS_BK rdf:type owl:NamedIndividual ,
+                            :Slusalice ;
+                   :periferniUredjajImaTipPovezivanja :ZICANI ;
+                   :imaProizvodjaca :HyperX ;
+                   :slusaliceImajuMikrofon "true"^^xsd:boolean ;
+                   :slusaliceImajuOsetljivostUDecibelima 120 ;
+                   :slusaliceImajuVelicinuZvucnikaUMilimetrima 50 ;
+                   :imaCenuURSD 7999 ;
+                   :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#NBA_2K23_PS5
+:NBA_2K23_PS5 rdf:type owl:NamedIndividual ,
+                       :VideoIgrica ;
+              :videoIgricaImaZanr :Sportska ;
+              :videoIgricaPripadaPlatformi :PS5 ;
+              :imaProizvodjaca <http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#2K> ;
+              :videoIgricaJePogodnaZaDecu "true"^^xsd:boolean ;
+              :imaCenuURSD 7490 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#PC
+:PC rdf:type owl:NamedIndividual ,
+             :PlatformaVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#PS4
+:PS4 rdf:type owl:NamedIndividual ,
+              :PlatformaVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#PS5
+:PS5 rdf:type owl:NamedIndividual ,
+              :PlatformaVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Razer
+:Razer rdf:type owl:NamedIndividual ,
+                :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Razer_Kraken_X_RZ04
+:Razer_Kraken_X_RZ04 rdf:type owl:NamedIndividual ,
+                              :Slusalice ;
+                     :periferniUredjajImaTipPovezivanja :ZICANI ;
+                     :imaProizvodjaca :Razer ;
+                     :slusaliceImajuMikrofon "false"^^xsd:boolean ;
+                     :slusaliceImajuOsetljivostUDecibelima 140 ;
+                     :slusaliceImajuVelicinuZvucnikaUMilimetrima 50 ;
+                     :imaCenuURSD 8999 ;
+                     :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Razer_OpusX_X_RZ04
+:Razer_OpusX_X_RZ04 rdf:type owl:NamedIndividual ,
+                             :Slusalice ;
+                    :periferniUredjajImaTipPovezivanja :BEZICNI ;
+                    :imaProizvodjaca :Razer ;
+                    :slusaliceImajuMikrofon "true"^^xsd:boolean ;
+                    :slusaliceImajuOsetljivostUDecibelima 100 ;
+                    :slusaliceImajuVelicinuZvucnikaUMilimetrima 55 ;
+                    :imaCenuURSD 15999 ;
+                    :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Sega
+:Sega rdf:type owl:NamedIndividual ,
+               :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Sportska
+:Sportska rdf:type owl:NamedIndividual ,
+                   :ZanrVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#WWE_PS4_2K23
+:WWE_PS4_2K23 rdf:type owl:NamedIndividual ,
+                       :VideoIgrica ;
+              :videoIgricaImaZanr :Sportska ;
+              :videoIgricaPripadaPlatformi :PS4 ;
+              :imaProizvodjaca <http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#2K> ;
+              :videoIgricaJePogodnaZaDecu "false"^^xsd:boolean ;
+              :imaCenuURSD 8999 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#XBOX
+:XBOX rdf:type owl:NamedIndividual ,
+               :PlatformaVideoIgrice .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#ZICANI
+:ZICANI rdf:type owl:NamedIndividual ,
+                 :TipPovezivanjaPerifernogUredjaja .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#2K
+<http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#2K> rdf:type owl:NamedIndividual ,
+                                                                                     :Proizvodjac .
+
 
 ###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/DEL
 :DEL rdf:type owl:NamedIndividual ,
