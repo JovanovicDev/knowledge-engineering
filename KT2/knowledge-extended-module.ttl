@@ -1,0 +1,401 @@
+@prefix : <http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/> .
+
+<http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#imaProizvodjaca
+:imaProizvodjaca rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Periferija ;
+                 rdfs:range :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorImaTipEkrana
+:monitorImaTipEkrana rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Monitor ;
+                     rdfs:range :TipEkranaMonitora .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#imaCenuURSD
+:imaCenuURSD rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Periferija ;
+             rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#imaNamenu
+:imaNamenu rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Komponenta ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorIma4KTipRezolucije
+:monitorIma4KTipRezolucije rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:domain :Monitor ;
+                           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorImaDuzinuDijagonaleUIncima
+:monitorImaDuzinuDijagonaleUIncima rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf owl:topDataProperty ;
+                                   rdfs:domain :Monitor ;
+                                   rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorImaHDMIPort
+:monitorImaHDMIPort rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Monitor ;
+                    rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorImaOdzivUMilisekundama
+:monitorImaOdzivUMilisekundama rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Monitor ;
+                               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#monitorImaOsvezavanjeUHercima
+:monitorImaOsvezavanjeUHercima rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Monitor ;
+                               rdfs:range xsd:integer .
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Monitor ;
+                    rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#TipEkranaMonitora
+:TipEkranaMonitora rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/ChipsetMaticnePloce
+:ChipsetMaticnePloce rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/FormatMaticnePloce
+:FormatMaticnePloce rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/GrafickaKartica
+:GrafickaKartica rdf:type owl:Class ;
+                 rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/HDD
+:HDD rdf:type owl:Class ;
+     rdfs:subClassOf :Memorija ;
+     owl:disjointWith :SSD .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Hardverska
+:Hardverska rdf:type owl:Class ;
+            rdfs:subClassOf :Komponenta ;
+            owl:disjointWith :Softverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Hladjenje
+:Hladjenje rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Vazdusno
+                                               :Vodeno
+                                             )
+                               ] ;
+           rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Komponenta
+:Komponenta rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Hardverska
+                                                :Softverska
+                                              )
+                                ] .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Kuciste
+:Kuciste rdf:type owl:Class ;
+         rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/MaticnaPloca
+:MaticnaPloca rdf:type owl:Class ;
+              rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Memorija
+:Memorija rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :HDD
+                                              :SSD
+                                            )
+                              ] ;
+          rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Mikrofon
+:Mikrofon rdf:type owl:Class ;
+          rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Mis
+:Mis rdf:type owl:Class ;
+     rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Monitor
+:Monitor rdf:type owl:Class ;
+         rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Napajanje
+:Napajanje rdf:type owl:Class ;
+           rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Periferija
+:Periferija rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Mikrofon
+                                                :Mis
+                                                :Monitor
+                                                :Slusalice
+                                                :Tastatura
+                                                :Zvucnici
+                                              )
+                                ] .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/PodnozjeProcesora
+:PodnozjeProcesora rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Procesor
+:Procesor rdf:type owl:Class ;
+          rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Proizvodjac
+:Proizvodjac rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/RAM
+:RAM rdf:type owl:Class ;
+     rdfs:subClassOf :Hardverska .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/SSD
+:SSD rdf:type owl:Class ;
+     rdfs:subClassOf :Memorija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Slusalice
+:Slusalice rdf:type owl:Class ;
+           rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Softverska
+:Softverska rdf:type owl:Class ;
+            rdfs:subClassOf :Komponenta .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Tastatura
+:Tastatura rdf:type owl:Class ;
+           rdfs:subClassOf :Periferija .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/TipMemorijeGraficke
+:TipMemorijeGraficke rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/TipRamMemorije
+:TipRamMemorije rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Vazdusno
+:Vazdusno rdf:type owl:Class ;
+          rdfs:subClassOf :Hladjenje ;
+          owl:disjointWith :Vodeno .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Vodeno
+:Vodeno rdf:type owl:Class ;
+        rdfs:subClassOf :Hladjenje .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4/Zvucnici
+:Zvucnici rdf:type owl:Class ;
+          rdfs:subClassOf :Periferija .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#DEL
+:DEL rdf:type owl:NamedIndividual ,
+              :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#DEL_LED_55_C5519Q
+:DEL_LED_55_C5519Q rdf:type owl:NamedIndividual ;
+                   :imaProizvodjaca :DEL ;
+                   :monitorImaTipEkrana :LED ;
+                   :imaCenuURSD 154999 ;
+                   :imaNamenu "Rudarenje kriptovaluta" ;
+                   :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
+                   :monitorImaDuzinuDijagonaleUIncima 55 ;
+                   :monitorImaHDMIPort "true"^^xsd:boolean ;
+                   :monitorImaOdzivUMilisekundama 8 ;
+                   :monitorImaOsvezavanjeUHercima 60 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#DEL__Monitor_S2721HN
+:DEL__Monitor_S2721HN rdf:type owl:NamedIndividual ,
+                               :Monitor ;
+                      :imaProizvodjaca :DEL ;
+                      :monitorImaTipEkrana :LCD ;
+                      :imaCenuURSD 21999 ;
+                      :imaNamenu "Kucna upotreba" ;
+                      :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
+                      :monitorImaDuzinuDijagonaleUIncima 27 ;
+                      :monitorImaHDMIPort "true"^^xsd:boolean ;
+                      :monitorImaOdzivUMilisekundama 4 ;
+                      :monitorImaOsvezavanjeUHercima 75 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LCD
+:LCD rdf:type owl:NamedIndividual ,
+              :TipEkranaMonitora .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LED
+:LED rdf:type owl:NamedIndividual ,
+              :TipEkranaMonitora .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LG
+:LG rdf:type owl:NamedIndividual ,
+             :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LG_4K_UHD_LED_32UL750
+:LG_4K_UHD_LED_32UL750 rdf:type owl:NamedIndividual ;
+                       :imaProizvodjaca :LG ;
+                       :monitorImaTipEkrana :LED ;
+                       :imaCenuURSD 73999 ;
+                       :imaNamenu "Razvoj aplikacija" ;
+                       :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
+                       :monitorImaDuzinuDijagonaleUIncima 32 ;
+                       :monitorImaHDMIPort "true"^^xsd:boolean ;
+                       :monitorImaOdzivUMilisekundama 4 ;
+                       :monitorImaOsvezavanjeUHercima 60 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#LG_UltraWide_38WN95C
+:LG_UltraWide_38WN95C rdf:type owl:NamedIndividual ;
+                      :imaProizvodjaca :LG ;
+                      :monitorImaTipEkrana :LED ;
+                      :imaCenuURSD 219999 ;
+                      :imaNamenu "Gaming" ;
+                      :monitorIma4KTipRezolucije "false"^^xsd:boolean ;
+                      :monitorImaDuzinuDijagonaleUIncima 38 ;
+                      :monitorImaHDMIPort "true"^^xsd:boolean ;
+                      :monitorImaOdzivUMilisekundama 1 ;
+                      :monitorImaOsvezavanjeUHercima 144 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#MiniLED
+:MiniLED rdf:type owl:NamedIndividual ,
+                  :TipEkranaMonitora .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#OLED
+:OLED rdf:type owl:NamedIndividual ,
+               :TipEkranaMonitora .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#SAMSUNG
+:SAMSUNG rdf:type owl:NamedIndividual ,
+                  :Proizvodjac .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Samsung_Odyssey_G5_LC32G55T
+:Samsung_Odyssey_G5_LC32G55T rdf:type owl:NamedIndividual ;
+                             :imaProizvodjaca :SAMSUNG ;
+                             :monitorImaTipEkrana :LCD ;
+                             :imaCenuURSD 46999 ;
+                             :imaNamenu "Hostovanje" ;
+                             :monitorIma4KTipRezolucije "false"^^xsd:boolean ;
+                             :monitorImaDuzinuDijagonaleUIncima 32 ;
+                             :monitorImaHDMIPort "true"^^xsd:boolean ;
+                             :monitorImaOdzivUMilisekundama 1 ;
+                             :monitorImaOsvezavanjeUHercima 144 .
+
+
+###  http://www.semanticweb.org/darko/ontologies/2023/4/untitled-ontology-4#Samsung_Smart_UHD_M80B
+:Samsung_Smart_UHD_M80B rdf:type owl:NamedIndividual ;
+                        :imaProizvodjaca :SAMSUNG ;
+                        :monitorImaTipEkrana :LED ;
+                        :imaCenuURSD 89999 ;
+                        :imaNamenu "Profesionalna" ;
+                        :monitorIma4KTipRezolucije "true"^^xsd:boolean ;
+                        :monitorImaDuzinuDijagonaleUIncima 32 ;
+                        :monitorImaHDMIPort "true"^^xsd:boolean ;
+                        :monitorImaOdzivUMilisekundama 4 ;
+                        :monitorImaOsvezavanjeUHercima 60 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GrafickaKartica
+                :Hladjenje
+                :Kuciste
+                :MaticnaPloca
+                :Memorija
+                :Napajanje
+                :Procesor
+                :RAM
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Mikrofon
+                :Mis
+                :Monitor
+                :Slusalice
+                :Tastatura
+                :Zvucnici
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
