@@ -16,6 +16,8 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
+import org.semanticweb.owlapi.util.ShortFormProvider;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 public class Main {
 
@@ -26,12 +28,15 @@ public class Main {
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		File baseOntology = new File("data/knowledge-base-module.ttl");
-		//File extendedOntology = new File("data/knowledge-extended-module.ttl");
-		OWLOntology o = man.loadOntologyFromOntologyDocument(baseOntology);
-		df = o.getOWLOntologyManager().getOWLDataFactory();
+		File extendedOntology = new File("data/knowledge-extended-module.ttl");
+		OWLOntology o1 = man.loadOntologyFromOntologyDocument(baseOntology);
+		OWLOntology o2 = man.loadOntologyFromOntologyDocument(extendedOntology);
+		OWLOntology combinedOntology = man.createOntology();
+		man.addAxioms(combinedOntology, o1.getAxioms());
+		man.addAxioms(combinedOntology, o2.getAxioms());
+		df = combinedOntology.getOWLOntologyManager().getOWLDataFactory();
 		OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
-		r = reasonerFactory.createReasoner(o);
-		System.out.println(findCPU(24, 32, 3));
+		r = reasonerFactory.createReasoner(combinedOntology);
 	}
 
 	private static OWLNamedIndividual findCPU(int cores, int threads, float frequency) {
@@ -53,7 +58,9 @@ public class Main {
 				df.getOWLDataHasValue(cpuFrequency, cpuFrequencyLiteral)
 		);
 		
-		for(OWLNamedIndividual cpuIndividual : r.getInstances(query, true).getFlattened()) return cpuIndividual;
+		for(OWLNamedIndividual cpuIndividual : r.getInstances(query, true).getFlattened()) {
+			return cpuIndividual;
+		}
 		return null;
 	}
 	
