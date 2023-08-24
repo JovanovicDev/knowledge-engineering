@@ -19,12 +19,6 @@
                           rdfs:range :GrafickaKartica .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaHladjenje
-:konfiguracijaImaHladjenje rdf:type owl:ObjectProperty ;
-                           rdfs:subPropertyOf owl:topObjectProperty ;
-                           rdfs:domain :Konfiguracija .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaKuciste
 :konfiguracijaImaKuciste rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf owl:topObjectProperty ;
@@ -42,7 +36,8 @@
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaMemoriju
 :konfiguracijaImaMemoriju rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf owl:topObjectProperty ;
-                          rdfs:domain :Konfiguracija .
+                          rdfs:domain :Konfiguracija ;
+                          rdfs:range :SSD .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaNapajanje
@@ -66,34 +61,6 @@
                              rdfs:range :RAM .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucisteJeTipa
-:kucisteJeTipa rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:domain :Kuciste ;
-               rdfs:range :TipKucista .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucistePodrzavaFormatMaticnePloce
-:kucistePodrzavaFormatMaticnePloce rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf owl:topObjectProperty ;
-                                   rdfs:domain :Kuciste ;
-                                   rdfs:range :FormatMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeJeTipa
-:napajanjeJeTipa rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty ;
-                 rdfs:domain :Napajanje ;
-                 rdfs:range :TipNapajanja .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ssdImaFormat
-:ssdImaFormat rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty ;
-              rdfs:domain :SSD ;
-              rdfs:range :TipSSDa .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaProizvodjacaCipa
 :grafickaImaProizvodjacaCipa rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf owl:topObjectProperty ;
@@ -101,38 +68,11 @@
                              rdfs:range :Proizvodjac .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaTipMemorije
-:grafickaImaTipMemorije rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf owl:topObjectProperty ;
-                        rdfs:domain :GrafickaKartica ;
-                        rdfs:range :TipMemorijeGraficke .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaProizvodjaca
 :imaProizvodjaca rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Komponenta ;
                  rdfs:range :Proizvodjac .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaChipset
-:maticnaImaChipset rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf owl:topObjectProperty ;
-                   rdfs:domain :MaticnaPloca ;
-                   rdfs:range :ChipsetMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaFormat
-:maticnaImaFormat rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain :MaticnaPloca ;
-                  rdfs:range :FormatMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaImaPodnozje
-:maticnaImaPodnozje rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :MaticnaPloca ;
-                    rdfs:range :PodnozjeProcesora .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/maticnaPodrzavaProcesoreProizvodjaca
@@ -146,21 +86,7 @@
 :maticnaPodrzavaRamMemoriju rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf owl:topObjectProperty ;
                             rdfs:domain :MaticnaPloca ;
-                            rdfs:range :TipRamMemorije .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/procesorImaPodnozje
-:procesorImaPodnozje rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf owl:topObjectProperty ;
-                     rdfs:domain :Procesor ;
-                     rdfs:range :PodnozjeProcesora .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ramJeTipa
-:ramJeTipa rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty ;
-           rdfs:domain :RAM ;
-           rdfs:range :TipRamMemorije .
+                            rdfs:range :RAM .
 
 
 #################################################################
@@ -429,28 +355,155 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMDChipset
+:AMDChipset rdf:type owl:Class ;
+            rdfs:subClassOf :MaticnaPloca ;
+            owl:disjointWith :IntelChipset .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMDPodnozje
+:AMDPodnozje rdf:type owl:Class ;
+             rdfs:subClassOf :Procesor ;
+             owl:disjointWith :IntelPodnozje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_AM4
+:AMD_AM4 rdf:type owl:Class ;
+         rdfs:subClassOf :AMDPodnozje ;
+         owl:disjointWith :AMD_AM5 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_AM5
+:AMD_AM5 rdf:type owl:Class ;
+         rdfs:subClassOf :AMDPodnozje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_B550
+:AMD_B550 rdf:type owl:Class ;
+          rdfs:subClassOf :AMDChipset ;
+          owl:disjointWith :AMD_B650 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#AMD_B650
+:AMD_B650 rdf:type owl:Class ;
+          rdfs:subClassOf :AMDChipset .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#DDR3
+:DDR3 rdf:type owl:Class ;
+      rdfs:subClassOf :RAM .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#DDR4
+:DDR4 rdf:type owl:Class ;
+      rdfs:subClassOf :RAM .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#DDR5
+:DDR5 rdf:type owl:Class ;
+      rdfs:subClassOf :RAM .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FullTower
+:FullTower rdf:type owl:Class ;
+           rdfs:subClassOf :Kuciste .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#GDDR3
+:GDDR3 rdf:type owl:Class ;
+       rdfs:subClassOf :GrafickaKartica .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#GDDR4
+:GDDR4 rdf:type owl:Class ;
+       rdfs:subClassOf :GrafickaKartica .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#GDDR5
+:GDDR5 rdf:type owl:Class ;
+       rdfs:subClassOf :GrafickaKartica .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#GDDR6
+:GDDR6 rdf:type owl:Class ;
+       rdfs:subClassOf :GrafickaKartica .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#IntelChipset
+:IntelChipset rdf:type owl:Class ;
+              rdfs:subClassOf :MaticnaPloca .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#IntelPodnozje
+:IntelPodnozje rdf:type owl:Class ;
+               rdfs:subClassOf :Procesor .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_1200
+:Intel_1200 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelPodnozje ;
+            owl:disjointWith :Intel_1700 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_1700
+:Intel_1700 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelPodnozje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_B660
+:Intel_B660 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelChipset .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_B760
+:Intel_B760 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelChipset .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_Z690
+:Intel_Z690 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelChipset .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Intel_Z790
+:Intel_Z790 rdf:type owl:Class ;
+            rdfs:subClassOf :IntelChipset .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija
 :Konfiguracija rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipKucista
-:TipKucista rdf:type owl:Class .
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#M.2
+:M.2 rdf:type owl:Class ;
+     rdfs:subClassOf :SSD ;
+     owl:disjointWith :mSATA .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipNapajanja
-:TipNapajanja rdf:type owl:Class .
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MidTower
+:MidTower rdf:type owl:Class ;
+          rdfs:subClassOf :Kuciste .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipSSDa
-:TipSSDa rdf:type owl:Class .
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MiniTower
+:MiniTower rdf:type owl:Class ;
+           rdfs:subClassOf :Kuciste .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ChipsetMaticnePloce
-:ChipsetMaticnePloce rdf:type owl:Class .
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Modularno
+:Modularno rdf:type owl:Class ;
+           rdfs:subClassOf :Napajanje ;
+           owl:disjointWith :Standardno .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/FormatMaticnePloce
-:FormatMaticnePloce rdf:type owl:Class .
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Standardno
+:Standardno rdf:type owl:Class ;
+            rdfs:subClassOf :Napajanje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#mSATA
+:mSATA rdf:type owl:Class ;
+       rdfs:subClassOf :SSD .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GrafickaKartica
@@ -477,10 +530,6 @@
            rdfs:subClassOf :Komponenta .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/PodnozjeProcesora
-:PodnozjeProcesora rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Procesor
 :Procesor rdf:type owl:Class ;
           rdfs:subClassOf :Komponenta .
@@ -500,14 +549,6 @@
      rdfs:subClassOf :Komponenta .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/TipMemorijeGraficke
-:TipMemorijeGraficke rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/TipRamMemorije
-:TipRamMemorije rdf:type owl:Class .
-
-
 #################################################################
 #    Individuals
 #################################################################
@@ -519,9 +560,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Antec_DF600_FLUX
 :Antec_DF600_FLUX rdf:type owl:NamedIndividual ,
-                           :Kuciste ;
-                  :kucisteJeTipa :Mini_tower ;
-                  :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                           :MiniTower ;
                   :imaProizvodjaca :Antec ;
                   :kucisteImaMestaZaPCIKartice 4 ;
                   :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -531,9 +570,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Antec_P20C
 :Antec_P20C rdf:type owl:NamedIndividual ,
-                     :Kuciste ;
-            :kucisteJeTipa :Mid_tower ;
-            :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                     :MidTower ;
             :imaProizvodjaca :Antec ;
             :kucisteImaMestaZaPCIKartice 6 ;
             :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -548,9 +585,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_GL_02B_OP
 :Chieftec_GL_02B_OP rdf:type owl:NamedIndividual ,
-                             :Kuciste ;
-                    :kucisteJeTipa :Mid_tower ;
-                    :kucistePodrzavaFormatMaticnePloce :Mini_ITX ;
+                             :MidTower ;
                     :imaProizvodjaca :Chieftec ;
                     :kucisteImaMestaZaPCIKartice 4 ;
                     :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -560,9 +595,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_Gamer_GL_02B_OP
 :Chieftec_Gamer_GL_02B_OP rdf:type owl:NamedIndividual ,
-                                   :Kuciste ;
-                          :kucisteJeTipa :Mid_tower ;
-                          :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                                   :MidTower ;
                           :imaProizvodjaca :Chieftec ;
                           :kucisteImaMestaZaPCIKartice 8 ;
                           :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -572,8 +605,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_Polaris_850W_PPS
 :Chieftec_Polaris_850W_PPS rdf:type owl:NamedIndividual ,
-                                    :Napajanje ;
-                           :napajanjeJeTipa :Modularno ;
+                                    :Modularno ;
                            :imaProizvodjaca :Chieftec ;
                            :napajanjeImaBrojMOLEXKonektora 4 ;
                            :napajanjeImaBrojSATAKonektora 6 ;
@@ -590,9 +622,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#CoolerMaster_HAF_700
 :CoolerMaster_HAF_700 rdf:type owl:NamedIndividual ,
-                               :Kuciste ;
-                      :kucisteJeTipa :Full_tower ;
-                      :kucistePodrzavaFormatMaticnePloce :ATX ;
+                               :FullTower ;
                       :imaProizvodjaca :CoolerMaster ;
                       :kucisteImaMestaZaPCIKartice 12 ;
                       :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -602,9 +632,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#CoolerMaster_MASTERBOX_MB520
 :CoolerMaster_MASTERBOX_MB520 rdf:type owl:NamedIndividual ,
-                                       :Kuciste ;
-                              :kucisteJeTipa :Full_tower ;
-                              :kucistePodrzavaFormatMaticnePloce :ATX ;
+                                       :FullTower ;
                               :imaProizvodjaca :CoolerMaster ;
                               :kucisteImaMestaZaPCIKartice 12 ;
                               :kucisteImaNapajanje "false"^^xsd:boolean ;
@@ -619,8 +647,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Deepcool_DA600_M
 :Deepcool_DA600_M rdf:type owl:NamedIndividual ,
-                           :Napajanje ;
-                  :napajanjeJeTipa :Standardno ;
+                           :Standardno ;
                   :imaProizvodjaca :Deepcool ;
                   :napajanjeImaBrojMOLEXKonektora 4 ;
                   :napajanjeImaBrojSATAKonektora 6 ;
@@ -637,8 +664,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_200_50AHBCC_200W
 :FSP_200_50AHBCC_200W rdf:type owl:NamedIndividual ,
-                               :Napajanje ;
-                      :napajanjeJeTipa :Standardno ;
+                               :Standardno ;
                       :imaProizvodjaca :FSP ;
                       :napajanjeImaBrojMOLEXKonektora 2 ;
                       :napajanjeImaBrojSATAKonektora 4 ;
@@ -650,8 +676,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_1200W
 :FSP_HYDRO_PTM_PRO_1200W rdf:type owl:NamedIndividual ,
-                                  :Napajanje ;
-                         :napajanjeJeTipa :Modularno ;
+                                  :Modularno ;
                          :imaProizvodjaca :FSP ;
                          :napajanjeImaBrojMOLEXKonektora 8 ;
                          :napajanjeImaBrojSATAKonektora 10 ;
@@ -663,8 +688,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_850W
 :FSP_HYDRO_PTM_PRO_850W rdf:type owl:NamedIndividual ,
-                                 :Napajanje ;
-                        :napajanjeJeTipa :Modularno ;
+                                 :Modularno ;
                         :imaProizvodjaca :FSP ;
                         :napajanjeImaBrojMOLEXKonektora 6 ;
                         :napajanjeImaBrojSATAKonektora 8 ;
@@ -674,15 +698,9 @@
                         :imaNamenu "Hostovanje" .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Full_tower
-:Full_tower rdf:type owl:NamedIndividual ,
-                     :TipKucista .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_SSD_256GB_mSATA_256GB
 :Kingston_SSD_256GB_mSATA_256GB rdf:type owl:NamedIndividual ,
-                                         :SSD ;
-                                :ssdImaFormat :mSATA ;
+                                         :mSATA ;
                                 :imaProizvodjaca :Kingston ;
                                 :SSDImaBrzinuCitanjaUMBPS 550 ;
                                 :SSDImaBrzinuPisanjaUMBPS 500 ;
@@ -699,8 +717,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#LC_Power_300W_LC300SFX
 :LC_Power_300W_LC300SFX rdf:type owl:NamedIndividual ,
-                                 :Napajanje ;
-                        :napajanjeJeTipa :Standardno ;
+                                 :Standardno ;
                         :imaProizvodjaca :LC_Power ;
                         :napajanjeImaBrojMOLEXKonektora 4 ;
                         :napajanjeImaBrojSATAKonektora 5 ;
@@ -710,26 +727,6 @@
                         :imaNamenu "Razvoj aplikacija" .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#M.2
-:M.2 rdf:type owl:NamedIndividual ,
-              :TipSSDa .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mid_tower
-:Mid_tower rdf:type owl:NamedIndividual ,
-                    :TipKucista .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mini_tower
-:Mini_tower rdf:type owl:NamedIndividual ,
-                     :TipKucista .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Modularno
-:Modularno rdf:type owl:NamedIndividual ,
-                    :TipNapajanja .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung
 :Samsung rdf:type owl:NamedIndividual ,
                   :Proizvodjac .
@@ -737,8 +734,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung_SSD_970_EVO_PLUS_250GB_M2_2242
 :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 rdf:type owl:NamedIndividual ,
-                                                 :SSD ;
-                                        :ssdImaFormat :M.2 ;
+                                                 :M.2 ;
                                         :imaProizvodjaca :Samsung ;
                                         :SSDImaBrzinuCitanjaUMBPS 3500 ;
                                         :SSDImaBrzinuPisanjaUMBPS 4500 ;
@@ -750,8 +746,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung_SSD_970_EVO_PLUS_500GB_M2_2280
 :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 rdf:type owl:NamedIndividual ,
-                                                 :SSD ;
-                                        :ssdImaFormat :M.2 ;
+                                                 :M.2 ;
                                         :imaProizvodjaca :Samsung ;
                                         :SSDImaBrzinuCitanjaUMBPS 3500 ;
                                         :SSDImaBrzinuPisanjaUMBPS 4500 ;
@@ -761,11 +756,6 @@
                                         :imaNamenu "Razvoj aplikacija" .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Standardno
-:Standardno rdf:type owl:NamedIndividual ,
-                     :TipNapajanja .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Transcend
 :Transcend rdf:type owl:NamedIndividual ,
                     :Proizvodjac .
@@ -773,8 +763,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Transcend_SSD_mSATA_256GB
 :Transcend_SSD_mSATA_256GB rdf:type owl:NamedIndividual ,
-                                    :SSD ;
-                           :ssdImaFormat :mSATA ;
+                                    :mSATA ;
                            :imaProizvodjaca :Transcend ;
                            :SSDImaBrzinuCitanjaUMBPS 530 ;
                            :SSDImaBrzinuPisanjaUMBPS 400 ;
@@ -786,8 +775,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#WD_SSD_Black_SN850_2TB_M2
 :WD_SSD_Black_SN850_2TB_M2 rdf:type owl:NamedIndividual ,
-                                    :SSD ;
-                           :ssdImaFormat :M.2 ;
+                                    :M.2 ;
                            :imaProizvodjaca :Western_Digital ;
                            :SSDImaBrzinuCitanjaUMBPS 9000 ;
                            :SSDImaBrzinuPisanjaUMBPS 7000 ;
@@ -799,8 +787,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#WD_SSD_Green_SA920_1TB_M2
 :WD_SSD_Green_SA920_1TB_M2 rdf:type owl:NamedIndividual ,
-                                    :SSD ;
-                           :ssdImaFormat :M.2 ;
+                                    :M.2 ;
                            :imaProizvodjaca :Western_Digital ;
                            :SSDImaBrzinuCitanjaUMBPS 6000 ;
                            :SSDImaBrzinuPisanjaUMBPS 5000 ;
@@ -815,41 +802,15 @@
                           :Proizvodjac .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#mSATA
-:mSATA rdf:type owl:NamedIndividual ,
-                :TipSSDa .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
 :AMD rdf:type owl:NamedIndividual ,
               :Proizvodjac .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_AM4
-:AMD_AM4 rdf:type owl:NamedIndividual ,
-                  :PodnozjeProcesora .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_AM5
-:AMD_AM5 rdf:type owl:NamedIndividual ,
-                  :PodnozjeProcesora .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_B550
-:AMD_B550 rdf:type owl:NamedIndividual ,
-                   :ChipsetMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_B650
-:AMD_B650 rdf:type owl:NamedIndividual ,
-                   :ChipsetMaticnePloce .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_3_3200G_3.6GHz
 :AMD_Ryzen_3_3200G_3.6GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
+                                   :AMD_AM4 ;
                           :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM4 ;
                           :imaCenuURSD 11999 ;
                           :imaNamenu "Kucna upotreba" ;
                           :procesorImaBrojJezgara 4 ;
@@ -863,9 +824,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_5_5600G_3.9GHz
 :AMD_Ryzen_5_5600G_3.9GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
+                                   :AMD_AM4 ;
                           :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM4 ;
                           :imaCenuURSD 17999 ;
                           :imaNamenu "Hostovanje" ;
                           :procesorImaBrojJezgara 6 ;
@@ -879,9 +839,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_5_5600_3.5GHz
 :AMD_Ryzen_5_5600_3.5GHz rdf:type owl:NamedIndividual ,
-                                  :Procesor ;
+                                  :AMD_AM4 ;
                          :imaProizvodjaca :AMD ;
-                         :procesorImaPodnozje :AMD_AM4 ;
                          :imaCenuURSD 19999 ;
                          :imaNamenu "Kucna upotreba" ;
                          :procesorImaBrojJezgara 6 ;
@@ -895,9 +854,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_7_7700X_4.5GHz
 :AMD_Ryzen_7_7700X_4.5GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
+                                   :AMD_AM5 ;
                           :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM5 ;
                           :imaCenuURSD 49999 ;
                           :imaNamenu "Gaming" ;
                           :procesorImaBrojJezgara 8 ;
@@ -911,9 +869,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_9_5950X_3.4GHz
 :AMD_Ryzen_9_5950X_3.4GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
+                                   :AMD_AM4 ;
                           :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM4 ;
                           :imaCenuURSD 64999 ;
                           :imaNamenu "Rudarenje kriptovaluta" ;
                           :procesorImaBrojJezgara 16 ;
@@ -927,9 +884,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD_Ryzen_9_7900X_4.7GHz
 :AMD_Ryzen_9_7900X_4.7GHz rdf:type owl:NamedIndividual ,
-                                   :Procesor ;
+                                   :AMD_AM5 ;
                           :imaProizvodjaca :AMD ;
-                          :procesorImaPodnozje :AMD_AM5 ;
                           :imaCenuURSD 64999 ;
                           :imaNamenu "Profesionalna" ;
                           :procesorImaBrojJezgara 12 ;
@@ -948,9 +904,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5
 :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 rdf:type owl:NamedIndividual ,
-                                                   :GrafickaKartica ;
+                                                   :GDDR5 ;
                                           :grafickaImaProizvodjacaCipa :Nvidia ;
-                                          :grafickaImaTipMemorije :GDDR5 ;
                                           :imaProizvodjaca :ASUS ;
                                           :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
                                           :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -967,13 +922,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Prime_B550M_DDR4
 :ASUS_Prime_B550M_DDR4 rdf:type owl:NamedIndividual ,
-                                :MaticnaPloca ;
+                                :AMD_B550 ;
                        :imaProizvodjaca :ASUS ;
-                       :maticnaImaChipset :AMD_B550 ;
-                       :maticnaImaFormat :Micro_ATX ;
-                       :maticnaImaPodnozje :AMD_AM4 ;
                        :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                       :maticnaPodrzavaRamMemoriju :DDR4 ;
                        :imaCenuURSD 11999 ;
                        :imaNamenu "Kucna upotreba" ;
                        :jeRGB "false"^^xsd:boolean ;
@@ -985,9 +936,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6
 :ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                     :GrafickaKartica ;
+                                                     :GDDR6 ;
                                             :grafickaImaProizvodjacaCipa :Nvidia ;
-                                            :grafickaImaTipMemorije :GDDR6 ;
                                             :imaProizvodjaca :ASUS ;
                                             :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                             :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1004,13 +954,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_Z790F_DDR5
 :ASUS_Rog_Strix_Z790F_DDR5 rdf:type owl:NamedIndividual ,
-                                    :MaticnaPloca ;
+                                    :Intel_Z790 ;
                            :imaProizvodjaca :ASUS ;
-                           :maticnaImaChipset :Intel_Z790 ;
-                           :maticnaImaFormat :ATX ;
-                           :maticnaImaPodnozje :Intel_1700 ;
                            :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                           :maticnaPodrzavaRamMemoriju :DDR5 ;
                            :imaCenuURSD 69999 ;
                            :imaNamenu "Rudarenje kriptovaluta" ;
                            :jeRGB "true"^^xsd:boolean ;
@@ -1022,13 +968,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_B650_DDR5
 :ASUS_Tuf_B650_DDR5 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
+                             :AMD_B650 ;
                     :imaProizvodjaca :ASUS ;
-                    :maticnaImaChipset :AMD_B650 ;
-                    :maticnaImaFormat :ATX ;
-                    :maticnaImaPodnozje :AMD_AM5 ;
                     :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                    :maticnaPodrzavaRamMemoriju :DDR5 ;
                     :imaCenuURSD 34999 ;
                     :imaNamenu "Gaming" ;
                     :jeRGB "false"^^xsd:boolean ;
@@ -1040,13 +982,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_Z690_DDR4
 :ASUS_Tuf_Z690_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
+                             :Intel_Z690 ;
                     :imaProizvodjaca :ASUS ;
-                    :maticnaImaChipset :Intel_Z690 ;
-                    :maticnaImaFormat :ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
                     :imaCenuURSD 43499 ;
                     :imaNamenu "Gaming" ;
                     :jeRGB "false"^^xsd:boolean ;
@@ -1063,13 +1001,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AS_Rock_B660M_DDR4
 :AS_Rock_B660M_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
+                             :Intel_B660 ;
                     :imaProizvodjaca :AS_Rock ;
-                    :maticnaImaChipset :Intel_B660 ;
-                    :maticnaImaFormat :Micro_ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
                     :imaCenuURSD 14999 ;
                     :imaNamenu "Hostovanje" ;
                     :jeRGB "false"^^xsd:boolean ;
@@ -1079,46 +1013,6 @@
                     :maticnaImaSataSlotova 4 .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ATX
-:ATX rdf:type owl:NamedIndividual ,
-              :FormatMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/DDR3
-:DDR3 rdf:type owl:NamedIndividual ,
-               :TipRamMemorije .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/DDR4
-:DDR4 rdf:type owl:NamedIndividual ,
-               :TipRamMemorije .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/DDR5
-:DDR5 rdf:type owl:NamedIndividual ,
-               :TipRamMemorije .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GDDR3
-:GDDR3 rdf:type owl:NamedIndividual ,
-                :TipMemorijeGraficke .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GDDR4
-:GDDR4 rdf:type owl:NamedIndividual ,
-                :TipMemorijeGraficke .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GDDR5
-:GDDR5 rdf:type owl:NamedIndividual ,
-                :TipMemorijeGraficke .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GDDR6
-:GDDR6 rdf:type owl:NamedIndividual ,
-                :TipMemorijeGraficke .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte
 :Gigabyte rdf:type owl:NamedIndividual ,
                    :Proizvodjac .
@@ -1126,13 +1020,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_B550I_Aorus_Pro_DDR4
 :Gigabyte_B550I_Aorus_Pro_DDR4 rdf:type owl:NamedIndividual ,
-                                        :MaticnaPloca ;
+                                        :AMD_B550 ;
                                :imaProizvodjaca :Gigabyte ;
-                               :maticnaImaChipset :AMD_B550 ;
-                               :maticnaImaFormat :Mini_ITX ;
-                               :maticnaImaPodnozje :AMD_AM4 ;
                                :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
-                               :maticnaPodrzavaRamMemoriju :DDR4 ;
                                :imaCenuURSD 27999 ;
                                :imaNamenu "Razvoj aplikacija" ;
                                :jeRGB "true"^^xsd:boolean ;
@@ -1144,13 +1034,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_B660M_DDR4
 :Gigabyte_B660M_DDR4 rdf:type owl:NamedIndividual ,
-                              :MaticnaPloca ;
+                              :Intel_B660 ;
                      :imaProizvodjaca :Gigabyte ;
-                     :maticnaImaChipset :Intel_B660 ;
-                     :maticnaImaFormat :Micro_ATX ;
-                     :maticnaImaPodnozje :Intel_1700 ;
                      :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                     :maticnaPodrzavaRamMemoriju :DDR4 ;
                      :imaCenuURSD 18999 ;
                      :imaNamenu "Gaming" ;
                      :jeRGB "false"^^xsd:boolean ;
@@ -1162,9 +1048,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5
 :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 rdf:type owl:NamedIndividual ,
-                                                     :GrafickaKartica ;
+                                                     :GDDR5 ;
                                             :grafickaImaProizvodjacaCipa :Nvidia ;
-                                            :grafickaImaTipMemorije :GDDR5 ;
                                             :imaProizvodjaca :Gigabyte ;
                                             :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                             :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1181,9 +1066,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6
 :Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                      :GrafickaKartica ;
+                                                      :GDDR6 ;
                                              :grafickaImaProizvodjacaCipa :Nvidia ;
-                                             :grafickaImaTipMemorije :GDDR6 ;
                                              :imaProizvodjaca :Gigabyte ;
                                              :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                              :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1203,31 +1087,10 @@
                 :Proizvodjac .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_1200
-:Intel_1200 rdf:type owl:NamedIndividual ,
-                     :PodnozjeProcesora .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_1700
-:Intel_1700 rdf:type owl:NamedIndividual ,
-                     :PodnozjeProcesora .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_B660
-:Intel_B660 rdf:type owl:NamedIndividual ,
-                     :ChipsetMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_B760
-:Intel_B760 rdf:type owl:NamedIndividual ,
-                     :ChipsetMaticnePloce .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i5_11400F_2.6GHz
 :Intel_Core_i5_11400F_2.6GHz rdf:type owl:NamedIndividual ,
-                                      :Procesor ;
+                                      :Intel_1200 ;
                              :imaProizvodjaca :Intel ;
-                             :procesorImaPodnozje :Intel_1200 ;
                              :imaCenuURSD 16999 ;
                              :imaNamenu "Kucna upotreba" ;
                              :procesorImaBrojJezgara 6 ;
@@ -1241,9 +1104,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i5_12600_3.3GHz
 :Intel_Core_i5_12600_3.3GHz rdf:type owl:NamedIndividual ,
-                                     :Procesor ;
+                                     :Intel_1700 ;
                             :imaProizvodjaca :Intel ;
-                            :procesorImaPodnozje :Intel_1700 ;
                             :imaCenuURSD 38999 ;
                             :imaNamenu "Gaming" ;
                             :procesorImaBrojJezgara 6 ;
@@ -1257,9 +1119,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i7_11700_2.5GHz
 :Intel_Core_i7_11700_2.5GHz rdf:type owl:NamedIndividual ,
-                                     :Procesor ;
+                                     :Intel_1200 ;
                             :imaProizvodjaca :Intel ;
-                            :procesorImaPodnozje :Intel_1200 ;
                             :imaCenuURSD 44999 ;
                             :imaNamenu "Gaming" ;
                             :procesorImaBrojJezgara 8 ;
@@ -1273,9 +1134,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Core_i9_13900K_3GHz
 :Intel_Core_i9_13900K_3GHz rdf:type owl:NamedIndividual ,
-                                    :Procesor ;
+                                    :Intel_1700 ;
                            :imaProizvodjaca :Intel ;
-                           :procesorImaPodnozje :Intel_1700 ;
                            :imaCenuURSD 94999 ;
                            :imaNamenu "Razvoj aplikacija" ;
                            :procesorImaBrojJezgara 24 ;
@@ -1289,9 +1149,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Pentium_Gold_G6405_4.1GHz
 :Intel_Pentium_Gold_G6405_4.1GHz rdf:type owl:NamedIndividual ,
-                                          :Procesor ;
+                                          :Intel_1200 ;
                                  :imaProizvodjaca :Intel ;
-                                 :procesorImaPodnozje :Intel_1200 ;
                                  :imaCenuURSD 9499 ;
                                  :imaNamenu "Kucna upotreba" ;
                                  :procesorImaBrojJezgara 2 ;
@@ -1303,16 +1162,6 @@
                                  :procesorSeMozeOverclockovati "false"^^xsd:boolean .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Z690
-:Intel_Z690 rdf:type owl:NamedIndividual ,
-                     :ChipsetMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel_Z790
-:Intel_Z790 rdf:type owl:NamedIndividual ,
-                     :ChipsetMaticnePloce .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston
 :Kingston rdf:type owl:NamedIndividual ,
                    :Proizvodjac .
@@ -1320,9 +1169,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_4GB_DDR3_1600MHz_CL11
 :Kingston_4GB_DDR3_1600MHz_CL11 rdf:type owl:NamedIndividual ,
-                                         :RAM ;
+                                         :DDR3 ;
                                 :imaProizvodjaca :Kingston ;
-                                :ramJeTipa :DDR3 ;
                                 :imaCenuURSD 3499 ;
                                 :imaNamenu "Kucna upotreba" ;
                                 :jeRGB "false"^^xsd:boolean ;
@@ -1334,9 +1182,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_8GB_DDR4_3200MHz_CL22
 :Kingston_8GB_DDR4_3200MHz_CL22 rdf:type owl:NamedIndividual ,
-                                         :RAM ;
+                                         :DDR4 ;
                                 :imaProizvodjaca :Kingston ;
-                                :ramJeTipa :DDR4 ;
                                 :imaCenuURSD 2999 ;
                                 :imaNamenu "Kucna upotreba" ;
                                 :jeRGB "false"^^xsd:boolean ;
@@ -1348,9 +1195,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Beast_128GB_DDR4_3600MHz_CL18
 :Kingston_Beast_128GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
-                                                 :RAM ;
+                                                 :DDR4 ;
                                         :imaProizvodjaca :Kingston ;
-                                        :ramJeTipa :DDR4 ;
                                         :imaCenuURSD 84999 ;
                                         :imaNamenu "Hostovanje" ;
                                         :jeRGB "true"^^xsd:boolean ;
@@ -1362,9 +1208,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_16GB_DDR4_5000MHz_CL19
 :Kingston_Fury_16GB_DDR4_5000MHz_CL19 rdf:type owl:NamedIndividual ,
-                                               :RAM ;
+                                               :DDR4 ;
                                       :imaProizvodjaca :Kingston ;
-                                      :ramJeTipa :DDR4 ;
                                       :imaCenuURSD 44999 ;
                                       :imaNamenu "Profesionalna" ;
                                       :jeRGB "false"^^xsd:boolean ;
@@ -1376,9 +1221,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40
 :Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                     :RAM ;
+                                                     :DDR5 ;
                                             :imaProizvodjaca :Kingston ;
-                                            :ramJeTipa :DDR5 ;
                                             :imaCenuURSD 35999 ;
                                             :imaNamenu "Gaming" ;
                                             :jeRGB "false"^^xsd:boolean ;
@@ -1390,9 +1234,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40
 :Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                     :RAM ;
+                                                     :DDR5 ;
                                             :imaProizvodjaca :Kingston ;
-                                            :ramJeTipa :DDR5 ;
                                             :imaCenuURSD 44999 ;
                                             :imaNamenu "Razvoj aplikacija" ;
                                             :jeRGB "true"^^xsd:boolean ;
@@ -1404,9 +1247,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40
 :Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                    :RAM ;
+                                                    :DDR5 ;
                                            :imaProizvodjaca :Kingston ;
-                                           :ramJeTipa :DDR5 ;
                                            :imaCenuURSD 6499 ;
                                            :imaNamenu "Gaming" ;
                                            :jeRGB "false"^^xsd:boolean ;
@@ -1418,9 +1260,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40
 :Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40 rdf:type owl:NamedIndividual ,
-                                                      :RAM ;
+                                                      :DDR5 ;
                                              :imaProizvodjaca :Kingston ;
-                                             :ramJeTipa :DDR5 ;
                                              :imaCenuURSD 16999 ;
                                              :imaNamenu "Kucna upotreba" ;
                                              :jeRGB "false"^^xsd:boolean ;
@@ -1432,9 +1273,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32
 :Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
+                                                        :DDR5 ;
                                                :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
                                                :imaCenuURSD 11999 ;
                                                :imaNamenu "Rudarenje kriptovaluta" ;
                                                :jeRGB "true"^^xsd:boolean ;
@@ -1446,9 +1286,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36
 :Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
+                                                        :DDR5 ;
                                                :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
                                                :imaCenuURSD 41999 ;
                                                :imaNamenu "Gaming" ;
                                                :jeRGB "true"^^xsd:boolean ;
@@ -1460,9 +1299,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38
 :Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38 rdf:type owl:NamedIndividual ,
-                                                        :RAM ;
+                                                        :DDR5 ;
                                                :imaProizvodjaca :Kingston ;
-                                               :ramJeTipa :DDR5 ;
                                                :imaCenuURSD 30999 ;
                                                :imaNamenu "Gaming" ;
                                                :jeRGB "true"^^xsd:boolean ;
@@ -1474,9 +1312,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kingston_Renegade_32GB_DDR4_3600MHz_CL18
 :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 rdf:type owl:NamedIndividual ,
-                                                   :RAM ;
+                                                   :DDR4 ;
                                           :imaProizvodjaca :Kingston ;
-                                          :ramJeTipa :DDR4 ;
                                           :imaCenuURSD 13999 ;
                                           :imaNamenu "Kucna upotreba" ;
                                           :jeRGB "false"^^xsd:boolean ;
@@ -1493,13 +1330,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Carbon_Z690_DDR5
 :MSI_Carbon_Z690_DDR5 rdf:type owl:NamedIndividual ,
-                               :MaticnaPloca ;
+                               :Intel_Z690 ;
                       :imaProizvodjaca :MSI ;
-                      :maticnaImaChipset :Intel_Z690 ;
-                      :maticnaImaFormat :ATX ;
-                      :maticnaImaPodnozje :Intel_1700 ;
                       :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                      :maticnaPodrzavaRamMemoriju :DDR5 ;
                       :imaCenuURSD 64999 ;
                       :imaNamenu "Gaming" ;
                       :jeRGB "true"^^xsd:boolean ;
@@ -1511,9 +1344,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4
 :MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4 rdf:type owl:NamedIndividual ,
-                                               :GrafickaKartica ;
+                                               :GDDR4 ;
                                       :grafickaImaProizvodjacaCipa :Nvidia ;
-                                      :grafickaImaTipMemorije :GDDR4 ;
                                       :imaProizvodjaca :MSI ;
                                       :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                       :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1530,9 +1362,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Nvidia_GeForce_GT_710_2GB_GDDR3
 :MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 rdf:type owl:NamedIndividual ,
-                                              :GrafickaKartica ;
+                                              :GDDR3 ;
                                      :grafickaImaProizvodjacaCipa :Nvidia ;
-                                     :grafickaImaTipMemorije :GDDR3 ;
                                      :imaProizvodjaca :MSI ;
                                      :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
                                      :grafickaImaDisplayPortInterfejs "false"^^xsd:boolean ;
@@ -1549,13 +1380,9 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Pro_B760M_DDR4
 :MSI_Pro_B760M_DDR4 rdf:type owl:NamedIndividual ,
-                             :MaticnaPloca ;
+                             :Intel_B760 ;
                     :imaProizvodjaca :MSI ;
-                    :maticnaImaChipset :Intel_B760 ;
-                    :maticnaImaFormat :Micro_ATX ;
-                    :maticnaImaPodnozje :Intel_1700 ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
-                    :maticnaPodrzavaRamMemoriju :DDR4 ;
                     :imaCenuURSD 17999 ;
                     :imaNamenu "Profesionalna" ;
                     :jeRGB "false"^^xsd:boolean ;
@@ -1563,16 +1390,6 @@
                     :maticnaImaPCIExpressSlotova 3 ;
                     :maticnaImaRAMSlotova 4 ;
                     :maticnaImaSataSlotova 4 .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Micro_ATX
-:Micro_ATX rdf:type owl:NamedIndividual ,
-                    :FormatMaticnePloce .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Mini_ITX
-:Mini_ITX rdf:type owl:NamedIndividual ,
-                   :FormatMaticnePloce .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Nvidia
@@ -1587,9 +1404,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6
 :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                  :GrafickaKartica ;
+                                                  :GDDR6 ;
                                          :grafickaImaProizvodjacaCipa :AMD ;
-                                         :grafickaImaTipMemorije :GDDR6 ;
                                          :imaProizvodjaca :Powercolor ;
                                          :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                          :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1611,9 +1427,8 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6
 :Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6 rdf:type owl:NamedIndividual ,
-                                                   :GrafickaKartica ;
+                                                   :GDDR6 ;
                                           :grafickaImaProizvodjacaCipa :AMD ;
-                                          :grafickaImaTipMemorije :GDDR6 ;
                                           :imaProizvodjaca :Sapphire ;
                                           :grafickaImaDVIInterfejs "false"^^xsd:boolean ;
                                           :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
@@ -1626,6 +1441,44 @@
                                           :imaCenuURSD 159999 ;
                                           :imaNamenu "Rudarenje kriptovaluta" ;
                                           :jeRGB "false"^^xsd:boolean .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :DDR3
+                :DDR4
+                :DDR5
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :FullTower
+                :MidTower
+                :MiniTower
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :GDDR3
+                :GDDR4
+                :GDDR5
+                :GDDR6
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Intel_B660
+                :Intel_B760
+                :Intel_Z690
+                :Intel_Z790
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
