@@ -12,6 +12,88 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaGraficku
+:konfiguracijaImaGraficku rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :Konfiguracija ;
+                          rdfs:range :GrafickaKartica .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaHladjenje
+:konfiguracijaImaHladjenje rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
+                           rdfs:domain :Konfiguracija .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaKuciste
+:konfiguracijaImaKuciste rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain :Konfiguracija ;
+                         rdfs:range :Kuciste .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaMaticnuPlocu
+:konfiguracijaImaMaticnuPlocu rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf owl:topObjectProperty ;
+                              rdfs:domain :Konfiguracija ;
+                              rdfs:range :MaticnaPloca .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaMemoriju
+:konfiguracijaImaMemoriju rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :Konfiguracija .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaNapajanje
+:konfiguracijaImaNapajanje rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ;
+                           rdfs:domain :Konfiguracija ;
+                           rdfs:range :Napajanje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaProcesor
+:konfiguracijaImaProcesor rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :Konfiguracija ;
+                          rdfs:range :Procesor .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#konfiguracijaImaRAMMemoriju
+:konfiguracijaImaRAMMemoriju rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             rdfs:domain :Konfiguracija ;
+                             rdfs:range :RAM .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucisteJeTipa
+:kucisteJeTipa rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Kuciste ;
+               rdfs:range :TipKucista .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucistePodrzavaFormatMaticnePloce
+:kucistePodrzavaFormatMaticnePloce rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                   rdfs:domain :Kuciste ;
+                                   rdfs:range :FormatMaticnePloce .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeJeTipa
+:napajanjeJeTipa rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Napajanje ;
+                 rdfs:range :TipNapajanja .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ssdImaFormat
+:ssdImaFormat rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :SSD ;
+              rdfs:range :TipSSDa .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaProizvodjacaCipa
 :grafickaImaProizvodjacaCipa rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf owl:topObjectProperty ;
@@ -85,6 +167,76 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#SSDImaBrzinuCitanjaUMBPS
+:SSDImaBrzinuCitanjaUMBPS rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :SSD ;
+                          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#SSDImaBrzinuPisanjaUMBPS
+:SSDImaBrzinuPisanjaUMBPS rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :SSD ;
+                          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#SSDImaDebljinuUMilimetrima
+:SSDImaDebljinuUMilimetrima rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:domain :SSD ;
+                            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#SSDImaKapacitetUGigabajtima
+:SSDImaKapacitetUGigabajtima rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :SSD ;
+                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucisteImaMestaZaPCIKartice
+:kucisteImaMestaZaPCIKartice rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:domain :Kuciste ;
+                             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#kucisteImaNapajanje
+:kucisteImaNapajanje rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Kuciste ;
+                     rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeImaBrojMOLEXKonektora
+:napajanjeImaBrojMOLEXKonektora rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :Napajanje ;
+                                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeImaBrojSATAKonektora
+:napajanjeImaBrojSATAKonektora rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Napajanje ;
+                               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeImaIzlaznuSnaguUVatima
+:napajanjeImaIzlaznuSnaguUVatima rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                 rdfs:domain :Napajanje ;
+                                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#napajanjeImaPrecnikVentilatoraUCentimetrima
+:napajanjeImaPrecnikVentilatoraUCentimetrima rdf:type owl:DatatypeProperty ;
+                                             rdfs:subPropertyOf owl:topDataProperty ;
+                                             rdfs:domain :Napajanje ;
+                                             rdfs:range xsd:integer .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaDVIInterfejs
 :grafickaImaDVIInterfejs rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf owl:topDataProperty ;
@@ -144,21 +296,28 @@
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaCenuURSD
 :imaCenuURSD rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
-             rdfs:domain :Komponenta ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Konfiguracija
+                                         :Komponenta
+                                       )
+                         ] ;
              rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaNamenu
 :imaNamenu rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :Komponenta ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :Konfiguracija
+                                       :Komponenta
+                                     )
+                       ] ;
            rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/jeRGB
 :jeRGB rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:domain :Hardverska ;
        rdfs:range xsd:boolean .
 
 
@@ -270,6 +429,22 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija
+:Konfiguracija rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipKucista
+:TipKucista rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipNapajanja
+:TipNapajanja rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#TipSSDa
+:TipSSDa rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ChipsetMaticnePloce
 :ChipsetMaticnePloce rdf:type owl:Class .
 
@@ -280,91 +455,26 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/GrafickaKartica
 :GrafickaKartica rdf:type owl:Class ;
-                 rdfs:subClassOf :Hardverska .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/HDD
-:HDD rdf:type owl:Class ;
-     rdfs:subClassOf :Memorija ;
-     owl:disjointWith :SSD .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Hardverska
-:Hardverska rdf:type owl:Class ;
-            rdfs:subClassOf :Komponenta ;
-            owl:disjointWith :Softverska .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Hladjenje
-:Hladjenje rdf:type owl:Class ;
-           owl:equivalentClass [ rdf:type owl:Class ;
-                                 owl:unionOf ( :Vazdusno
-                                               :Vodeno
-                                             )
-                               ] ;
-           rdfs:subClassOf :Hardverska .
+                 rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Komponenta
-:Komponenta rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Hardverska
-                                                :Softverska
-                                              )
-                                ] .
+:Komponenta rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Kuciste
 :Kuciste rdf:type owl:Class ;
-         rdfs:subClassOf :Hardverska .
+         rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MaticnaPloca
 :MaticnaPloca rdf:type owl:Class ;
-              rdfs:subClassOf :Hardverska .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Memorija
-:Memorija rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Class ;
-                                owl:unionOf ( :HDD
-                                              :SSD
-                                            )
-                              ] ;
-          rdfs:subClassOf :Hardverska .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Mikrofon
-:Mikrofon rdf:type owl:Class ;
-          rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Mis
-:Mis rdf:type owl:Class ;
-     rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Monitor
-:Monitor rdf:type owl:Class ;
-         rdfs:subClassOf :Periferija .
+              rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Napajanje
 :Napajanje rdf:type owl:Class ;
-           rdfs:subClassOf :Hardverska .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Periferija
-:Periferija rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Mikrofon
-                                                :Mis
-                                                :Monitor
-                                                :Slusalice
-                                                :Tastatura
-                                                :Zvucnici
-                                              )
-                                ] .
+           rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/PodnozjeProcesora
@@ -373,7 +483,7 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Procesor
 :Procesor rdf:type owl:Class ;
-          rdfs:subClassOf :Hardverska .
+          rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Proizvodjac
@@ -382,27 +492,12 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/RAM
 :RAM rdf:type owl:Class ;
-     rdfs:subClassOf :Hardverska .
+     rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/SSD
 :SSD rdf:type owl:Class ;
-     rdfs:subClassOf :Memorija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Slusalice
-:Slusalice rdf:type owl:Class ;
-           rdfs:subClassOf :Periferija .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Softverska
-:Softverska rdf:type owl:Class ;
-            rdfs:subClassOf :Komponenta .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Tastatura
-:Tastatura rdf:type owl:Class ;
-           rdfs:subClassOf :Periferija .
+     rdfs:subClassOf :Komponenta .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/TipMemorijeGraficke
@@ -413,25 +508,317 @@
 :TipRamMemorije rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Vazdusno
-:Vazdusno rdf:type owl:Class ;
-          rdfs:subClassOf :Hladjenje ;
-          owl:disjointWith :Vodeno .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Vodeno
-:Vodeno rdf:type owl:Class ;
-        rdfs:subClassOf :Hladjenje .
-
-
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Zvucnici
-:Zvucnici rdf:type owl:Class ;
-          rdfs:subClassOf :Periferija .
-
-
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Antec
+:Antec rdf:type owl:NamedIndividual ,
+                :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Antec_DF600_FLUX
+:Antec_DF600_FLUX rdf:type owl:NamedIndividual ,
+                           :Kuciste ;
+                  :kucisteJeTipa :Mini_tower ;
+                  :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                  :imaProizvodjaca :Antec ;
+                  :kucisteImaMestaZaPCIKartice 4 ;
+                  :kucisteImaNapajanje "false"^^xsd:boolean ;
+                  :imaCenuURSD 11499 ;
+                  :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Antec_P20C
+:Antec_P20C rdf:type owl:NamedIndividual ,
+                     :Kuciste ;
+            :kucisteJeTipa :Mid_tower ;
+            :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+            :imaProizvodjaca :Antec ;
+            :kucisteImaMestaZaPCIKartice 6 ;
+            :kucisteImaNapajanje "false"^^xsd:boolean ;
+            :imaCenuURSD 16599 ;
+            :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec
+:Chieftec rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_GL_02B_OP
+:Chieftec_GL_02B_OP rdf:type owl:NamedIndividual ,
+                             :Kuciste ;
+                    :kucisteJeTipa :Mid_tower ;
+                    :kucistePodrzavaFormatMaticnePloce :Mini_ITX ;
+                    :imaProizvodjaca :Chieftec ;
+                    :kucisteImaMestaZaPCIKartice 4 ;
+                    :kucisteImaNapajanje "false"^^xsd:boolean ;
+                    :imaCenuURSD 15699 ;
+                    :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_Gamer_GL_02B_OP
+:Chieftec_Gamer_GL_02B_OP rdf:type owl:NamedIndividual ,
+                                   :Kuciste ;
+                          :kucisteJeTipa :Mid_tower ;
+                          :kucistePodrzavaFormatMaticnePloce :Micro_ATX ;
+                          :imaProizvodjaca :Chieftec ;
+                          :kucisteImaMestaZaPCIKartice 8 ;
+                          :kucisteImaNapajanje "false"^^xsd:boolean ;
+                          :imaCenuURSD 21999 ;
+                          :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Chieftec_Polaris_850W_PPS
+:Chieftec_Polaris_850W_PPS rdf:type owl:NamedIndividual ,
+                                    :Napajanje ;
+                           :napajanjeJeTipa :Modularno ;
+                           :imaProizvodjaca :Chieftec ;
+                           :napajanjeImaBrojMOLEXKonektora 4 ;
+                           :napajanjeImaBrojSATAKonektora 6 ;
+                           :napajanjeImaIzlaznuSnaguUVatima 850 ;
+                           :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                           :imaCenuURSD 21799 ;
+                           :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#CoolerMaster
+:CoolerMaster rdf:type owl:NamedIndividual ,
+                       :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#CoolerMaster_HAF_700
+:CoolerMaster_HAF_700 rdf:type owl:NamedIndividual ,
+                               :Kuciste ;
+                      :kucisteJeTipa :Full_tower ;
+                      :kucistePodrzavaFormatMaticnePloce :ATX ;
+                      :imaProizvodjaca :CoolerMaster ;
+                      :kucisteImaMestaZaPCIKartice 12 ;
+                      :kucisteImaNapajanje "false"^^xsd:boolean ;
+                      :imaCenuURSD 49999 ;
+                      :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#CoolerMaster_MASTERBOX_MB520
+:CoolerMaster_MASTERBOX_MB520 rdf:type owl:NamedIndividual ,
+                                       :Kuciste ;
+                              :kucisteJeTipa :Full_tower ;
+                              :kucistePodrzavaFormatMaticnePloce :ATX ;
+                              :imaProizvodjaca :CoolerMaster ;
+                              :kucisteImaMestaZaPCIKartice 12 ;
+                              :kucisteImaNapajanje "false"^^xsd:boolean ;
+                              :imaCenuURSD 32999 ;
+                              :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Deepcool
+:Deepcool rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Deepcool_DA600_M
+:Deepcool_DA600_M rdf:type owl:NamedIndividual ,
+                           :Napajanje ;
+                  :napajanjeJeTipa :Standardno ;
+                  :imaProizvodjaca :Deepcool ;
+                  :napajanjeImaBrojMOLEXKonektora 4 ;
+                  :napajanjeImaBrojSATAKonektora 6 ;
+                  :napajanjeImaIzlaznuSnaguUVatima 600 ;
+                  :napajanjeImaPrecnikVentilatoraUCentimetrima 8 ;
+                  :imaCenuURSD 8999 ;
+                  :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP
+:FSP rdf:type owl:NamedIndividual ,
+              :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_200_50AHBCC_200W
+:FSP_200_50AHBCC_200W rdf:type owl:NamedIndividual ,
+                               :Napajanje ;
+                      :napajanjeJeTipa :Standardno ;
+                      :imaProizvodjaca :FSP ;
+                      :napajanjeImaBrojMOLEXKonektora 2 ;
+                      :napajanjeImaBrojSATAKonektora 4 ;
+                      :napajanjeImaIzlaznuSnaguUVatima 200 ;
+                      :napajanjeImaPrecnikVentilatoraUCentimetrima 6 ;
+                      :imaCenuURSD 3499 ;
+                      :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_1200W
+:FSP_HYDRO_PTM_PRO_1200W rdf:type owl:NamedIndividual ,
+                                  :Napajanje ;
+                         :napajanjeJeTipa :Modularno ;
+                         :imaProizvodjaca :FSP ;
+                         :napajanjeImaBrojMOLEXKonektora 8 ;
+                         :napajanjeImaBrojSATAKonektora 10 ;
+                         :napajanjeImaIzlaznuSnaguUVatima 1200 ;
+                         :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                         :imaCenuURSD 35999 ;
+                         :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#FSP_HYDRO_PTM_PRO_850W
+:FSP_HYDRO_PTM_PRO_850W rdf:type owl:NamedIndividual ,
+                                 :Napajanje ;
+                        :napajanjeJeTipa :Modularno ;
+                        :imaProizvodjaca :FSP ;
+                        :napajanjeImaBrojMOLEXKonektora 6 ;
+                        :napajanjeImaBrojSATAKonektora 8 ;
+                        :napajanjeImaIzlaznuSnaguUVatima 850 ;
+                        :napajanjeImaPrecnikVentilatoraUCentimetrima 10 ;
+                        :imaCenuURSD 22999 ;
+                        :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Full_tower
+:Full_tower rdf:type owl:NamedIndividual ,
+                     :TipKucista .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Kingston_SSD_256GB_mSATA_256GB
+:Kingston_SSD_256GB_mSATA_256GB rdf:type owl:NamedIndividual ,
+                                         :SSD ;
+                                :ssdImaFormat :mSATA ;
+                                :imaProizvodjaca :Kingston ;
+                                :SSDImaBrzinuCitanjaUMBPS 550 ;
+                                :SSDImaBrzinuPisanjaUMBPS 500 ;
+                                :SSDImaDebljinuUMilimetrima 5 ;
+                                :SSDImaKapacitetUGigabajtima 256 ;
+                                :imaCenuURSD 3599 ;
+                                :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#LC_Power
+:LC_Power rdf:type owl:NamedIndividual ,
+                   :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#LC_Power_300W_LC300SFX
+:LC_Power_300W_LC300SFX rdf:type owl:NamedIndividual ,
+                                 :Napajanje ;
+                        :napajanjeJeTipa :Standardno ;
+                        :imaProizvodjaca :LC_Power ;
+                        :napajanjeImaBrojMOLEXKonektora 4 ;
+                        :napajanjeImaBrojSATAKonektora 5 ;
+                        :napajanjeImaIzlaznuSnaguUVatima 300 ;
+                        :napajanjeImaPrecnikVentilatoraUCentimetrima 7 ;
+                        :imaCenuURSD 4999 ;
+                        :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#M.2
+:M.2 rdf:type owl:NamedIndividual ,
+              :TipSSDa .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mid_tower
+:Mid_tower rdf:type owl:NamedIndividual ,
+                    :TipKucista .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Mini_tower
+:Mini_tower rdf:type owl:NamedIndividual ,
+                     :TipKucista .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Modularno
+:Modularno rdf:type owl:NamedIndividual ,
+                    :TipNapajanja .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung
+:Samsung rdf:type owl:NamedIndividual ,
+                  :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung_SSD_970_EVO_PLUS_250GB_M2_2242
+:Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 rdf:type owl:NamedIndividual ,
+                                                 :SSD ;
+                                        :ssdImaFormat :M.2 ;
+                                        :imaProizvodjaca :Samsung ;
+                                        :SSDImaBrzinuCitanjaUMBPS 3500 ;
+                                        :SSDImaBrzinuPisanjaUMBPS 4500 ;
+                                        :SSDImaDebljinuUMilimetrima 2 ;
+                                        :SSDImaKapacitetUGigabajtima 250 ;
+                                        :imaCenuURSD 5999 ;
+                                        :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Samsung_SSD_970_EVO_PLUS_500GB_M2_2280
+:Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 rdf:type owl:NamedIndividual ,
+                                                 :SSD ;
+                                        :ssdImaFormat :M.2 ;
+                                        :imaProizvodjaca :Samsung ;
+                                        :SSDImaBrzinuCitanjaUMBPS 3500 ;
+                                        :SSDImaBrzinuPisanjaUMBPS 4500 ;
+                                        :SSDImaDebljinuUMilimetrima 2 ;
+                                        :SSDImaKapacitetUGigabajtima 500 ;
+                                        :imaCenuURSD 7999 ;
+                                        :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Standardno
+:Standardno rdf:type owl:NamedIndividual ,
+                     :TipNapajanja .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Transcend
+:Transcend rdf:type owl:NamedIndividual ,
+                    :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Transcend_SSD_mSATA_256GB
+:Transcend_SSD_mSATA_256GB rdf:type owl:NamedIndividual ,
+                                    :SSD ;
+                           :ssdImaFormat :mSATA ;
+                           :imaProizvodjaca :Transcend ;
+                           :SSDImaBrzinuCitanjaUMBPS 530 ;
+                           :SSDImaBrzinuPisanjaUMBPS 400 ;
+                           :SSDImaDebljinuUMilimetrima 5 ;
+                           :SSDImaKapacitetUGigabajtima 256 ;
+                           :imaCenuURSD 3499 ;
+                           :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#WD_SSD_Black_SN850_2TB_M2
+:WD_SSD_Black_SN850_2TB_M2 rdf:type owl:NamedIndividual ,
+                                    :SSD ;
+                           :ssdImaFormat :M.2 ;
+                           :imaProizvodjaca :Western_Digital ;
+                           :SSDImaBrzinuCitanjaUMBPS 9000 ;
+                           :SSDImaBrzinuPisanjaUMBPS 7000 ;
+                           :SSDImaDebljinuUMilimetrima 4 ;
+                           :SSDImaKapacitetUGigabajtima 2000 ;
+                           :imaCenuURSD 54999 ;
+                           :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#WD_SSD_Green_SA920_1TB_M2
+:WD_SSD_Green_SA920_1TB_M2 rdf:type owl:NamedIndividual ,
+                                    :SSD ;
+                           :ssdImaFormat :M.2 ;
+                           :imaProizvodjaca :Western_Digital ;
+                           :SSDImaBrzinuCitanjaUMBPS 6000 ;
+                           :SSDImaBrzinuPisanjaUMBPS 5000 ;
+                           :SSDImaDebljinuUMilimetrima 4 ;
+                           :SSDImaKapacitetUGigabajtima 1000 ;
+                           :imaCenuURSD 25999 ;
+                           :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Western_Digital
+:Western_Digital rdf:type owl:NamedIndividual ,
+                          :Proizvodjac .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#mSATA
+:mSATA rdf:type owl:NamedIndividual ,
+                :TipSSDa .
+
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
 :AMD rdf:type owl:NamedIndividual ,
@@ -1239,34 +1626,6 @@
                                           :imaCenuURSD 159999 ;
                                           :imaNamenu "Rudarenje kriptovaluta" ;
                                           :jeRGB "false"^^xsd:boolean .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :GrafickaKartica
-                :Hladjenje
-                :Kuciste
-                :MaticnaPloca
-                :Memorija
-                :Napajanje
-                :Procesor
-                :RAM
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Mikrofon
-                :Mis
-                :Monitor
-                :Slusalice
-                :Tastatura
-                :Zvucnici
-              )
-] .
 
 
 ###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
