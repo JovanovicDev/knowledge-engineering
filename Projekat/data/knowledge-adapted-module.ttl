@@ -1054,7 +1054,30 @@
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija5
 :Konfiguracija5 rdf:type owl:NamedIndividual ,
-                         :Konfiguracija .
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6 ;
+                :konfiguracijaImaKuciste :CoolerMaster_MASTERBOX_MB520 ;
+                :konfiguracijaImaMaticnuPlocu :ASUS_Rog_Strix_Z790F_DDR5 ;
+                :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_850W ;
+                :konfiguracijaImaProcesor :Intel_Core_i7_11700_2.5GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40 ;
+                :imaCenuURSD 170000 ;
+                :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija6
+:Konfiguracija6 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6 ;
+                :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 ;
+                :imaCenuURSD 210999 ;
+                :imaNamenu "Rudarenje kriptovaluta" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
