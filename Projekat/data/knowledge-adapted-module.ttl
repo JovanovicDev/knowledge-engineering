@@ -232,7 +232,27 @@
                                        :Konfiguracija
                                      )
                        ] ;
-           rdfs:range xsd:string .
+           rdfs:range [ rdf:type rdfs:Datatype ;
+                        owl:oneOf [ rdf:type rdf:List ;
+                                    rdf:first "Gaming" ;
+                                    rdf:rest [ rdf:type rdf:List ;
+                                               rdf:first "Hostovanje" ;
+                                               rdf:rest [ rdf:type rdf:List ;
+                                                          rdf:first "Kucna upotreba" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "Profesionalna" ;
+                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                rdf:first "Razvoj aplikacija" ;
+                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                           rdf:first "Rudarenje kriptovaluta" ;
+                                                                                           rdf:rest rdf:nil
+                                                                                         ]
+                                                                              ]
+                                                                   ]
+                                                        ]
+                                             ]
+                                  ]
+                      ] .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/jeRGB
@@ -975,6 +995,67 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija1
+:Konfiguracija1 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 ;
+                :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                :konfiguracijaImaMaticnuPlocu :ASUS_Prime_B550M_DDR4 ;
+                :konfiguracijaImaMemoriju :Kingston_SSD_256GB_mSATA_256GB ;
+                :konfiguracijaImaNapajanje :FSP_200_50AHBCC_200W ;
+                :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_8GB_DDR4_3200MHz_CL22 ;
+                :imaCenuURSD 85999 ;
+                :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija2
+:Konfiguracija2 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :MSI_Nvidia_GeForce_GT_1030_2GB_GDDR4 ;
+                :konfiguracijaImaKuciste :Antec_P20C ;
+                :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                :konfiguracijaImaMemoriju :Transcend_SSD_mSATA_256GB ;
+                :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                :konfiguracijaImaProcesor :AMD_Ryzen_5_5600_3.5GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                :imaCenuURSD 105999 ;
+                :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija3
+:Konfiguracija3 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40 ;
+                :imaCenuURSD 112999 ;
+                :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija4
+:Konfiguracija4 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                :konfiguracijaImaKuciste :Chieftec_Gamer_GL_02B_OP ;
+                :konfiguracijaImaMaticnuPlocu :AS_Rock_B660M_DDR4 ;
+                :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                :konfiguracijaImaNapajanje :Chieftec_Polaris_850W_PPS ;
+                :konfiguracijaImaProcesor :Intel_Core_i5_12600_3.3GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                :imaCenuURSD 149999 ;
+                :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#Konfiguracija5
+:Konfiguracija5 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija .
+
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
 :AMD rdf:type owl:NamedIndividual ,
