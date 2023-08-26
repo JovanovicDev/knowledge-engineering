@@ -262,12 +262,6 @@
                       ] .
 
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/jeRGB
-:jeRGB rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:range xsd:boolean .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/kucisteImaMestaZaPCIKartice
 :kucisteImaMestaZaPCIKartice rdf:type owl:DatatypeProperty ;
                              rdfs:subPropertyOf owl:topDataProperty ;
@@ -1130,8 +1124,7 @@
                                           :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                           :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                           :imaCenuURSD 24999 ;
-                                          :imaNamenu "Profesionalna" ;
-                                          :jeRGB "false"^^xsd:boolean .
+                                          :imaNamenu "Profesionalna" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Prime_B550M_DDR4
@@ -1141,7 +1134,6 @@
                        :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
                        :imaCenuURSD 11999 ;
                        :imaNamenu "Kucna upotreba" ;
-                       :jeRGB "false"^^xsd:boolean ;
                        :maticnaImaChipset "AMD_B550" ;
                        :maticnaImaM2Slotova 2 ;
                        :maticnaImaPCIExpressSlotova 4 ;
@@ -1164,8 +1156,7 @@
                                             :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                             :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                             :imaCenuURSD 319999 ;
-                                            :imaNamenu "Razvoj aplikacija" ;
-                                            :jeRGB "true"^^xsd:boolean .
+                                            :imaNamenu "Razvoj aplikacija" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_Z790F_DDR5
@@ -1175,7 +1166,6 @@
                            :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                            :imaCenuURSD 69999 ;
                            :imaNamenu "Rudarenje kriptovaluta" ;
-                           :jeRGB "true"^^xsd:boolean ;
                            :maticnaImaChipset "Intel_Z790" ;
                            :maticnaImaM2Slotova 4 ;
                            :maticnaImaPCIExpressSlotova 4 ;
@@ -1190,7 +1180,6 @@
                     :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
                     :imaCenuURSD 34999 ;
                     :imaNamenu "Gaming" ;
-                    :jeRGB "false"^^xsd:boolean ;
                     :maticnaImaChipset "AMD_B650" ;
                     :maticnaImaM2Slotova 3 ;
                     :maticnaImaPCIExpressSlotova 4 ;
@@ -1205,7 +1194,6 @@
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                     :imaCenuURSD 43499 ;
                     :imaNamenu "Gaming" ;
-                    :jeRGB "false"^^xsd:boolean ;
                     :maticnaImaChipset "Intel_Z690" ;
                     :maticnaImaM2Slotova 4 ;
                     :maticnaImaPCIExpressSlotova 4 ;
@@ -1226,7 +1214,6 @@
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                     :imaCenuURSD 14999 ;
                     :imaNamenu "Hostovanje" ;
-                    :jeRGB "false"^^xsd:boolean ;
                     :maticnaImaChipset "Intel_B660" ;
                     :maticnaImaM2Slotova 1 ;
                     :maticnaImaPCIExpressSlotova 3 ;
@@ -1408,7 +1395,6 @@
                                :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
                                :imaCenuURSD 27999 ;
                                :imaNamenu "Razvoj aplikacija" ;
-                               :jeRGB "true"^^xsd:boolean ;
                                :maticnaImaChipset "AMD_B550" ;
                                :maticnaImaM2Slotova 2 ;
                                :maticnaImaPCIExpressSlotova 1 ;
@@ -1423,7 +1409,6 @@
                      :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                      :imaCenuURSD 18999 ;
                      :imaNamenu "Gaming" ;
-                     :jeRGB "false"^^xsd:boolean ;
                      :maticnaImaChipset "Intel_B660" ;
                      :maticnaImaM2Slotova 1 ;
                      :maticnaImaPCIExpressSlotova 2 ;
@@ -1446,8 +1431,7 @@
                                             :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                             :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                             :imaCenuURSD 26999 ;
-                                            :imaNamenu "Kucna upotreba" ;
-                                            :jeRGB "false"^^xsd:boolean .
+                                            :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6
@@ -1465,8 +1449,7 @@
                                              :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                              :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                              :imaCenuURSD 209999 ;
-                                             :imaNamenu "Gaming" ;
-                                             :jeRGB "true"^^xsd:boolean .
+                                             :imaNamenu "Gaming" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel
@@ -1567,7 +1550,6 @@
                                 :imaProizvodjaca :Kingston ;
                                 :imaCenuURSD 3499 ;
                                 :imaNamenu "Kucna upotreba" ;
-                                :jeRGB "false"^^xsd:boolean ;
                                 :ramImaKapacitetUGigabajtima 4 ;
                                 :ramImaLatencijuUCL 11 ;
                                 :ramImaRadnuFrekvencijuUMegahercima 1600 ;
@@ -1581,7 +1563,6 @@
                                 :imaProizvodjaca :Kingston ;
                                 :imaCenuURSD 2999 ;
                                 :imaNamenu "Kucna upotreba" ;
-                                :jeRGB "false"^^xsd:boolean ;
                                 :ramImaKapacitetUGigabajtima 8 ;
                                 :ramImaLatencijuUCL 22 ;
                                 :ramImaRadnuFrekvencijuUMegahercima 3200 ;
@@ -1595,7 +1576,6 @@
                                         :imaProizvodjaca :Kingston ;
                                         :imaCenuURSD 84999 ;
                                         :imaNamenu "Hostovanje" ;
-                                        :jeRGB "true"^^xsd:boolean ;
                                         :ramImaKapacitetUGigabajtima 128 ;
                                         :ramImaLatencijuUCL 18 ;
                                         :ramImaRadnuFrekvencijuUMegahercima 3600 ;
@@ -1609,7 +1589,6 @@
                                       :imaProizvodjaca :Kingston ;
                                       :imaCenuURSD 44999 ;
                                       :imaNamenu "Profesionalna" ;
-                                      :jeRGB "false"^^xsd:boolean ;
                                       :ramImaKapacitetUGigabajtima 16 ;
                                       :ramImaLatencijuUCL 19 ;
                                       :ramImaRadnuFrekvencijuUMegahercima 5000 ;
@@ -1623,7 +1602,6 @@
                                             :imaProizvodjaca :Kingston ;
                                             :imaCenuURSD 35999 ;
                                             :imaNamenu "Gaming" ;
-                                            :jeRGB "false"^^xsd:boolean ;
                                             :ramImaKapacitetUGigabajtima 64 ;
                                             :ramImaLatencijuUCL 40 ;
                                             :ramImaRadnuFrekvencijuUMegahercima 5200 ;
@@ -1637,7 +1615,6 @@
                                             :imaProizvodjaca :Kingston ;
                                             :imaCenuURSD 44999 ;
                                             :imaNamenu "Razvoj aplikacija" ;
-                                            :jeRGB "true"^^xsd:boolean ;
                                             :ramImaKapacitetUGigabajtima 64 ;
                                             :ramImaLatencijuUCL 40 ;
                                             :ramImaRadnuFrekvencijuUMegahercima 5600 ;
@@ -1651,7 +1628,6 @@
                                            :imaProizvodjaca :Kingston ;
                                            :imaCenuURSD 6499 ;
                                            :imaNamenu "Gaming" ;
-                                           :jeRGB "false"^^xsd:boolean ;
                                            :ramImaKapacitetUGigabajtima 8 ;
                                            :ramImaLatencijuUCL 40 ;
                                            :ramImaRadnuFrekvencijuUMegahercima 5600 ;
@@ -1665,7 +1641,6 @@
                                              :imaProizvodjaca :Kingston ;
                                              :imaCenuURSD 16999 ;
                                              :imaNamenu "Kucna upotreba" ;
-                                             :jeRGB "false"^^xsd:boolean ;
                                              :ramImaKapacitetUGigabajtima 32 ;
                                              :ramImaLatencijuUCL 40 ;
                                              :ramImaRadnuFrekvencijuUMegahercima 5600 ;
@@ -1679,7 +1654,6 @@
                                                :imaProizvodjaca :Kingston ;
                                                :imaCenuURSD 11999 ;
                                                :imaNamenu "Rudarenje kriptovaluta" ;
-                                               :jeRGB "true"^^xsd:boolean ;
                                                :ramImaKapacitetUGigabajtima 16 ;
                                                :ramImaLatencijuUCL 32 ;
                                                :ramImaRadnuFrekvencijuUMegahercima 6400 ;
@@ -1693,7 +1667,6 @@
                                                :imaProizvodjaca :Kingston ;
                                                :imaCenuURSD 41999 ;
                                                :imaNamenu "Gaming" ;
-                                               :jeRGB "true"^^xsd:boolean ;
                                                :ramImaKapacitetUGigabajtima 32 ;
                                                :ramImaLatencijuUCL 36 ;
                                                :ramImaRadnuFrekvencijuUMegahercima 6800 ;
@@ -1707,7 +1680,6 @@
                                                :imaProizvodjaca :Kingston ;
                                                :imaCenuURSD 30999 ;
                                                :imaNamenu "Gaming" ;
-                                               :jeRGB "true"^^xsd:boolean ;
                                                :ramImaKapacitetUGigabajtima 32 ;
                                                :ramImaLatencijuUCL 38 ;
                                                :ramImaRadnuFrekvencijuUMegahercima 7200 ;
@@ -1721,7 +1693,6 @@
                                           :imaProizvodjaca :Kingston ;
                                           :imaCenuURSD 13999 ;
                                           :imaNamenu "Kucna upotreba" ;
-                                          :jeRGB "false"^^xsd:boolean ;
                                           :ramImaKapacitetUGigabajtima 32 ;
                                           :ramImaLatencijuUCL 18 ;
                                           :ramImaRadnuFrekvencijuUMegahercima 3600 ;
@@ -1858,7 +1829,6 @@
                       :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                       :imaCenuURSD 64999 ;
                       :imaNamenu "Gaming" ;
-                      :jeRGB "true"^^xsd:boolean ;
                       :maticnaImaChipset "Intel_Z690" ;
                       :maticnaImaM2Slotova 5 ;
                       :maticnaImaPCIExpressSlotova 3 ;
@@ -1881,8 +1851,7 @@
                                       :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                       :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                       :imaCenuURSD 14999 ;
-                                      :imaNamenu "Kucna upotreba" ;
-                                      :jeRGB "false"^^xsd:boolean .
+                                      :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Nvidia_GeForce_GT_710_2GB_GDDR3
@@ -1900,8 +1869,7 @@
                                      :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                      :grafickaImaVGAInterfejs "true"^^xsd:boolean ;
                                      :imaCenuURSD 7999 ;
-                                     :imaNamenu "Kucna upotreba" ;
-                                     :jeRGB "false"^^xsd:boolean .
+                                     :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/MSI_Pro_B760M_DDR4
@@ -1911,7 +1879,6 @@
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
                     :imaCenuURSD 17999 ;
                     :imaNamenu "Profesionalna" ;
-                    :jeRGB "false"^^xsd:boolean ;
                     :maticnaImaChipset "Intel_B760" ;
                     :maticnaImaM2Slotova 2 ;
                     :maticnaImaPCIExpressSlotova 3 ;
@@ -1946,8 +1913,7 @@
                                          :grafickaImaUSBCInterfejs "false"^^xsd:boolean ;
                                          :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                          :imaCenuURSD 36999 ;
-                                         :imaNamenu "Hostovanje" ;
-                                         :jeRGB "false"^^xsd:boolean .
+                                         :imaNamenu "Hostovanje" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Samsung
@@ -2003,8 +1969,7 @@
                                           :grafickaImaUSBCInterfejs "true"^^xsd:boolean ;
                                           :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                           :imaCenuURSD 159999 ;
-                                          :imaNamenu "Rudarenje kriptovaluta" ;
-                                          :jeRGB "false"^^xsd:boolean .
+                                          :imaNamenu "Rudarenje kriptovaluta" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Transcend
