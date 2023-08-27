@@ -1,27 +1,180 @@
-<div class="component-container red">
-    <form [formGroup]="gpuSpecsForm" (submit)="findGpus()">
-        <mat-form-field class="form-field" appearance="fill">
-            <mat-label>Memory [GB]</mat-label>
-            <input matInput formControlName="memoryInGigabytes" required>
-        </mat-form-field>
-        <mat-form-field class="form-field" appearance="fill">
-            <mat-label>Memory Bus [Bit]</mat-label>
-            <input matInput formControlName="memoryBusInBits" required>
-        </mat-form-field>
-        <mat-form-field class="form-field" appearance="fill">
-            <mat-label>PCI Express Version</mat-label>
-            <input matInput formControlName="pciExpressVersion" required>
-        </mat-form-field>
-        <mat-label>DVI Interface</mat-label>
-        <mat-checkbox formControlName="hasDVIInterface"></mat-checkbox>
-        <mat-label>USBC Interface</mat-label>
-        <mat-checkbox formControlName="hasUSBCInterface"></mat-checkbox>
-        <mat-label>HDMI Interface</mat-label>
-        <mat-checkbox formControlName="hasHDMIInterface"></mat-checkbox>
-        <mat-label>Display Port Interface</mat-label>
-        <mat-checkbox formControlName="hasDisplayPortInterface"></mat-checkbox>
-        <mat-label>VGA Interface</mat-label>
-        <mat-checkbox formControlName="hasVGAInterface"></mat-checkbox>
-        <button mat-raised-button color="primary" type="submit" class="ms-5">Find GPUs</button>
-    </form>
+<div>
+    <div class="component-container green text-center">
+        <div>
+            <h1>Motherboard Search</h1>
+            <form [formGroup]="motherboardSpecsForm" (submit)="findMotherboards()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of PCI Express Slots</mat-label>
+                    <input matInput formControlName="pciExpressSlots" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Sata Slots</mat-label>
+                    <input matInput formControlName="sataSlots" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Ram Slots</mat-label>
+                    <input matInput formControlName="ramSlots" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of M2 Slots</mat-label>
+                    <input matInput formControlName="m2Slots" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find Motherboards</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="component-container red text-center">
+        <div>
+            <h1>GPU Search</h1>
+            <form [formGroup]="gpuSpecsForm" (submit)="findGpus()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Memory [GB]</mat-label>
+                    <input matInput formControlName="memoryInGigabytes" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Memory Bus [Bit]</mat-label>
+                    <input matInput formControlName="memoryBusInBits" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>PCI Express Version</mat-label>
+                    <input matInput formControlName="pciExpressVersion" required>
+                </mat-form-field>
+                <mat-label>DVI Interface</mat-label>
+                <mat-checkbox formControlName="hasDVIInterface"></mat-checkbox>
+                <mat-label>USBC Interface</mat-label>
+                <mat-checkbox formControlName="hasUSBCInterface"></mat-checkbox>
+                <mat-label>HDMI Interface</mat-label>
+                <mat-checkbox formControlName="hasHDMIInterface"></mat-checkbox>
+                <mat-label>Display Port Interface</mat-label>
+                <mat-checkbox formControlName="hasDisplayPortInterface"></mat-checkbox>
+                <mat-label>VGA Interface</mat-label>
+                <mat-checkbox formControlName="hasVGAInterface"></mat-checkbox>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find GPUs</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="component-container orange text-center">
+        <div>
+            <h1>CPU Search</h1>
+            <form [formGroup]="cpuSpecsForm" (submit)="findCpus()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Thermic Power [W]</mat-label>
+                    <input matInput formControlName="thermicPower" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Cores</mat-label>
+                    <input matInput formControlName="cores" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Threads</mat-label>
+                    <input matInput formControlName="threads" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Fabrication process [nm]</mat-label>
+                    <input matInput formControlName="fabricationProcess" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Frequency [GHz]</mat-label>
+                    <input matInput formControlName="frequency" required>
+                </mat-form-field>
+                <mat-label>Is Overclockable</mat-label>
+                <mat-checkbox formControlName="canOverclock"></mat-checkbox>
+                <mat-label>Integrated Graphics</mat-label>
+                <mat-checkbox formControlName="hasIntegratedGraphics"></mat-checkbox>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find CPUs</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="component-container brown text-center">
+        <div>
+            <h1>PSU Search</h1>
+            <form [formGroup]="psuSpecsForm" (submit)="findPsus()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Sata Connectors</mat-label>
+                    <input matInput formControlName="sataConnectors" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>No. of Molex Connectors</mat-label>
+                    <input matInput formControlName="molexConnectors" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Exit Power [W]</mat-label>
+                    <input matInput formControlName="exitPower" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Fan Diameter [cm]</mat-label>
+                    <input matInput formControlName="fanDiameter" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find PSUs</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="component-container pink text-center">
+        <div>
+            <h1>Case Search</h1>
+            <form [formGroup]="caseSpecsForm" (submit)="findCases()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>PCI Slots</mat-label>
+                    <input matInput formControlName="pciSlots" required>
+                </mat-form-field>
+                <mat-label>Power Supply</mat-label>
+                <mat-checkbox formControlName="hasPowerSupply"></mat-checkbox>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find Cases</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="component-container teal text-center">
+        <div>
+            <h1>RAM Search</h1>
+            <form [formGroup]="ramSpecsForm" (submit)="findRams()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Latency [CL]</mat-label>
+                    <input matInput formControlName="latency" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Capacity [GB]</mat-label>
+                    <input matInput formControlName="capacity" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Frequency [MHz]</mat-label>
+                    <input matInput formControlName="frequency" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Voltage [V]</mat-label>
+                    <input matInput formControlName="voltage" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find RAMs</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="component-container blue text-center">
+        <div>
+            <h1>SSD Search</h1>
+            <form [formGroup]="ssdSpecsForm" (submit)="findSsds()">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Read Speed [MBps]</mat-label>
+                    <input matInput formControlName="readSpeed" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Write Speed [MBps]</mat-label>
+                    <input matInput formControlName="writeSpeed" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Capacity [GB]</mat-label>
+                    <input matInput formControlName="capacity" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Thickness [mm]</mat-label>
+                    <input matInput formControlName="thickness" required>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="ms-5">Find SSDs</button>
+            </form>
+        </div>
+    </div>
 </div>

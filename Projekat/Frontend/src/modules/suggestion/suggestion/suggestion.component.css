@@ -6,6 +6,30 @@
     padding: 5px;
 }
 
+.green {
+    background-color: green;
+}
+
 .red {
     background-color: rgba(255, 0, 0, 0.404);
+}
+
+.orange {
+    background-color:  orange;
+}
+
+.brown {
+    background-color: rgb(124, 103, 103);
+}
+
+.pink {
+    background-color: palevioletred;
+}
+
+.teal {
+    background-color: teal;
+}
+
+.blue {
+    background-color: rgb(54, 52, 197);
 }

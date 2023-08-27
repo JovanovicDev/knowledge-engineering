@@ -33,6 +33,13 @@ export class SuggestionComponent implements OnInit {
   public searchedRams: Ram[] = [];
   public searchedSsds: Ssd[] = [];
 
+  motherboardSpecsForm: FormGroup = new FormGroup({
+    pciExpressSlots: new FormControl<number>(0),
+    sataSlots: new FormControl<number>(0),
+    ramSlots: new FormControl<number>(0),
+    m2Slots: new FormControl<number>(0),
+  });
+
   gpuSpecsForm: FormGroup = new FormGroup({
     memoryInGigabytes: new FormControl<number>(0),
     memoryBusInBits: new FormControl<number>(0),
@@ -42,6 +49,42 @@ export class SuggestionComponent implements OnInit {
     hasHDMIInterface: new FormControl<boolean>(false),
     hasDisplayPortInterface: new FormControl<boolean>(false),
     hasVGAInterface: new FormControl<boolean>(false),
+  });
+
+  cpuSpecsForm: FormGroup = new FormGroup({
+    thermicPower: new FormControl<number>(0),
+    cores: new FormControl<number>(0),
+    threads: new FormControl<number>(0),
+    fabricationProcess: new FormControl<number>(0),
+    frequency: new FormControl<number>(0),
+    canOverclock: new FormControl<boolean>(false),
+    hasIntegratedGraphics: new FormControl<boolean>(false),
+  });
+
+  psuSpecsForm: FormGroup = new FormGroup({
+    sataConnectors: new FormControl<number>(0),
+    molexConnectors: new FormControl<number>(0),
+    exitPower: new FormControl<number>(0),
+    fanDiameter: new FormControl<number>(0),
+  });
+
+  caseSpecsForm: FormGroup = new FormGroup({
+    pciSlots: new FormControl<number>(0),
+    hasPowerSupply: new FormControl<boolean>(false),
+  });
+
+  ramSpecsForm: FormGroup = new FormGroup({
+    latency: new FormControl<number>(0),
+    capacity: new FormControl<number>(0),
+    frequency: new FormControl<number>(0),
+    voltage: new FormControl<number>(0),
+  });
+
+  ssdSpecsForm: FormGroup = new FormGroup({
+    thickness: new FormControl<number>(0),
+    capacity: new FormControl<number>(0),
+    readSpeed: new FormControl<number>(0),
+    writeSpeed: new FormControl<number>(0),
   });
 
   constructor(public suggestionService: SuggestionService){}
@@ -102,7 +145,31 @@ export class SuggestionComponent implements OnInit {
     });
   }
 
+  findMotherboards() {
+    console.log(this.motherboardSpecsForm.value)
+  }
+
   findGpus() {
     console.log(this.gpuSpecsForm.value)
+  }
+
+  findCpus() {
+    console.log(this.cpuSpecsForm.value)
+  }
+
+  findPsus() {
+    console.log(this.psuSpecsForm.value)
+  }
+
+  findCases() {
+    console.log(this.caseSpecsForm.value)
+  }
+
+  findRams() {
+    console.log(this.ramSpecsForm.value)
+  }
+
+  findSsds() {
+    console.log(this.ssdSpecsForm.value)
   }
 }
