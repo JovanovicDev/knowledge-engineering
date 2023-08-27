@@ -1,1 +1,27 @@
-
+<div class="component-container red">
+    <form [formGroup]="gpuSpecsForm" (submit)="findGpus()">
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Memory [GB]</mat-label>
+            <input matInput formControlName="memoryInGigabytes" required>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Memory Bus [Bit]</mat-label>
+            <input matInput formControlName="memoryBusInBits" required>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>PCI Express Version</mat-label>
+            <input matInput formControlName="pciExpressVersion" required>
+        </mat-form-field>
+        <mat-label>DVI Interface</mat-label>
+        <mat-checkbox formControlName="hasDVIInterface"></mat-checkbox>
+        <mat-label>USBC Interface</mat-label>
+        <mat-checkbox formControlName="hasUSBCInterface"></mat-checkbox>
+        <mat-label>HDMI Interface</mat-label>
+        <mat-checkbox formControlName="hasHDMIInterface"></mat-checkbox>
+        <mat-label>Display Port Interface</mat-label>
+        <mat-checkbox formControlName="hasDisplayPortInterface"></mat-checkbox>
+        <mat-label>VGA Interface</mat-label>
+        <mat-checkbox formControlName="hasVGAInterface"></mat-checkbox>
+        <button mat-raised-button color="primary" type="submit" class="ms-5">Find GPUs</button>
+    </form>
+</div>

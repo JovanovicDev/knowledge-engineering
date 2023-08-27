@@ -1,0 +1,11 @@
+.form-field {
+    margin-right: 5px;
+}
+
+.component-container {
+    padding: 5px;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.404);
+}
