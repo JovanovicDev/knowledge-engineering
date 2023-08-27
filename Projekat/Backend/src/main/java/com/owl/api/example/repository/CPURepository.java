@@ -1,18 +1,24 @@
 package com.owl.api.example.repository;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.search.EntitySearcher;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -27,6 +33,7 @@ public class CPURepository {
     private IRI ontologyIRI;
     private OWLReasoner reasoner; 
     private OWLDataFactory dataFactory;
+    private OWLOntologyManager manager;
     
     private OWLClass cpuClass;
 	private OWLObjectProperty manufacturer;
@@ -68,14 +75,45 @@ public class CPURepository {
 	}
 	
 	public List<CPU> findCPUs(int thermicPower, int cores, int threads, int fabricationProcess, double frequency, boolean canOverclock, boolean hasIntegratedGraphics) {
-		List<CPU> allCPUs = getAll();
+		Set<OWLNamedIndividual> cpuIndividuals = this.reasoner.getInstances(this.cpuClass, false).getFlattened();
 		List<CPU> filteredCPUs = new ArrayList<>();
-		for(CPU c : allCPUs) {
-			if(c.getThermicPower() == thermicPower && c.getCores() == cores && c.getThreads() == threads && c.getFabricationProcess() == fabricationProcess && c.getFrequency() == frequency && c.isCanOverclock() == canOverclock && c.isHasIntegratedGraphics() == hasIntegratedGraphics) {
-				filteredCPUs.add(c);
-			}
-		}
-		return filteredCPUs;
+        for (OWLNamedIndividual individual : cpuIndividuals) {
+            List<OWLLiteral> tpFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.thermicPower), this.ontology).toList();
+            int thermicPowerValue = Integer.parseInt(tpFromIndividual.get(0).getLiteral());
+            
+            List<OWLLiteral> coresFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.cores), this.ontology).toList();
+            int coresValue = Integer.parseInt(coresFromIndividual.get(0).getLiteral());
+            
+            List<OWLLiteral> threadsFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.threads), this.ontology).toList();
+            int threadsValue = Integer.parseInt(threadsFromIndividual.get(0).getLiteral());
+            
+            List<OWLLiteral> fabricationProcessFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.fabricationProcess), this.ontology).toList();
+            int fabricationProcessValue = Integer.parseInt(fabricationProcessFromIndividual.get(0).getLiteral());
+            
+            List<OWLLiteral> frequencyFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.frequency), this.ontology).toList();
+            double frequencyValue = Double.parseDouble(frequencyFromIndividual.get(0).getLiteral());
+            
+            List<OWLLiteral> canOverclockFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.canOverclock), this.ontology).toList();
+            boolean canOverclockValue;
+            if(canOverclockFromIndividual.get(0).getLiteral().equals("true")) {
+            	canOverclockValue = true;
+            } else {
+            	canOverclockValue = false;
+            }
+
+            List<OWLLiteral> hasIntegratedGraphicsFromIndividual = EntitySearcher.getDataPropertyValues(individual, this.manager.getOWLDataFactory().getOWLDataProperty(this.hasIntegratedGraphics), this.ontology).toList();
+            boolean hasIntegratedGraphicsValue;
+            if(hasIntegratedGraphicsFromIndividual.get(0).getLiteral().equals("true")) {
+            	hasIntegratedGraphicsValue = true;
+            } else {
+            	hasIntegratedGraphicsValue = false;
+            }
+            
+            if (thermicPowerValue == thermicPower && coresValue == cores && threadsValue == threads && fabricationProcessValue == fabricationProcess && frequencyValue == frequency && canOverclockValue == canOverclock && hasIntegratedGraphicsValue == hasIntegratedGraphics) {
+            	filteredCPUs.add(createCPUFromIndividual(individual));
+            }
+        }
+        return filteredCPUs;
 	}
 	
 	public CPU createCPUFromIndividual(OWLNamedIndividual cpuIndividual) {
@@ -164,5 +202,11 @@ public class CPURepository {
 		this.ontologyIRI = ontologySetup.getOntologyIRI();
 		this.reasoner = ontologySetup.getReasoner();
 		this.dataFactory = ontologySetup.getDataFactory();
+		this.manager = OWLManager.createOWLOntologyManager();
+		try {
+			this.ontology = this.manager.loadOntologyFromOntologyDocument(new File("data/knowledge-base-dj.ttl"));
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		}
 	}
 }
