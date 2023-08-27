@@ -68,9 +68,18 @@ export class SuggestionService {
     });
   }
 
-  // findCPUs(): Observable<CPU[]> {
-
-  // }
+  findCPUs(thermicPower: number, cores: number, threads: number, fabricationProcess: number, frequency: number, canOverclock: boolean, hasIntegratedGraphics: boolean): Observable<Cpu[]> {
+    return this.httpClient.get<Cpu[]>('api/cpu/find', {
+      params: new HttpParams()
+      .set('thermicPower', thermicPower)
+      .set('cores', cores)
+      .set('threads', threads)
+      .set('fabricationProcess', fabricationProcess)
+      .set('frequency', frequency)
+      .set('canOverclock', canOverclock)
+      .set('hasIntegratedGraphics', hasIntegratedGraphics)
+    });
+  }
 
   // findPSUs(): Observable<PSU[]> {
 

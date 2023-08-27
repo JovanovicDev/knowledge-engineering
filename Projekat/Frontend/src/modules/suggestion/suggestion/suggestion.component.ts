@@ -172,7 +172,17 @@ export class SuggestionComponent implements OnInit {
   }
 
   findCpus() {
-    console.log(this.cpuSpecsForm.value)
+    this.suggestionService.findCPUs(
+      this.cpuSpecsForm.value.thermicPower,
+      this.cpuSpecsForm.value.cores,
+      this.cpuSpecsForm.value.threads,
+      this.cpuSpecsForm.value.fabricationProcess,
+      this.cpuSpecsForm.value.frequency,
+      this.cpuSpecsForm.value.canOverclock,
+      this.cpuSpecsForm.value.hasIntegratedGraphics
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findPsus() {

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.CPU;
 import com.owl.api.example.model.CPUSocket;
+import com.owl.api.example.model.GPU;
 import com.owl.api.example.model.Manufacturer;
 import com.owl.api.example.model.Purpose;
 
@@ -65,6 +66,17 @@ public class CPURepository {
             cpus.add(createCPUFromIndividual(individual));
         }
         return cpus;
+	}
+	
+	public List<CPU> findCPUs(int thermicPower, int cores, int threads, int fabricationProcess, double frequency, boolean canOverclock, boolean hasIntegratedGraphics) {
+		List<CPU> allCPUs = getAll();
+		List<CPU> filteredCPUs = new ArrayList<>();
+		for(CPU c : allCPUs) {
+			if(c.getThermicPower() == thermicPower && c.getCores() == cores && c.getThreads() == threads && c.getFabricationProcess() == fabricationProcess && c.getFrequency() == frequency && c.isCanOverclock() == canOverclock && c.isHasIntegratedGraphics() == hasIntegratedGraphics) {
+				filteredCPUs.add(c);
+			}
+		}
+		return filteredCPUs;
 	}
 	
 	public CPU createCPUFromIndividual(OWLNamedIndividual cpuIndividual) {
