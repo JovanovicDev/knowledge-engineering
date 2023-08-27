@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Case } from 'src/models/case.model';
@@ -44,4 +44,8 @@ export class SuggestionService {
     return this.httpClient.get<Ssd[]>('api/ssd');
   }
   
+  findMotherboards(pciExpressSlots: number, sataSlots: number, ramSlots: number, m2Slots: number): Observable<Motherboard[]> {
+    return this.httpClient.get<Motherboard[]>('api/motherboard/find', {params: new HttpParams().set('pciExpressSlots', pciExpressSlots).set('sataSlots', sataSlots)
+    .set('ramSlots', ramSlots).set('m2Slots', m2Slots)});
+  }
 }

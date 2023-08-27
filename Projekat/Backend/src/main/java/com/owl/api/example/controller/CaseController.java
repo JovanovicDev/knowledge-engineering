@@ -19,7 +19,7 @@ public class CaseController {
 	private CaseRepository caseRepository;
 	
 	@GetMapping()
-	public ResponseEntity<List<Case>> getAllCasess() {
+	public ResponseEntity<List<Case>> getAllCases() {
 		return new ResponseEntity<List<Case>>(this.caseRepository.getAll(), HttpStatus.OK);
 	}
 }

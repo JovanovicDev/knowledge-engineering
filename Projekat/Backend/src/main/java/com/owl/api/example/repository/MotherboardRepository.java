@@ -63,6 +63,17 @@ public class MotherboardRepository {
         return motherboards;
 	}
 	
+	public List<Motherboard> findMotherboards(int pciExpressSlots, int sataSlots, int ramSlots, int m2Slots) {
+		List<Motherboard> allMotherboards = getAll();
+		List<Motherboard> filteredMotherboards = new ArrayList<>();
+		for(Motherboard m : allMotherboards) {
+			if(m.getPciExpressSlots() == pciExpressSlots && m.getSataSlots() == sataSlots && m.getRamSlots() == ramSlots && m.getM2Slots() == m2Slots) {
+				filteredMotherboards.add(m);
+			}
+		}
+		return filteredMotherboards;
+	}
+	
 	public Motherboard createMotherboardFromIndividual(OWLNamedIndividual motherboardIndividual) {
 		Motherboard motherboard = new Motherboard();
 		motherboard.setName(motherboardIndividual.getIRI().getShortForm());

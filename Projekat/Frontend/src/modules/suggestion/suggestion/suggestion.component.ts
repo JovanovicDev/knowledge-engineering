@@ -146,7 +146,14 @@ export class SuggestionComponent implements OnInit {
   }
 
   findMotherboards() {
-    console.log(this.motherboardSpecsForm.value)
+    this.suggestionService.findMotherboards(
+      this.motherboardSpecsForm.value.pciExpressSlots,
+      this.motherboardSpecsForm.value.sataSlots,
+      this.motherboardSpecsForm.value.ramSlots,
+      this.motherboardSpecsForm.value.m2Slots,
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findGpus() {
