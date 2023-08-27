@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SuggestionComponent } from './suggestion/suggestion.component';
+import { ValidityComponent } from './validity/validity.component';
 
 
 
 @NgModule({
   declarations: [
-    SuggestionComponent
+    ValidityComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    SuggestionComponent
+    ValidityComponent
   ]
 })
-export class SuggestionModule { }
+export class ValidityModule { }
