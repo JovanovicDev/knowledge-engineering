@@ -6,13 +6,17 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -81,6 +85,25 @@ public class GPURepository {
 		}
 		return filteredGPUs;
 	}
+	
+	public GPU findUpgrade(GPU gpu) {
+        Set<OWLLiteral> memoryTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + gpu.getName())), memoryType);
+        OWLLiteral memoryType = memoryTypeLiterals.stream().findFirst().orElse(null);
+		
+        OWLDataRange capacity = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(gpu.getMemoryInGigabytes()));
+        
+        OWLClassExpression gpuQuery = dataFactory.getOWLObjectIntersectionOf(
+                this.gpuClass,
+                dataFactory.getOWLDataHasValue(this.memoryType, memoryType),
+                dataFactory.getOWLDataSomeValuesFrom(this.capacity, capacity)
+        );
+
+        for (OWLNamedIndividual gpuIndividual : reasoner.getInstances(gpuQuery, true).getFlattened())
+            return createGPUFromIndividual(gpuIndividual);
+        
+        return gpu;
+    }
 	
 	public GPU createGPUFromIndividual(OWLNamedIndividual gpuIndividual) {
 		GPU gpu = new GPU();

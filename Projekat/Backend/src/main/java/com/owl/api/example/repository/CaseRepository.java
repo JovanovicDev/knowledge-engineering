@@ -6,13 +6,17 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -67,6 +71,25 @@ public class CaseRepository {
 		}
 		return filteredCases;
 	}
+	
+	public Case findUpgrade(Case boxCase) {
+        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + boxCase.getName())), caseType);
+        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+		
+        OWLDataRange pciSlots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(boxCase.getPciSlots()));
+
+        OWLClassExpression caseQuery = dataFactory.getOWLObjectIntersectionOf(
+                this.caseClass,
+                dataFactory.getOWLDataHasValue(this.caseType, type),
+                dataFactory.getOWLDataSomeValuesFrom(this.pciCardSlots, pciSlots)
+        );
+
+        for (OWLNamedIndividual caseIndividual : reasoner.getInstances(caseQuery, true).getFlattened())
+            return createCaseFromIndividual(caseIndividual);
+        
+        return boxCase;
+    }
 	
 	public Case createCaseFromIndividual(OWLNamedIndividual caseIndividual) {
 		Case boxCase = new Case();

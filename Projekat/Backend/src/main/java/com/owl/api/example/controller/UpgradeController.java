@@ -1,18 +1,14 @@
 package com.owl.api.example.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.owl.api.example.model.CPU;
 import com.owl.api.example.model.Computer;
 import com.owl.api.example.repository.CPURepository;
 import com.owl.api.example.repository.CaseRepository;
@@ -62,19 +58,19 @@ public class UpgradeController {
 				break;
 			}	
 			case "psu": {
-				//computer.setPowerSupply(this.psuRepository.findUpgrade(computer.getPowerSupply()));
+				computer.setPowerSupply(this.psuRepository.findUpgrade(computer.getPowerSupply()));
 				break;
 			}
 			case "case": {
-				//computer.setCase(this.caseRepository.findUpgrade(computer.getBoxCase()));
+				computer.setBoxCase(this.caseRepository.findUpgrade(computer.getBoxCase()));
 				break;
 			}
 			case "ram": {
-				//computer.setRam(this.ramRepository.findUpgrade(computer.getRam()));
+				computer.setRam(this.ramRepository.findUpgrade(computer.getRam()));
 				break;
 			}
 			case "ssd": {
-				//computer.setSsd(this.ssdRepository.findUpgrade(computer.getSsd()));
+				computer.setSsd(this.ssdRepository.findUpgrade(computer.getSsd()));
 				break;
 			}
         }

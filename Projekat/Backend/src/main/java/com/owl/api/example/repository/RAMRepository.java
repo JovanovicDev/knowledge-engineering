@@ -6,13 +6,17 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -71,6 +75,25 @@ public class RAMRepository {
 		}
 		return filteredRAMs;
 	}
+	
+	public RAM findUpgrade(RAM ram) {
+        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + ram.getName())), type);
+        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+		
+        OWLDataRange capacity = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(ram.getCapacity()));
+
+        OWLClassExpression ramQuery = dataFactory.getOWLObjectIntersectionOf(
+                this.ramClass,
+                dataFactory.getOWLDataHasValue(this.type, type),
+                dataFactory.getOWLDataSomeValuesFrom(this.capacity, capacity)
+        );
+
+        for (OWLNamedIndividual ramIndividual : reasoner.getInstances(ramQuery, true).getFlattened())
+            return createRAMFromIndividual(ramIndividual);
+        
+        return ram;
+    }
 	
 	public RAM createRAMFromIndividual(OWLNamedIndividual ramIndividual) {
 		RAM ram = new RAM();

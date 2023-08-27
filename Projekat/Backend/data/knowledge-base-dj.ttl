@@ -1313,7 +1313,7 @@
                               :imaProizvodjaca :CoolerMaster ;
                               :imaCenuURSD 32999 ;
                               :imaNamenu "Rudarenje kriptovaluta" ;
-                              :kucisteImaMestaZaPCIKartice 12 ;
+                              :kucisteImaMestaZaPCIKartice 10 ;
                               :kucisteImaNapajanje "false"^^xsd:boolean ;
                               :kucisteJeTipa "FullTower" .
 
