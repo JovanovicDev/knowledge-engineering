@@ -61,7 +61,7 @@ public class SSDRepository {
         return ssds;
 	}
 	
-	private SSD createSSDFromIndividual(OWLNamedIndividual ssdIndividual) {
+	public SSD createSSDFromIndividual(OWLNamedIndividual ssdIndividual) {
 		SSD ssd = new SSD();
 		ssd.setName(ssdIndividual.getIRI().getShortForm());
 		

@@ -61,7 +61,7 @@ public class PowerSupplyRepository {
         return psus;
 	}
 	
-	private PowerSupply createPowerSupplyFromIndividual(OWLNamedIndividual psuIndividual) {
+	public PowerSupply createPowerSupplyFromIndividual(OWLNamedIndividual psuIndividual) {
 		PowerSupply psu = new PowerSupply();
 		psu.setName(psuIndividual.getIRI().getShortForm());
 		

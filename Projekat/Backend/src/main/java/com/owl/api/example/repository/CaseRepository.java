@@ -57,7 +57,7 @@ public class CaseRepository {
         return cases;
 	}
 	
-	private Case createCaseFromIndividual(OWLNamedIndividual caseIndividual) {
+	public Case createCaseFromIndividual(OWLNamedIndividual caseIndividual) {
 		Case boxCase = new Case();
 		boxCase.setName(caseIndividual.getIRI().getShortForm());
 		

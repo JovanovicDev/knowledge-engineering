@@ -67,7 +67,7 @@ public class CPURepository {
         return cpus;
 	}
 	
-	private CPU createCPUFromIndividual(OWLNamedIndividual cpuIndividual) {
+	public CPU createCPUFromIndividual(OWLNamedIndividual cpuIndividual) {
 		CPU cpu = new CPU();
 		cpu.setName(cpuIndividual.getIRI().getShortForm());
 		

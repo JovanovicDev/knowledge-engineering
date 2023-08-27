@@ -61,7 +61,7 @@ public class RAMRepository {
         return rams;
 	}
 	
-	private RAM createRAMFromIndividual(OWLNamedIndividual ramIndividual) {
+	public RAM createRAMFromIndividual(OWLNamedIndividual ramIndividual) {
 		RAM ram = new RAM();
 		ram.setName(ramIndividual.getIRI().getShortForm());
 		

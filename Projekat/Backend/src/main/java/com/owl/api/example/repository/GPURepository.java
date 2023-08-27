@@ -71,7 +71,7 @@ public class GPURepository {
         return gpus;
 	}
 	
-	private GPU createGPUFromIndividual(OWLNamedIndividual gpuIndividual) {
+	public GPU createGPUFromIndividual(OWLNamedIndividual gpuIndividual) {
 		GPU gpu = new GPU();
 		gpu.setName(gpuIndividual.getIRI().getShortForm());
 		

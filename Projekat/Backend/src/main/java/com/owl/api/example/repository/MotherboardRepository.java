@@ -63,7 +63,7 @@ public class MotherboardRepository {
         return motherboards;
 	}
 	
-	private Motherboard createMotherboardFromIndividual(OWLNamedIndividual motherboardIndividual) {
+	public Motherboard createMotherboardFromIndividual(OWLNamedIndividual motherboardIndividual) {
 		Motherboard motherboard = new Motherboard();
 		motherboard.setName(motherboardIndividual.getIRI().getShortForm());
 		

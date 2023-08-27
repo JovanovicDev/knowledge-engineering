@@ -1,6 +1,7 @@
 package com.owl.api.example.model;
 
 public class Computer {
+	private String name;
 	private Motherboard motherboard;
 	private GPU gpu;
 	private CPU cpu;
@@ -14,9 +15,10 @@ public class Computer {
 	public Computer() {
 	}
 	
-	public Computer(Motherboard motherboard, GPU gpu, CPU cpu, RAM ram, SSD ssd, PowerSupply powerSupply, Case boxCase,
+	public Computer(String name, Motherboard motherboard, GPU gpu, CPU cpu, RAM ram, SSD ssd, PowerSupply powerSupply, Case boxCase,
 			Purpose purpose, int price) {
 		super();
+		this.name = name;
 		this.motherboard = motherboard;
 		this.gpu = gpu;
 		this.cpu = cpu;
@@ -26,6 +28,14 @@ public class Computer {
 		this.boxCase = boxCase;
 		this.purpose = purpose;
 		this.price = price;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Motherboard getMotherboard() {
