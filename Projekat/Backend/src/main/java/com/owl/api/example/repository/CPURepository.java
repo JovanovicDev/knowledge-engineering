@@ -82,7 +82,7 @@ public class CPURepository {
                 		cpu.setPurpose(Purpose.HOME_USE);
                 		break;
                 	}
-                	case "Poslovna": {
+                	case "Profesionalna": {
                 		cpu.setPurpose(Purpose.PROFESSIONAL_USE);
                 		break;
                 	}
