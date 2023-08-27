@@ -6,13 +6,17 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
+import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -73,6 +77,37 @@ public class MotherboardRepository {
 		}
 		return filteredMotherboards;
 	}
+	
+	public Motherboard findUpgrade(Motherboard motherboard) {
+        Set<OWLLiteral> chipsetLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), chipset);
+        OWLLiteral chipset = chipsetLiterals.stream().findFirst().orElse(null);
+		
+        OWLDataRange numOfPCIExpressSlots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(motherboard.getPciExpressSlots()));
+        
+        OWLDataRange numOfSataSlots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(motherboard.getSataSlots()));
+
+        OWLDataRange numOfRamSlots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(motherboard.getRamSlots()));
+        
+        OWLDataRange numOfM2Slots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(motherboard.getM2Slots()));
+        
+        OWLClassExpression motherboardQuery = dataFactory.getOWLObjectIntersectionOf(
+                this.motherboardClass,
+                dataFactory.getOWLDataHasValue(this.chipset, chipset),
+                dataFactory.getOWLDataSomeValuesFrom(this.pciExpressSlots, numOfPCIExpressSlots),
+                dataFactory.getOWLDataSomeValuesFrom(this.sataSlots, numOfSataSlots),
+                dataFactory.getOWLDataSomeValuesFrom(this.ramSlots, numOfRamSlots),
+                dataFactory.getOWLDataSomeValuesFrom(this.m2Slots, numOfM2Slots)
+        );
+
+        for (OWLNamedIndividual motherboardIndividual : reasoner.getInstances(motherboardQuery, true).getFlattened())
+            return createMotherboardFromIndividual(motherboardIndividual);
+        
+        return motherboard;
+    }
 	
 	public Motherboard createMotherboardFromIndividual(OWLNamedIndividual motherboardIndividual) {
 		Motherboard motherboard = new Motherboard();

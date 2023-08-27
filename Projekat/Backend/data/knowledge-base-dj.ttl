@@ -93,13 +93,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#proizvodjacImaIme
-:proizvodjacImaIme rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf owl:topDataProperty ;
-                   rdfs:domain :Proizvodjac ;
-                   rdfs:range xsd:string .
-
-
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/SSDImaBrzinuCitanjaUMBPS
 :SSDImaBrzinuCitanjaUMBPS rdf:type owl:DatatypeProperty ;
                           rdfs:subPropertyOf owl:topDataProperty ;
@@ -459,6 +452,13 @@
                               rdfs:subPropertyOf owl:topDataProperty ;
                               rdfs:domain :Procesor ;
                               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/proizvodjacImaIme
+:proizvodjacImaIme rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Proizvodjac ;
+                   rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ramImaKapacitetUGigabajtima
@@ -1135,10 +1135,10 @@
                        :imaCenuURSD 11999 ;
                        :imaNamenu "Kucna upotreba" ;
                        :maticnaImaChipset "AMD_B550" ;
-                       :maticnaImaM2Slotova 2 ;
-                       :maticnaImaPCIExpressSlotova 4 ;
-                       :maticnaImaRAMSlotova 4 ;
-                       :maticnaImaSataSlotova 4 .
+                       :maticnaImaM2Slotova 1 ;
+                       :maticnaImaPCIExpressSlotova 1 ;
+                       :maticnaImaRAMSlotova 1 ;
+                       :maticnaImaSataSlotova 2 .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6
@@ -1397,7 +1397,7 @@
                                :imaNamenu "Razvoj aplikacija" ;
                                :maticnaImaChipset "AMD_B550" ;
                                :maticnaImaM2Slotova 2 ;
-                               :maticnaImaPCIExpressSlotova 1 ;
+                               :maticnaImaPCIExpressSlotova 2 ;
                                :maticnaImaRAMSlotova 2 ;
                                :maticnaImaSataSlotova 4 .
 

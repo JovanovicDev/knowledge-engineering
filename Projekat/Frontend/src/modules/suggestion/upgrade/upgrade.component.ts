@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Case } from 'src/models/case.model';
+import { Computer } from 'src/models/computer.model';
 import { Cpu } from 'src/models/cpu.model';
 import { Gpu } from 'src/models/gpu.model';
 import { Motherboard } from 'src/models/motherboard.model';
@@ -21,6 +22,17 @@ export class UpgradeComponent implements OnInit{
   public cases: Case[] = [];
   public rams: Ram[] = [];
   public ssds: Ssd[] = [];
+
+  public selectedMotherboard: Motherboard | null = null;
+  public selectedGpu: Gpu | null = null;
+  public selectedCpu: Cpu | null = null;
+  public selectedPsu: Psu | null = null;
+  public selectedCase: Case | null = null;
+  public selectedRam: Ram | null = null;
+  public selectedSsd: Ssd | null = null;
+  public selectedComponentType: string | null = null;
+
+  public upgradedConfiguration: Computer | null = null;
 
   constructor(public suggestionService: SuggestionService){}
 
@@ -77,6 +89,20 @@ export class UpgradeComponent implements OnInit{
   fetchSsds() {
     this.suggestionService.getAllSSDs().subscribe((res) => {
       this.ssds = res;
+    });
+  }
+
+  findUpgrade() {
+    let computer = new Computer();
+    computer.motherboard = this.selectedMotherboard;
+    computer.gpu = this.selectedGpu;
+    computer.cpu = this.selectedCpu;
+    computer.powerSupply = this.selectedPsu;
+    computer.boxCase = this.selectedCase;
+    computer.ram = this.selectedRam;
+    computer.ssd = this.selectedSsd;
+    this.suggestionService.upgrade(computer, this.selectedComponentType!).subscribe((res) => {
+      this.upgradedConfiguration = res;
     });
   }
 }

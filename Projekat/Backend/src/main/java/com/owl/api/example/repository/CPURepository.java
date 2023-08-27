@@ -8,9 +8,11 @@ import java.util.Set;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataRange;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
@@ -19,6 +21,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.search.EntitySearcher;
+import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
@@ -115,6 +118,29 @@ public class CPURepository {
         }
         return filteredCPUs;
 	}
+	
+	public CPU findUpgrade(CPU cpu) {
+        Set<OWLLiteral> socketLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + cpu.getName())), socket);
+        OWLLiteral socket = socketLiterals.stream().findFirst().orElse(null);
+		
+        OWLDataRange numOfCores = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(cpu.getCores()));
+        
+        OWLDataRange numOfThreads = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
+                OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(cpu.getThreads()));
+
+        OWLClassExpression cpuQuery = dataFactory.getOWLObjectIntersectionOf(
+                this.cpuClass,
+                dataFactory.getOWLDataHasValue(this.socket, socket),
+                dataFactory.getOWLDataSomeValuesFrom(this.cores, numOfCores),
+                dataFactory.getOWLDataSomeValuesFrom(this.threads, numOfThreads)
+        );
+
+        for (OWLNamedIndividual cpuIndividual : reasoner.getInstances(cpuQuery, true).getFlattened())
+            return createCPUFromIndividual(cpuIndividual);
+        
+        return cpu;
+    }
 	
 	public CPU createCPUFromIndividual(OWLNamedIndividual cpuIndividual) {
 		CPU cpu = new CPU();

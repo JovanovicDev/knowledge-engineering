@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Case } from 'src/models/case.model';
+import { Computer } from 'src/models/computer.model';
 import { Cpu } from 'src/models/cpu.model';
 import { Gpu } from 'src/models/gpu.model';
 import { Motherboard } from 'src/models/motherboard.model';
@@ -117,6 +118,10 @@ export class SuggestionService {
       .set('readSpeed', readSpeed)
       .set('writeSpeed', writeSpeed)
     });
+  }
+
+  upgrade(configuration: Computer, componentType: string): Observable<Computer> {
+    return this.httpClient.post<Computer>('api/upgrade?componentType=' + componentType, configuration);
   }
 
 }
