@@ -6,19 +6,24 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 
-@Service
+@Component
 public class OntologySetup {
     private OWLOntology ontology;
     private IRI ontologyIRI;
-    private OWLReasoner reasoner;
+    private OWLReasoner reasoner; 
+    private OWLDataFactory dataFactory;
 
 	public OntologySetup() throws OWLOntologyCreationException {
-    	this.ontology = loadOntology(new File("data/knowledge-base-dj.ttl"));
+    	OWLOntology ontology1 = loadOntology(new File("data/knowledge-base-dj.ttl"));
+    	OWLOntologyManager ontologyManager = OWLManager.createOWLOntologyManager();
+    	this.dataFactory = ontologyManager.getOWLDataFactory();
+    	this.ontology = ontologyManager.createOntology(ontology1.getOntologyID().getOntologyIRI().get());
     	this.ontologyIRI = this.ontology.getOntologyID().getOntologyIRI().get();
+    	ontologyManager.addAxioms(this.ontology, ontology1.getAxioms());
     	Configuration config = new Configuration();
         config.ignoreUnsupportedDatatypes = false;
         OWLReasonerFactory reasonerFactory = new ReasonerFactory();
@@ -29,7 +34,7 @@ public class OntologySetup {
         return ontology;
     }
 
-    public void setOntology(OWLOntology ontology) {
+	public void setOntology(OWLOntology ontology) {
         this.ontology = ontology;
     }
     
@@ -49,6 +54,14 @@ public class OntologySetup {
         this.reasoner = reasoner;
     }
 
+    public OWLDataFactory getDataFactory() {
+		return dataFactory;
+	}
+
+	public void setDataFactory(OWLDataFactory dataFactory) {
+		this.dataFactory = dataFactory;
+	}
+    
     private static OWLOntology loadOntology(File file) throws OWLOntologyCreationException {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         OWLOntology o = manager.loadOntologyFromOntologyDocument(file);

@@ -1,6 +1,7 @@
 package com.owl.api.example.model;
 
 public class BaseModel {
+	private String name;
     private Manufacturer manufacturer;
     private Purpose purpose;
     private int price;
@@ -8,11 +9,20 @@ public class BaseModel {
     public BaseModel() {
     }
 
-    public BaseModel(Manufacturer manufacturer, Purpose purpose, int price) {
+    public BaseModel(String name, Manufacturer manufacturer, Purpose purpose, int price) {
 		super();
+		this.name = name;
 		this.manufacturer = manufacturer;
 		this.purpose = purpose;
 		this.price = price;
+	}
+    
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Manufacturer getManufacturer() {
