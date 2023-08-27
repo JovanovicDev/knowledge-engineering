@@ -16,7 +16,6 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
-import com.owl.api.example.model.CPU;
 import com.owl.api.example.model.Manufacturer;
 import com.owl.api.example.model.PowerSupply;
 import com.owl.api.example.model.PowerSupplyType;

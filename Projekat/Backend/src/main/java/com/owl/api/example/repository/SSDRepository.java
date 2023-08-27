@@ -61,6 +61,18 @@ public class SSDRepository {
         return ssds;
 	}
 	
+	public List<SSD> findSSDs(int thickness, int capacity, int readSpeed, int writeSpeed) {
+		List<SSD> allSSDs = getAll();
+		List<SSD> filteredSSDs = new ArrayList<>();
+		for(SSD s : allSSDs) {
+			if(s.getThickness() == thickness && s.getCapacity() == capacity && s.getReadSpeed() == readSpeed && s.getWriteSpeed() == writeSpeed) {
+				filteredSSDs.add(s);
+			}
+		}
+		return filteredSSDs;
+	}
+	
+	
 	public SSD createSSDFromIndividual(OWLNamedIndividual ssdIndividual) {
 		SSD ssd = new SSD();
 		ssd.setName(ssdIndividual.getIRI().getShortForm());

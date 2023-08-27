@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.owl.api.example.model.Case;
@@ -21,5 +22,12 @@ public class CaseController {
 	@GetMapping()
 	public ResponseEntity<List<Case>> getAllCases() {
 		return new ResponseEntity<List<Case>>(this.caseRepository.getAll(), HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/find")
+	public ResponseEntity<List<Case>> findCases(
+			@RequestParam int pciSlots, 
+			@RequestParam boolean hasPowerSupply) {
+		return new ResponseEntity<List<Case>>(this.caseRepository.findCases(pciSlots, hasPowerSupply), HttpStatus.OK);
 	}
 }

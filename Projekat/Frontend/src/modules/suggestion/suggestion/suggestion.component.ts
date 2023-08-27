@@ -197,14 +197,33 @@ export class SuggestionComponent implements OnInit {
   }
 
   findCases() {
-    console.log(this.caseSpecsForm.value)
+    this.suggestionService.findCases(
+      this.caseSpecsForm.value.pciSlots,
+      this.caseSpecsForm.value.hasPowerSupply,
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findRams() {
-    console.log(this.ramSpecsForm.value)
+    this.suggestionService.findRams(
+      this.ramSpecsForm.value.latency,
+      this.ramSpecsForm.value.capacity,
+      this.ramSpecsForm.value.frequency,
+      this.ramSpecsForm.value.voltage,
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findSsds() {
-    console.log(this.ssdSpecsForm.value)
+    this.suggestionService.findSsds(
+      this.ssdSpecsForm.value.thickness,
+      this.ssdSpecsForm.value.capacity,
+      this.ssdSpecsForm.value.readSpeed,
+      this.ssdSpecsForm.value.writeSpeed,
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 }

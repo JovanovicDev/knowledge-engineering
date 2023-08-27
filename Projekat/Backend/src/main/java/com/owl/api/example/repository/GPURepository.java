@@ -14,13 +14,11 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.GPU;
 import com.owl.api.example.model.GPUMemoryType;
 import com.owl.api.example.model.Manufacturer;
-import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 
 @Repository

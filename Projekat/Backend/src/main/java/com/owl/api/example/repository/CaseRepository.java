@@ -57,6 +57,17 @@ public class CaseRepository {
         return cases;
 	}
 	
+	public List<Case> findCases(int pciSlots, boolean hasPowerSupply) {
+		List<Case> allCases = getAll();
+		List<Case> filteredCases = new ArrayList<>();
+		for(Case c : allCases) {
+			if(c.getPciSlots() == pciSlots && c.isHasPowerSupply() == hasPowerSupply) {
+				filteredCases.add(c);
+			}
+		}
+		return filteredCases;
+	}
+	
 	public Case createCaseFromIndividual(OWLNamedIndividual caseIndividual) {
 		Case boxCase = new Case();
 		boxCase.setName(caseIndividual.getIRI().getShortForm());

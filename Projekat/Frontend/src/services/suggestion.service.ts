@@ -91,15 +91,32 @@ export class SuggestionService {
     });
   }
 
-  // findCases(): Observable<Case[]> {
+  findCases(pciSlots: number, hasPowerSupply: boolean): Observable<Case[]> {
+    return this.httpClient.get<Case[]>('api/case/find', {
+      params: new HttpParams()
+      .set('pciSlots', pciSlots)
+      .set('hasPowerSupply', hasPowerSupply)
+    });
+  } 
 
-  // } 
+  findRams(latency: number, capacity: number, frequency: number, voltage: number): Observable<Ram[]> {
+    return this.httpClient.get<Ram[]>('api/ram/find', {
+      params: new HttpParams()
+      .set('latency', latency)
+      .set('capacity', capacity)
+      .set('frequency', frequency)
+      .set('voltage', voltage)
+    });
+  }
 
-  // findRams(): Observable<Ram[]> {
+  findSsds(thickness: number, capacity: number, readSpeed: number, writeSpeed: number): Observable<Ssd[]> {
+    return this.httpClient.get<Ssd[]>('api/ssd/find', {
+      params: new HttpParams()
+      .set('thickness', thickness)
+      .set('capacity', capacity)
+      .set('readSpeed', readSpeed)
+      .set('writeSpeed', writeSpeed)
+    });
+  }
 
-  // }
-
-  // findSsd(): Observable<Ssd[]> {
-
-  // }
 }

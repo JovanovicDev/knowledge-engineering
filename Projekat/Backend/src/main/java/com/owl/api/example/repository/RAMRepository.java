@@ -61,6 +61,17 @@ public class RAMRepository {
         return rams;
 	}
 	
+	public List<RAM> findRAMs(int latency, int capacity, int frequency, double voltage) {
+		List<RAM> allRAMs = getAll();
+		List<RAM> filteredRAMs = new ArrayList<>();
+		for(RAM r : allRAMs) {
+			if(r.getLatency() == latency && r.getCapacity() == capacity && r.getFrequency() == frequency && r.getVoltage() == voltage) {
+				filteredRAMs.add(r);
+			}
+		}
+		return filteredRAMs;
+	}
+	
 	public RAM createRAMFromIndividual(OWLNamedIndividual ramIndividual) {
 		RAM ram = new RAM();
 		ram.setName(ramIndividual.getIRI().getShortForm());
