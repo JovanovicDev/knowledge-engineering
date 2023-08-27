@@ -16,6 +16,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
+import com.owl.api.example.model.CPU;
 import com.owl.api.example.model.Manufacturer;
 import com.owl.api.example.model.PowerSupply;
 import com.owl.api.example.model.PowerSupplyType;
@@ -59,6 +60,17 @@ public class PowerSupplyRepository {
         	psus.add(createPowerSupplyFromIndividual(individual));
         }
         return psus;
+	}
+	
+	public List<PowerSupply> findPSUs(int sataConnectors, int molexConnectors, int exitPower, int fanDiameter) {
+		List<PowerSupply> allPSUs = getAll();
+		List<PowerSupply> filteredPSUs = new ArrayList<>();
+		for(PowerSupply p : allPSUs) {
+			if(p.getSataConnectors() == sataConnectors && p.getMolexConnectors() == molexConnectors && p.getExitPower() == exitPower && p.getFanDiameter() == fanDiameter) {
+				filteredPSUs.add(p);
+			}
+		}
+		return filteredPSUs;
 	}
 	
 	public PowerSupply createPowerSupplyFromIndividual(OWLNamedIndividual psuIndividual) {

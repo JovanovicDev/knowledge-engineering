@@ -186,7 +186,14 @@ export class SuggestionComponent implements OnInit {
   }
 
   findPsus() {
-    console.log(this.psuSpecsForm.value)
+    this.suggestionService.findPSUs(
+      this.psuSpecsForm.value.sataConnectors,
+      this.psuSpecsForm.value.molexConnectors,
+      this.psuSpecsForm.value.exitPower,
+      this.psuSpecsForm.value.fanDiameter,
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findCases() {

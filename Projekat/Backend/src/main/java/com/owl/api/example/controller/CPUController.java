@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.owl.api.example.model.CPU;
-import com.owl.api.example.model.GPU;
 import com.owl.api.example.repository.CPURepository;
 
 @RestController

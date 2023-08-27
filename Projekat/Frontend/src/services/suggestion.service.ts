@@ -81,9 +81,15 @@ export class SuggestionService {
     });
   }
 
-  // findPSUs(): Observable<PSU[]> {
-
-  // }
+  findPSUs(sataConnectors: number, molexConnectors: number, exitPower: number, fanDiameter: number): Observable<Psu[]> {
+    return this.httpClient.get<Psu[]>('api/psu/find', {
+      params: new HttpParams()
+      .set('sataConnectors', sataConnectors)
+      .set('molexConnectors', molexConnectors)
+      .set('exitPower', exitPower)
+      .set('fanDiameter', fanDiameter)
+    });
+  }
 
   // findCases(): Observable<Case[]> {
 
