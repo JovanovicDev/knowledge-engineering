@@ -7,11 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
-import { MatCheckboxModule } from '@angular/material/checkbox'; 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { UpgradeComponent } from './upgrade/upgrade.component'; 
 
 @NgModule({
   declarations: [
-    SuggestionComponent
+    SuggestionComponent,
+    UpgradeComponent
   ],
   imports: [
     CommonModule,

@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FailureComponent } from 'src/modules/failure/failure/failure.component';
 import { SuggestionComponent } from 'src/modules/suggestion/suggestion/suggestion.component';
+import { UpgradeComponent } from 'src/modules/suggestion/upgrade/upgrade.component';
 import { ValidityComponent } from 'src/modules/validity/validity/validity.component';
 
 const routes: Routes = [
   { path: 'suggestion', component: SuggestionComponent },
+  { path: 'upgrade', component: UpgradeComponent },
   { path: 'validity', component: ValidityComponent },
   { path: 'failure', component: FailureComponent }
 ];
