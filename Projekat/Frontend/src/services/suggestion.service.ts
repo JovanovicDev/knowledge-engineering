@@ -45,7 +45,46 @@ export class SuggestionService {
   }
   
   findMotherboards(pciExpressSlots: number, sataSlots: number, ramSlots: number, m2Slots: number): Observable<Motherboard[]> {
-    return this.httpClient.get<Motherboard[]>('api/motherboard/find', {params: new HttpParams().set('pciExpressSlots', pciExpressSlots).set('sataSlots', sataSlots)
-    .set('ramSlots', ramSlots).set('m2Slots', m2Slots)});
+    return this.httpClient.get<Motherboard[]>('api/motherboard/find', {
+      params: new HttpParams()
+        .set('pciExpressSlots', pciExpressSlots)
+        .set('sataSlots', sataSlots)
+        .set('ramSlots', ramSlots)
+        .set('m2Slots', m2Slots)
+    });
   }
+
+  findGPUs(memoryInGigabytes: number, memoryBusInBits: number, pciExpressVersion: number, hasDVIInterface: boolean, hasUSBCInterface: boolean, hasHDMIInterface: boolean, hasDisplayPortInterface: boolean, hasVGAInterface: boolean): Observable<Gpu[]> {
+    return this.httpClient.get<Gpu[]>('api/gpu/find', {
+      params: new HttpParams()
+      .set('memoryInGigabytes', memoryInGigabytes)
+      .set('memoryBusInBits', memoryBusInBits)
+      .set('pciExpressVersion', pciExpressVersion)
+      .set('hasDVIInterface', hasDVIInterface)
+      .set('hasUSBCInterface', hasUSBCInterface)
+      .set('hasHDMIInterface', hasHDMIInterface)
+      .set('hasDisplayPortInterface', hasDisplayPortInterface)
+      .set('hasVGAInterface', hasVGAInterface)
+    });
+  }
+
+  // findCPUs(): Observable<CPU[]> {
+
+  // }
+
+  // findPSUs(): Observable<PSU[]> {
+
+  // }
+
+  // findCases(): Observable<Case[]> {
+
+  // } 
+
+  // findRams(): Observable<Ram[]> {
+
+  // }
+
+  // findSsd(): Observable<Ssd[]> {
+
+  // }
 }

@@ -157,7 +157,18 @@ export class SuggestionComponent implements OnInit {
   }
 
   findGpus() {
-    console.log(this.gpuSpecsForm.value)
+    this.suggestionService.findGPUs(
+      this.gpuSpecsForm.value.memoryInGigabytes,
+      this.gpuSpecsForm.value.memoryBusInBits,
+      this.gpuSpecsForm.value.pciExpressVersion,
+      this.gpuSpecsForm.value.hasDVIInterface,
+      this.gpuSpecsForm.value.hasUSBCInterface,
+      this.gpuSpecsForm.value.hasHDMIInterface,
+      this.gpuSpecsForm.value.hasDisplayPortInterface,
+      this.gpuSpecsForm.value.hasVGAInterface
+    ).subscribe((res) => {
+      console.log(res)
+    });
   }
 
   findCpus() {

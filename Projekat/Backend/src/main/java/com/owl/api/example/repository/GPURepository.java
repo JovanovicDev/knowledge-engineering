@@ -14,11 +14,13 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.GPU;
 import com.owl.api.example.model.GPUMemoryType;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 
 @Repository
@@ -69,6 +71,17 @@ public class GPURepository {
             gpus.add(createGPUFromIndividual(individual));
         }
         return gpus;
+	}
+	
+	public List<GPU> findGPUs(int memoryInGigabytes, int memoryBusInBits, int pciExpressVersion, boolean hasDVIInterface, boolean hasUSBCInterface, boolean hasHDMIInterface, boolean hasDisplayPortInterface, boolean hasVGAInterface) {
+		List<GPU> allGPUs = getAll();
+		List<GPU> filteredGPUs = new ArrayList<>();
+		for(GPU g : allGPUs) {
+			if(g.getMemoryInGigabytes() == memoryInGigabytes && g.getMemoryBusInBits() == memoryBusInBits && g.getPciExpressVersion() == pciExpressVersion && g.isHasDVIInterface() == hasDVIInterface && g.isHasUSBCInterface() == hasUSBCInterface && g.isHasHDMIInterface() == hasHDMIInterface && g.isHasDisplayPortInterface() == hasDisplayPortInterface && g.isHasVGAInterface() == hasVGAInterface) {
+				filteredGPUs.add(g);
+			}
+		}
+		return filteredGPUs;
 	}
 	
 	public GPU createGPUFromIndividual(OWLNamedIndividual gpuIndividual) {
