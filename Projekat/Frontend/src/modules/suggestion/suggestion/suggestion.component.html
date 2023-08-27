@@ -21,6 +21,22 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find Motherboards</button>
             </form>
+            <table *ngIf="searchedMotherboards">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let motherboard of searchedMotherboards">
+                        <td>{{motherboard.name}}</td>
+                        <td>{{motherboard.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -52,6 +68,22 @@
                 <mat-checkbox formControlName="hasVGAInterface"></mat-checkbox>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find GPUs</button>
             </form>
+            <table *ngIf="searchedGpus">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let gpu of searchedGpus">
+                        <td>{{gpu.name}}</td>
+                        <td>{{gpu.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     
@@ -85,6 +117,22 @@
                 <mat-checkbox formControlName="hasIntegratedGraphics"></mat-checkbox>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find CPUs</button>
             </form>
+            <table *ngIf="searchedCpus">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let Cpu of searchedCpus">
+                        <td>{{Cpu.name}}</td>
+                        <td>{{Cpu.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -110,6 +158,22 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find PSUs</button>
             </form>
+            <table *ngIf="searchedPsus">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let psu of searchedPsus">
+                        <td>{{psu.name}}</td>
+                        <td>{{psu.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -125,6 +189,22 @@
                 <mat-checkbox formControlName="hasPowerSupply"></mat-checkbox>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find Cases</button>
             </form>
+            <table *ngIf="searchedCases">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let case of searchedCases">
+                        <td>{{case.name}}</td>
+                        <td>{{case.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -150,6 +230,22 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find RAMs</button>
             </form>
+            <table *ngIf="searchedRams">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ram of searchedRams">
+                        <td>{{ram.name}}</td>
+                        <td>{{ram.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -175,6 +271,22 @@
                 </mat-form-field>
                 <button mat-raised-button color="primary" type="submit" class="ms-5">Find SSDs</button>
             </form>
+            <table *ngIf="searchedSsds">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ssd of searchedSsds">
+                        <td>{{ssd.name}}</td>
+                        <td>{{ssd.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

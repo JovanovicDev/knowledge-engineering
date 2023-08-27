@@ -25,13 +25,13 @@ export class SuggestionComponent implements OnInit {
   public rams: Ram[] = [];
   public ssds: Ssd[] = [];
 
-  public searchedMotherboards: Motherboard[] = [];
-  public searchedGpus: Gpu[] = [];
-  public searchedCpus: Cpu[] = [];
-  public searchedPsus: Psu[] = [];
-  public searchedCases: Case[] = [];
-  public searchedRams: Ram[] = [];
-  public searchedSsds: Ssd[] = [];
+  public searchedMotherboards: Motherboard[] | null = null;
+  public searchedGpus: Gpu[] | null = null;
+  public searchedCpus: Cpu[] | null = null;
+  public searchedPsus: Psu[] | null = null;
+  public searchedCases: Case[] | null = null;
+  public searchedRams: Ram[] | null = null;
+  public searchedSsds: Ssd[] | null = null;
 
   motherboardSpecsForm: FormGroup = new FormGroup({
     pciExpressSlots: new FormControl<number>(0),
@@ -152,7 +152,7 @@ export class SuggestionComponent implements OnInit {
       this.motherboardSpecsForm.value.ramSlots,
       this.motherboardSpecsForm.value.m2Slots,
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedMotherboards = res;
     });
   }
 
@@ -167,7 +167,7 @@ export class SuggestionComponent implements OnInit {
       this.gpuSpecsForm.value.hasDisplayPortInterface,
       this.gpuSpecsForm.value.hasVGAInterface
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedGpus = res;
     });
   }
 
@@ -181,7 +181,7 @@ export class SuggestionComponent implements OnInit {
       this.cpuSpecsForm.value.canOverclock,
       this.cpuSpecsForm.value.hasIntegratedGraphics
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedCpus = res;
     });
   }
 
@@ -192,7 +192,7 @@ export class SuggestionComponent implements OnInit {
       this.psuSpecsForm.value.exitPower,
       this.psuSpecsForm.value.fanDiameter,
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedPsus = res;
     });
   }
 
@@ -201,7 +201,7 @@ export class SuggestionComponent implements OnInit {
       this.caseSpecsForm.value.pciSlots,
       this.caseSpecsForm.value.hasPowerSupply,
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedCases = res;
     });
   }
 
@@ -212,7 +212,7 @@ export class SuggestionComponent implements OnInit {
       this.ramSpecsForm.value.frequency,
       this.ramSpecsForm.value.voltage,
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedRams = res;
     });
   }
 
@@ -223,7 +223,7 @@ export class SuggestionComponent implements OnInit {
       this.ssdSpecsForm.value.readSpeed,
       this.ssdSpecsForm.value.writeSpeed,
     ).subscribe((res) => {
-      console.log(res)
+      this.searchedSsds = res;
     });
   }
 }
