@@ -146,11 +146,11 @@ RULEBLOCK homeUseRules
 	ACCU : MAX;
 	
 	RULE 1: IF cpuCores IS low THEN homeUse IS good;
-	RULE 2: IF cpuCores IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 2: IF cpuCores IS medium OR cpuCores IS high THEN homeUse IS mediocre;
 	RULE 3: IF cpuCores IS ultra THEN homeUse IS bad;
 	
 	RULE 4: IF cpuThreads IS low THEN homeUse IS good;
-	RULE 5: IF cpuThreads IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 5: IF cpuThreads IS medium OR cpuThreads IS high THEN homeUse IS mediocre;
 	RULE 6: IF cpuThreads IS ultra THEN homeUse IS bad;
 	
 	RULE 7: IF cpuFrequency IS low THEN homeUse IS good;
@@ -158,31 +158,31 @@ RULEBLOCK homeUseRules
 	RULE 9: IF cpuFrequency IS ultra THEN homeUse IS bad;
 	
 	RULE 10: IF gpuMemory IS low THEN homeUse IS good;
-	RULE 11: IF gpuMemory IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 11: IF gpuMemory IS medium OR gpuMemory IS high THEN homeUse IS mediocre;
 	RULE 12: IF gpuMemory IS ultra THEN homeUse IS bad;
 	
 	RULE 13: IF ramCapacity IS low THEN homeUse IS good;
-	RULE 14: IF ramCapacity IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 14: IF ramCapacity IS medium OR ramCapacity IS high THEN homeUse IS mediocre;
 	RULE 15: IF ramCapacity IS ultra THEN homeUse IS bad;
 	
 	RULE 16: IF ramFrequency IS low THEN homeUse IS good;
-	RULE 17: IF ramFrequency IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 17: IF ramFrequency IS medium OR ramFrequency IS high THEN homeUse IS mediocre;
 	RULE 18: IF ramFrequency IS ultra THEN homeUse IS bad;
 	
 	RULE 19: IF ssdCapacity IS low THEN homeUse IS good;
-	RULE 20: IF ssdCapacity IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 20: IF ssdCapacity IS medium OR ssdCapacity IS high THEN homeUse IS mediocre;
 	RULE 21: IF ssdCapacity IS ultra THEN homeUse IS bad;
 	
 	RULE 22: IF ssdWriteSpeed IS low THEN homeUse IS good;
-	RULE 23: IF ssdWriteSpeed IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 23: IF ssdWriteSpeed IS medium OR ssdWriteSpeed IS high THEN homeUse IS mediocre;
 	RULE 24: IF ssdWriteSpeed IS ultra THEN homeUse IS bad;
 	
 	RULE 25: IF ssdReadSpeed IS low THEN homeUse IS good;
-	RULE 26: IF ssdReadSpeed IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 26: IF ssdReadSpeed IS medium OR ssdReadSpeed IS high THEN homeUse IS mediocre;
 	RULE 27: IF ssdReadSpeed IS ultra THEN homeUse IS bad;
 	
 	RULE 28: IF psuPower IS low THEN homeUse IS good;
-	RULE 29: IF psuPower IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 29: IF psuPower IS medium OR psuPower IS high THEN homeUse IS mediocre;
 	RULE 30: IF psuPower IS ultra THEN homeUse IS bad;
 END_RULEBLOCK
 
@@ -192,11 +192,11 @@ RULEBLOCK gamingRules
 	ACCU : MAX;
 	
 	RULE 1: IF cpuCores IS ultra THEN gaming IS good;
-	RULE 2: IF cpuCores IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 2: IF cpuCores IS medium OR cpuCores IS high THEN gaming IS mediocre;
 	RULE 3: IF cpuCores IS low THEN gaming IS bad;
 	
 	RULE 4: IF cpuThreads IS ultra THEN gaming IS good;
-	RULE 5: IF cpuThreads IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 5: IF cpuThreads IS medium OR cpuThreads IS high THEN gaming IS mediocre;
 	RULE 6: IF cpuThreads IS low THEN gaming IS bad;
 	
 	RULE 7: IF cpuFrequency IS ultra THEN gaming IS good;
@@ -204,31 +204,31 @@ RULEBLOCK gamingRules
 	RULE 9: IF cpuFrequency IS low THEN gaming IS bad;
 	
 	RULE 10: IF gpuMemory IS ultra THEN gaming IS good;
-	RULE 11: IF gpuMemory IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 11: IF gpuMemory IS medium OR gpuMemory IS high THEN gaming IS mediocre;
 	RULE 12: IF gpuMemory IS low THEN gaming IS bad;
 	
 	RULE 13: IF ramCapacity IS ultra THEN gaming IS good;
-	RULE 14: IF ramCapacity IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 14: IF ramCapacity IS medium OR ramCapacity IS high THEN gaming IS mediocre;
 	RULE 15: IF ramCapacity IS low THEN gaming IS bad;
 	
 	RULE 16: IF ramFrequency IS ultra THEN gaming IS good;
-	RULE 17: IF ramFrequency IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 17: IF ramFrequency IS medium OR ramFrequency IS high THEN gaming IS mediocre;
 	RULE 18: IF ramFrequency IS low THEN gaming IS bad;
 	
 	RULE 19: IF ssdCapacity IS ultra THEN gaming IS good;
-	RULE 20: IF ssdCapacity IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 20: IF ssdCapacity IS medium OR ssdCapacity IS high THEN gaming IS mediocre;
 	RULE 21: IF ssdCapacity IS low THEN gaming IS bad;
 	
 	RULE 22: IF ssdWriteSpeed IS ultra THEN gaming IS good;
-	RULE 23: IF ssdWriteSpeed IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 23: IF ssdWriteSpeed IS medium OR ssdWriteSpeed IS high THEN gaming IS mediocre;
 	RULE 24: IF ssdWriteSpeed IS low THEN gaming IS bad;
 	
 	RULE 25: IF ssdReadSpeed IS ultra THEN gaming IS good;
-	RULE 26: IF ssdReadSpeed IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 26: IF ssdReadSpeed IS medium OR ssdReadSpeed IS high THEN gaming IS mediocre;
 	RULE 27: IF ssdReadSpeed IS low THEN gaming IS bad;
 	
 	RULE 28: IF psuPower IS ultra THEN gaming IS good;
-	RULE 29: IF psuPower IS medium OR cpuFrequency IS high THEN gaming IS mediocre;
+	RULE 29: IF psuPower IS medium OR psuPower IS high THEN gaming IS mediocre;
 	RULE 30: IF psuPower IS low THEN gaming IS bad;
 END_RULEBLOCK
 
