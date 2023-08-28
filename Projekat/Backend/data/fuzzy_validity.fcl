@@ -1,0 +1,235 @@
+FUNCTION_BLOCK fuzzy_validity
+
+VAR_INPUT
+	cpuCores: REAL;
+	cpuThreads: REAL;
+	cpuFrequency: REAL;
+	gpuMemory: REAL;
+	ramCapacity: REAL;
+	ramFrequency: REAL;
+	ssdCapacity: REAL;
+	ssdWriteSpeed: REAL;
+	ssdReadSpeed: REAL;
+	psuPower: REAL;
+END_VAR
+
+VAR_OUTPUT
+	homeUse: REAL;
+	professionalUse: REAL;
+	appDevelopment: REAL;
+	hosting: REAL;
+	gaming: REAL;
+	cryptoMining: REAL;
+END_VAR
+
+FUZZIFY cpuCores
+	TERM low := (0, 1) (2, 1) (4, 0);
+    TERM medium := (2, 0) (4, 1) (6, 0);
+    TERM high := (4, 0) (6, 1) (8, 1);
+    TERM ultra := (8, 0) (12, 1) (16, 1);
+END_FUZZIFY
+
+FUZZIFY cpuThreads
+	TERM low := (0, 1) (4, 1) (8, 0);
+    TERM medium := (4, 0) (8, 1) (12, 0);
+    TERM high := (8, 0) (12, 1) (16, 0);
+    TERM ultra := (16, 0) (24, 1) (32, 1);
+END_FUZZIFY
+
+FUZZIFY cpuFrequency
+	TERM low := (0, 1) (2, 1) (3, 0);
+    TERM medium := (2, 0) (3, 1) (3.4, 0);
+    TERM high := (3.4, 0) (3.8, 1) (4, 0);
+    TERM ultra := (4, 0) (4.4, 1) (5, 1);
+END_FUZZIFY
+
+FUZZIFY gpuMemory
+	TERM low := (0, 1) (4, 1) (8, 0);
+    TERM medium := (4, 0) (8, 1) (16, 0);
+    TERM high := (8, 0) (16, 1) (20, 0);
+    TERM ultra := (16, 0) (20, 1) (24, 1);
+END_FUZZIFY
+
+FUZZIFY ramCapacity
+	TERM low := (0, 1) (4, 1) (8, 0);
+    TERM medium := (4, 0) (8, 1) (16, 0);
+    TERM high := (8, 0) (16, 1) (32, 0);
+    TERM ultra := (16, 0) (32, 1) (64, 1);
+END_FUZZIFY
+
+FUZZIFY ramFrequency 
+	TERM low := (0, 1) (1600, 1) (2400, 0);
+    TERM medium := (1600, 0) (2400, 1) (3600, 0);
+    TERM high := (2400, 0) (3600, 1) (5600, 0);
+    TERM ultra := (3600, 0) (5600, 1) (7200, 1);
+END_FUZZIFY
+
+FUZZIFY ssdCapacity
+	TERM low := (0, 1) (256, 1) (512, 0);
+    TERM medium := (256, 0) (512, 1) (1000, 0);
+    TERM high := (512, 0) (1000, 1) (2000, 0);
+    TERM ultra := (1000, 0) (2000, 1) (4000, 1);
+END_FUZZIFY
+
+FUZZIFY ssdWriteSpeed
+	TERM low := (0, 1) (300, 1) (600, 0);
+    TERM medium := (400, 0) (600, 1) (4000, 0);
+    TERM high := (600, 0) (4000, 1) (5600, 0);
+    TERM ultra := (4000, 0) (5600, 1) (7000, 1);
+END_FUZZIFY
+
+FUZZIFY ssdReadSpeed
+	TERM low := (0, 1) (300, 1) (600, 0);
+    TERM medium := (400, 0) (600, 1) (3500, 0);
+    TERM high := (600, 0) (3500, 1) (6000, 0);
+    TERM ultra := (3500, 0) (6000, 1) (9000, 1);
+END_FUZZIFY
+
+FUZZIFY psuPower
+	TERM low := (0, 1) (200, 1) (300, 0);
+    TERM medium := (200, 0) (300, 1) (600, 0);
+    TERM high := (300, 0) (600, 1) (850, 0);
+    TERM ultra := (600, 0) (850, 1) (1200, 1);
+END_FUZZIFY
+
+DEFUZZIFY homeUse
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY professionalUse
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY appDevelopment
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY hosting
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY gaming
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY cryptoMining
+    TERM bad := (0, 0) (30, 1) (50, 0);
+    TERM mediocre := (30, 0) (50, 1) (75, 0);
+    TERM good := (50, 0) (75, 1) (100, 1);
+    METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+RULEBLOCK homeUseRules
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX;
+	
+	RULE 1: IF cpuCores IS low THEN homeUse IS good;
+	RULE 2: IF cpuCores IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 3: IF cpuCores IS ultra THEN homeUse IS bad;
+	
+	RULE 4: IF cpuThreads IS low THEN homeUse IS good;
+	RULE 5: IF cpuThreads IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 6: IF cpuThreads IS ultra THEN homeUse IS bad;
+	
+	RULE 7: IF cpuFrequency IS low THEN homeUse IS good;
+	RULE 8: IF cpuFrequency IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 9: IF cpuFrequency IS ultra THEN homeUse IS bad;
+	
+	RULE 10: IF gpuMemory IS low THEN homeUse IS good;
+	RULE 11: IF gpuMemory IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 12: IF gpuMemory IS ultra THEN homeUse IS bad;
+	
+	RULE 13: IF ramCapacity IS low THEN homeUse IS good;
+	RULE 14: IF ramCapacity IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 15: IF ramCapacity IS ultra THEN homeUse IS bad;
+	
+	RULE 16: IF ramFrequency IS low THEN homeUse IS good;
+	RULE 17: IF ramFrequency IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 18: IF ramFrequency IS ultra THEN homeUse IS bad;
+	
+	RULE 19: IF ssdCapacity IS low THEN homeUse IS good;
+	RULE 20: IF ssdCapacity IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 21: IF ssdCapacity IS ultra THEN homeUse IS bad;
+	
+	RULE 22: IF ssdWriteSpeed IS low THEN homeUse IS good;
+	RULE 23: IF ssdWriteSpeed IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 24: IF ssdWriteSpeed IS ultra THEN homeUse IS bad;
+	
+	RULE 25: IF ssdReadSpeed IS low THEN homeUse IS good;
+	RULE 26: IF ssdReadSpeed IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 27: IF ssdReadSpeed IS ultra THEN homeUse IS bad;
+	
+	RULE 28: IF psuPower IS low THEN homeUse IS good;
+	RULE 29: IF psuPower IS medium OR cpuFrequency IS high THEN homeUse IS mediocre;
+	RULE 30: IF psuPower IS ultra THEN homeUse IS bad;
+END_RULEBLOCK
+
+RULEBLOCK gamingRules
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX;
+	
+	RULE 1: IF cpuCores IS ultra THEN gamingUse IS good;
+	RULE 2: IF cpuCores IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 3: IF cpuCores IS low THEN gamingUse IS bad;
+	
+	RULE 4: IF cpuThreads IS ultra THEN gamingUse IS good;
+	RULE 5: IF cpuThreads IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 6: IF cpuThreads IS low THEN gamingUse IS bad;
+	
+	RULE 7: IF cpuFrequency IS ultra THEN gamingUse IS good;
+	RULE 8: IF cpuFrequency IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 9: IF cpuFrequency IS low THEN gamingUse IS bad;
+	
+	RULE 10: IF gpuMemory IS ultra THEN gamingUse IS good;
+	RULE 11: IF gpuMemory IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 12: IF gpuMemory IS low THEN gamingUse IS bad;
+	
+	RULE 13: IF ramCapacity IS ultra THEN gamingUse IS good;
+	RULE 14: IF ramCapacity IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 15: IF ramCapacity IS low THEN gamingUse IS bad;
+	
+	RULE 16: IF ramFrequency IS ultra THEN gamingUse IS good;
+	RULE 17: IF ramFrequency IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 18: IF ramFrequency IS low THEN gamingUse IS bad;
+	
+	RULE 19: IF ssdCapacity IS ultra THEN gamingUse IS good;
+	RULE 20: IF ssdCapacity IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 21: IF ssdCapacity IS low THEN gamingUse IS bad;
+	
+	RULE 22: IF ssdWriteSpeed IS ultra THEN gamingUse IS good;
+	RULE 23: IF ssdWriteSpeed IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 24: IF ssdWriteSpeed IS low THEN gamingUse IS bad;
+	
+	RULE 25: IF ssdReadSpeed IS ultra THEN gamingUse IS good;
+	RULE 26: IF ssdReadSpeed IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 27: IF ssdReadSpeed IS low THEN gamingUse IS bad;
+	
+	RULE 28: IF psuPower IS ultra THEN gamingUse IS good;
+	RULE 29: IF psuPower IS medium OR cpuFrequency IS high THEN gamingUse IS mediocre;
+	RULE 30: IF psuPower IS low THEN gamingUse IS bad;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

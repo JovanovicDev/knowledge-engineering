@@ -1,1 +1,93 @@
-<p>validity works!</p>
+<div class="d-flex flex-column">
+    <div class="d-flex flex-row">
+        <mat-form-field class="me-1">
+            <mat-label>Motherboards</mat-label>
+            <mat-select [(value)]="selectedMotherboard">
+                <mat-option *ngFor="let motherboard of motherboards" [value]="motherboard">
+                    {{motherboard.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>GPUs</mat-label>
+            <mat-select [(value)]="selectedGpu">
+                <mat-option *ngFor="let gpu of gpus" [value]="gpu">
+                    {{gpu.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row">
+        <mat-form-field class="me-1">
+            <mat-label>CPUs</mat-label>
+            <mat-select [(value)]="selectedCpu">
+                <mat-option *ngFor="let cpu of cpus" [value]="cpu">
+                    {{cpu.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>PSUs</mat-label>
+            <mat-select [(value)]="selectedPsu">
+                <mat-option *ngFor="let psu of psus" [value]="psu">
+                    {{psu.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row">
+        <mat-form-field class="me-1">
+            <mat-label>Cases</mat-label>
+            <mat-select [(value)]="selectedCase">
+                <mat-option *ngFor="let case of cases" [value]="case">
+                    {{case.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>RAMs</mat-label>
+            <mat-select [(value)]="selectedRam">
+                <mat-option *ngFor="let ram of rams" [value]="ram">
+                    {{ram.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="d-flex flex-row">
+        <mat-form-field class="me-1">
+            <mat-label>SSDs</mat-label>
+            <mat-select [(value)]="selectedSsd">
+                <mat-option *ngFor="let ssd of ssds" [value]="ssd">
+                    {{ssd.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Purpose</mat-label>
+            <mat-select [(value)]="selectedPurpose">
+                <mat-option value="HOME_USE">Home use</mat-option>
+                <mat-option value="PROFESSIONAL_USE">Professional use</mat-option>
+                <mat-option value="APP_DEVELOPMENT">App development</mat-option>
+                <mat-option value="HOSTING">Hosting</mat-option>
+                <mat-option value="GAMING">Gaming</mat-option>
+                <mat-option value="CRYPTO_MINING">Crypto mining</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="getPurposeValidity()">Get Validity</button>
+    <div class="mt-3 teal" *ngIf="validities">
+        <p>Home use: {{validities.homeUse}}</p>
+        <p>Professional use: {{validities.professionalUse}}</p>
+        <p>App development: {{validities.appDevelopment}}</p>
+        <p>Hosting: {{validities.hosting}}</p>
+        <p>Gaming: {{validities.gaming}}</p>
+        <p>Crypto mining: {{validities.cryptoMining}}</p>
+    </div>
+</div>
