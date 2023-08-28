@@ -8,7 +8,7 @@ import { Psu } from 'src/models/psu.model';
 import { Purpose } from 'src/models/purpose.model';
 import { Ram } from 'src/models/ram.model';
 import { Ssd } from 'src/models/ssd.model';
-import { Validities } from 'src/models/validities.model';
+import { Validity } from 'src/models/validity.model';
 import { SuggestionService } from 'src/services/suggestion.service';
 import { ValidityService } from 'src/services/validity.service';
 
@@ -35,7 +35,7 @@ export class ValidityComponent implements OnInit{
   public selectedSsd: Ssd | null = null;
   public selectedPurpose: Purpose | null = null;
 
-  public validities: Validities | null = null;
+  public validity: Validity | null = null;
 
   constructor(public validityService: ValidityService, public suggestionService: SuggestionService){}
 
@@ -106,7 +106,7 @@ export class ValidityComponent implements OnInit{
     computer.ssd = this.selectedSsd;
 
     this.validityService.getPurposeValidity(computer, this.selectedPurpose!).subscribe((res) => {
-      this.validities = res;
+      this.validity = res;
     });
   }
 }

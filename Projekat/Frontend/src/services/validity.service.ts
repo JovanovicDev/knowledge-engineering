@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Computer } from 'src/models/computer.model';
 import { Purpose } from 'src/models/purpose.model';
-import { Validities } from 'src/models/validities.model';
+import { Validity } from 'src/models/validity.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,8 @@ export class ValidityService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPurposeValidity(configuration: Computer, purpose: Purpose): Observable<Validities> {
-    console.log('api/validity?purpose=' + purpose)
-    return this.httpClient.post<Validities>('api/validity?purpose=' + purpose, configuration);
+  getPurposeValidity(configuration: Computer, purpose: Purpose): Observable<Validity> {
+    return this.httpClient.post<Validity>('api/validity?purpose=' + purpose, configuration);
   }
 
 }
