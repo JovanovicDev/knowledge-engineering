@@ -1,0 +1,409 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node slow_performance
+{
+     label = "C1";
+     position = (690 481);
+     states = ("yes" "no");
+}
+
+node blue_screen
+{
+     label = "C2";
+     position = (219 80);
+     states = ("yes" "no");
+}
+
+node bad_bios_settings
+{
+     label = "C3";
+     position = (196 0);
+     states = ("yes" "no");
+}
+
+node drivers
+{
+     label = "C4";
+     position = (49 143);
+     states = ("yes" "no");
+}
+
+node incompatible_drivers
+{
+     label = "C5";
+     position = (0 68);
+     states = ("yes" "no");
+}
+
+node outdated_drivers
+{
+     label = "C6";
+     position = (138 440);
+     states = ("yes" "no");
+}
+
+node hard_drive
+{
+     label = "C7";
+     position = (613 107);
+     states = ("yes" "no");
+}
+
+node cpu
+{
+     label = "C8";
+     position = (640 337);
+     states = ("yes" "no");
+}
+
+node cpu_overclocked_wrongly
+{
+     label = "C9";
+     position = (157 151);
+     states = ("yes" "no");
+}
+
+node cpu_overheating
+{
+     label = "C10";
+     position = (479 333);
+     states = ("yes" "no");
+}
+
+node cpu_overloaded
+{
+     label = "C11";
+     position = (224 232);
+     states = ("yes" "no");
+}
+
+node inadequate_cpu_fan
+{
+     label = "C12";
+     position = (288 356);
+     states = ("yes" "no");
+}
+
+node cpu_thermal_paste
+{
+     label = "C13";
+     position = (455 404);
+     states = ("yes" "no");
+}
+
+node inadequate_cpu
+{
+     label = "C14";
+     position = (407 148);
+     states = ("yes" "no");
+}
+
+node unformatted_hard_drive
+{
+     label = "C15";
+     position = (380 0);
+     states = ("yes" "no");
+}
+
+node hard_drive_memory_maxed_out
+{
+     label = "C16";
+     position = (587 2);
+     states = ("yes" "no");
+}
+
+node malware
+{
+     label = "C17";
+     position = (725 64);
+     states = ("yes" "no");
+}
+
+node bad_antivirus
+{
+     label = "C18";
+     position = (776 111);
+     states = ("yes" "no");
+}
+
+node dust_inside_case
+{
+     label = "C19";
+     position = (830 197);
+     states = ("yes" "no");
+}
+
+node random_shut_downs
+{
+     label = "C21";
+     position = (859 367);
+     states = ("yes" "no");
+}
+
+node bad_ram
+{
+     label = "C22";
+     position = (983 434);
+     states = ("yes" "no");
+}
+
+node cpu_not_properly_set
+{
+     label = "C23";
+     position = (521 184);
+     states = ("yes" "no");
+}
+
+node psu
+{
+     label = "C24";
+     position = (1045 300);
+     states = ("yes" "no");
+}
+
+node damaged_surge_protector
+{
+     label = "C25";
+     position = (998 180);
+     states = ("yes" "no");
+}
+
+node unplugged_power_plug
+{
+     label = "C26";
+     position = (1131 243);
+     states = ("yes" "no");
+}
+
+node insufficient_voltage
+{
+     label = "C27";
+     position = (1123 319);
+     states = ("yes" "no");
+}
+
+node ram
+{
+     label = "C28";
+     position = (864 433);
+     states = ("yes" "no");
+}
+
+node insufficient_ram_capacity
+{
+     label = "C29";
+     position = (841 514);
+     states = ("yes" "no");
+}
+
+node corrupt_system_files
+{
+     label = "C31";
+     position = (342 53);
+     states = ("yes" "no");
+}
+
+node loose_cable
+{
+     label = "C32";
+     position = (54 8);
+     states = ("yes" "no");
+}
+
+potential (slow_performance)
+{
+ data = ( 1.0 0.0 );
+}
+
+potential (blue_screen)
+{
+ data = ( 1.0 0.0 );
+}
+
+potential (bad_bios_settings | blue_screen)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (drivers | blue_screen)
+{
+ data = (( 0.1 0.9 )
+( 0.0 1.0 ));
+}
+
+potential (incompatible_drivers | drivers)
+{
+ data = (( 0.5 0.5 )
+( 0.0 1.0 ));
+}
+
+potential (outdated_drivers | slow_performance drivers)
+{
+ data = ((( 0.6 0.4 )
+( 0.2 0.8 ))
+(( 0.5 0.5 )
+( 0.0 1.0 )));
+}
+
+potential (hard_drive | slow_performance blue_screen)
+{
+ data = ((( 0.7 0.3 )
+( 0.2 0.8 ))
+(( 0.2 0.8 )
+( 0.0 1.0 )));
+}
+
+potential (cpu | random_shut_downs slow_performance blue_screen)
+{
+ data = (((( 0.9 0.1 )
+( 0.8 0.2 ))
+(( 0.8 0.2 )
+( 0.2 0.8 )))
+((( 0.8 0.2 )
+( 0.1 0.9 ))
+(( 0.2 0.8 )
+( 0.0 1.0 ))));
+}
+
+potential (cpu_overclocked_wrongly | cpu)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (cpu_overheating | cpu)
+{
+ data = (( 0.3 0.7 )
+( 0.0 1.0 ));
+}
+
+potential (cpu_overloaded | cpu_overheating)
+{
+ data = (( 0.25 0.75 )
+( 0.0 1.0 ));
+}
+
+potential (inadequate_cpu_fan | cpu_overheating)
+{
+ data = (( 0.25 0.75 )
+( 0.0 1.0 ));
+}
+
+potential (cpu_thermal_paste | cpu_overheating)
+{
+ data = (( 0.5 0.5 )
+( 0.0 1.0 ));
+}
+
+potential (inadequate_cpu | cpu)
+{
+ data = (( 0.3 0.7 )
+( 0.0 1.0 ));
+}
+
+potential (unformatted_hard_drive | hard_drive)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (hard_drive_memory_maxed_out | hard_drive)
+{
+ data = (( 0.8 0.2 )
+( 0.0 1.0 ));
+}
+
+potential (malware | slow_performance)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (bad_antivirus | slow_performance)
+{
+ data = (( 0.05 0.95 )
+( 0.0 1.0 ));
+}
+
+potential (dust_inside_case | random_shut_downs slow_performance)
+{
+ data = ((( 0.2 0.8 )
+( 0.1 0.9 ))
+(( 0.05 0.95 )
+( 0.0 1.0 )));
+}
+
+potential (random_shut_downs)
+{
+ data = ( 1.0 0.0 );
+}
+
+potential (bad_ram | ram)
+{
+ data = (( 0.7 0.3 )
+( 0.0 1.0 ));
+}
+
+potential (cpu_not_properly_set | cpu)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (psu | random_shut_downs)
+{
+ data = (( 0.5 0.5 )
+( 0.0 1.0 ));
+}
+
+potential (damaged_surge_protector | psu)
+{
+ data = (( 0.6 0.4 )
+( 0.0 1.0 ));
+}
+
+potential (unplugged_power_plug | psu)
+{
+ data = (( 0.1 0.9 )
+( 0.0 1.0 ));
+}
+
+potential (insufficient_voltage | psu)
+{
+ data = (( 0.3 0.7 )
+( 0.0 1.0 ));
+}
+
+potential (ram | slow_performance random_shut_downs)
+{
+ data = ((( 0.3 0.7 )
+( 0.2 0.8 ))
+(( 0.2 0.8 )
+( 0.0 1.0 )));
+}
+
+potential (insufficient_ram_capacity | ram)
+{
+ data = (( 0.3 0.7 )
+( 0.0 1.0 ));
+}
+
+potential (corrupt_system_files | blue_screen)
+{
+ data = (( 0.2 0.8 )
+( 0.0 1.0 ));
+}
+
+potential (loose_cable | blue_screen)
+{
+ data = (( 0.1 0.9 )
+( 0.0 1.0 ));
+}
+
