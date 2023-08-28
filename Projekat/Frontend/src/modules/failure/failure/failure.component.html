@@ -1,1 +1,17 @@
-<p>failure works!</p>
+<div class="component-container orange text-center">
+    <mat-selection-list [(ngModel)]="selectedFailures" name="symptom" multiple>
+        <mat-list-option value="blue_screen">Blue screen</mat-list-option>
+        <mat-list-option value="slow_performance">Slow performance</mat-list-option>
+        <mat-list-option value="random_shut_downs">Random shut downs</mat-list-option>
+    </mat-selection-list>
+    
+    <button mat-raised-button color="primary" (click)="getFailureCauseProbabilities()">Get Failure Cause Probabilities</button>
+</div>
+
+<div class="component-container teal mt-3 text-center" *ngIf="symptoms.length !== 0">
+    <p>Cause #1: {{symptoms[0].causeName}}, with a probability of {{symptoms[0].probability}}%</p>
+    <p>Cause #2: {{symptoms[1].causeName}}, with a probability of {{symptoms[1].probability}}%</p>
+    <p>Cause #3: {{symptoms[2].causeName}}, with a probability of {{symptoms[2].probability}}%</p>
+    <p>Cause #4: {{symptoms[3].causeName}}, with a probability of {{symptoms[3].probability}}%</p>
+    <p>Cause #5: {{symptoms[4].causeName}}, with a probability of {{symptoms[4].probability}}%</p>
+</div>

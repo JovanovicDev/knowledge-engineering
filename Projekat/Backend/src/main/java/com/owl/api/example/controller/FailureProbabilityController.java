@@ -20,7 +20,7 @@ public class FailureProbabilityController {
 	 FailureProbabilityRepository failureProbabilityRepository;
 
 	 @PostMapping
-	 public ResponseEntity<List<FailureProbabilityDto>> getReasons(@RequestBody List<String> failures) throws Exception {
-	     return new ResponseEntity<List<FailureProbabilityDto>>(this.failureProbabilityRepository.getFailureCauseProbability(failures), HttpStatus.OK);
+	 public ResponseEntity<List<FailureProbabilityDto>> getFailureCauseProbabilities(@RequestBody List<String> failures) throws Exception {
+	     return new ResponseEntity<List<FailureProbabilityDto>>(this.failureProbabilityRepository.getFailureCauseProbabilities(failures), HttpStatus.OK);
 	 }
 }

@@ -34,7 +34,7 @@ public class FailureProbabilityRepository {
 		}
 	}
 	
-	public List<FailureProbabilityDto> getFailureCauseProbability(List<String> failures) {
+	public List<FailureProbabilityDto> getFailureCauseProbabilities(List<String> failures) {
 		this.algorithm.run();
 		for(String failure : failures) {
 			ProbabilisticNode node = (ProbabilisticNode) network.getNode(failure);
