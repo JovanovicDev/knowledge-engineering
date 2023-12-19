@@ -184,6 +184,13 @@ RULEBLOCK homeUseRules
 	RULE 28: IF psuPower IS low THEN homeUse IS good;
 	RULE 29: IF psuPower IS medium OR psuPower IS high THEN homeUse IS mediocre;
 	RULE 30: IF psuPower IS ultra THEN homeUse IS bad;
+	
+	RULE 31: IF cpuCores IS ultra AND cpuThreads IS medium AND cpuFrequency IS medium THEN homeUse IS bad;
+	RULE 32: IF psuPower IS medium AND gpuMemory IS ultra THEN homeUse IS bad;
+	RULE 33: IF (ssdWriteSpeed IS low OR ssdWriteSpeed IS medium) AND (ssdReadSpeed IS low OR ssdReadSpeed IS medium) THEN homeUse IS good;
+	RULE 34: IF ramFrequency IS low AND ramCapacity IS low AND psuPower IS medium THEN homeUse IS good;
+	RULE 35: IF (ssdCapacity IS low OR ssdCapacity IS medium) AND (ramCapacity IS low OR ramCapacity IS medium) THEN homeUse IS good;
+	RULE 36: IF cpuCores IS ultra AND cpuThreads IS ultra AND cpuFrequency IS ultra AND gpuMemory IS low THEN homeUse IS mediocre;
 END_RULEBLOCK
 
 RULEBLOCK gamingRules
@@ -230,6 +237,13 @@ RULEBLOCK gamingRules
 	RULE 28: IF psuPower IS ultra THEN gaming IS good;
 	RULE 29: IF psuPower IS medium OR psuPower IS high THEN gaming IS mediocre;
 	RULE 30: IF psuPower IS low THEN gaming IS bad;
+	
+	RULE 31: IF cpuCores IS ultra AND gpuMemory IS ultra AND ramCapacity IS ultra THEN gaming IS good;
+	RULE 32: IF (cpuCores IS low AND cpuThreads IS low) OR gpuMemory IS low THEN gaming IS bad;
+	RULE 33: IF gpuMemory IS ultra AND cpuFrequency IS ultra AND psuPower IS low THEN gaming IS bad;
+	RULE 34: IF (gpuMemory IS ultra AND cpuFrequency IS ultra) AND (ramCapacity IS low OR ramFrequency IS low) THEN gaming IS bad;
+	RULE 35: IF cpuFrequency IS ultra AND cpuCores IS low THEN gaming IS mediocre;
+	RULE 36: IF ssdReadSpeed IS low AND ssdCapacity IS low AND (ssdWriteSpeed IS ultra OR ssdWriteSpeed IS medium) THEN gaming IS bad;
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK
