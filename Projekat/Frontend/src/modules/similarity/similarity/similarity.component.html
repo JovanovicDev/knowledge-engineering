@@ -1,0 +1,48 @@
+<div class="d-flex flex-column">
+    <form (ngSubmit)="findSimilar()">
+        <mat-form-field class="me-1">
+            <mat-label>CPU</mat-label>
+            <mat-select name="cpu" [(ngModel)]="selectedComputer.cpu">
+                <mat-option *ngFor="let cpu of cpus" [value]="cpu">
+                    {{cpu.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="me-1">
+            <mat-label>GPU</mat-label>
+            <mat-select name="gpu" [(ngModel)]="selectedComputer.gpu">
+                <mat-option *ngFor="let gpu of gpus" [value]="gpu">
+                    {{gpu.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="me-1">
+            <mat-label>RAM</mat-label>
+            <mat-select name="ram" [(ngModel)]="selectedComputer.ram">
+                <mat-option *ngFor="let ram of rams" [value]="ram">
+                    {{ram.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="me-1">
+            <mat-label>SSD</mat-label>
+            <mat-select name="ssd" [(ngModel)]="selectedComputer.ssd">
+                <mat-option *ngFor="let ssd of ssds" [value]="ssd">
+                    {{ssd.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Find similar configurations</button>
+    </form>
+    <div class="result">
+        <div *ngFor="let similar of similarComputers">
+            <h3><b>{{similar.eval | percent}}&nbsp;&nbsp;{{similar.computer.name}}</b></h3>
+            <span>Motherboard: {{similar.computer.motherboard!.name}}</span><br>
+            <span>CPU: {{similar.computer.cpu!.name}}</span><br>
+            <span>GPU: {{similar.computer.gpu!.name}}</span><br>
+            <span>RAM: {{similar.computer.ram!.name}}</span><br>
+            <span>SSD: {{similar.computer.ssd!.name}}</span><br>
+            <span>PSU: {{similar.computer.powerSupply!.name}}</span><br><br><br>
+        </div>
+    </div>
+</div>

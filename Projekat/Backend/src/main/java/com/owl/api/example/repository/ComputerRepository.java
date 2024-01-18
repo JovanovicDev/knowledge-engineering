@@ -1,9 +1,14 @@
 package com.owl.api.example.repository;
 
+import com.opencsv.CSVWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.owl.api.example.dto.ComputerSimilarityDto;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -18,8 +23,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
+import com.owl.api.example.model.CPU;
 import com.owl.api.example.model.Computer;
+import com.owl.api.example.model.GPU;
 import com.owl.api.example.model.Purpose;
+import com.owl.api.example.model.RAM;
+import com.owl.api.example.model.SSD;
 
 @Repository
 public class ComputerRepository {
@@ -83,6 +92,102 @@ public class ComputerRepository {
         }
         return computers;
 	}
+	
+	public Computer getByName(String name) {
+        OWLNamedIndividual owlComputer = this.dataFactory.getOWLNamedIndividual(IRI.create(ontologyIRI + "/" + name.replace(" ", "_")));
+        Computer computer = new Computer();
+        computer.setName(name);
+
+        for (OWLObjectPropertyAssertionAxiom assertion : this.ontology.getObjectPropertyAssertionAxioms(owlComputer)) {
+            OWLObjectProperty property = assertion.getProperty().asOWLObjectProperty();
+            OWLNamedIndividual component = assertion.getObject().getIndividualsInSignature().stream().findFirst().get();
+            if (cpu.equals(property)) {
+                computer.setCpu(cpuRepository.createCPUFromIndividual(component));
+            }
+            else if (gpu.equals(property)) {
+                computer.setGpu(gpuRepository.createGPUFromIndividual(component));
+            }
+            else if (ram.equals(property)) {
+                computer.setRam(ramRepository.createRAMFromIndividual(component));
+            }
+            else if (ssd.equals(property)) {
+                computer.setSsd(ssdRepository.createSSDFromIndividual(component));
+            }
+            else if (motherboard.equals(property)) {
+                computer.setMotherboard(motherboardRepository.createMotherboardFromIndividual(component));
+            }
+            else if (powerSupply.equals(property)) {
+                computer.setPowerSupply(psuRepository.createPowerSupplyFromIndividual(component));
+            }
+        }
+        return computer;
+    }
+	
+	public void exportComputersToSimilarityCsv() throws IOException {
+        Set<OWLNamedIndividual> individuals = this.reasoner.getInstances(computerClass, false).getFlattened();
+        List<ComputerSimilarityDto> computers = new ArrayList<>();
+        for (OWLNamedIndividual owlComputer : individuals) {
+        	ComputerSimilarityDto computer = new ComputerSimilarityDto();
+            computer.setName(owlComputer.getIRI().getShortForm().replace("_", " "));
+
+            for (OWLObjectPropertyAssertionAxiom assertion : this.ontology.getObjectPropertyAssertionAxioms(owlComputer)) {
+                OWLObjectProperty property = assertion.getProperty().asOWLObjectProperty();
+                OWLNamedIndividual component = assertion.getObject().getIndividualsInSignature().stream().findFirst().get();
+                if (cpu.equals(property)) {
+                    CPU cpu = cpuRepository.createCPUFromIndividual(component);
+                    computer.setCpuNumOfCores(cpu.getCores());
+                    computer.setCpuFrequency(cpu.getFrequency());
+                }
+                else if (gpu.equals(property)) {
+                    GPU gpu = gpuRepository.createGPUFromIndividual(component);
+                    computer.setGpuMemory(gpu.getMemoryInGigabytes());
+                    computer.setGpuMemoryBus(gpu.getMemoryBusInBits());
+                }
+                else if (ram.equals(property)) {
+                    RAM ram = ramRepository.createRAMFromIndividual(component);
+                    computer.setRamCapacity(ram.getCapacity());
+                    computer.setRamType(ram.getType().toString());
+                }
+                else if (ssd.equals(property)) {
+                    SSD ssd = ssdRepository.createSSDFromIndividual(component);
+                    computer.setDiskCapacity(ssd.getCapacity());
+                }
+            }
+            computers.add(computer);
+        }
+
+        File file = new File("data/similarity.csv");
+        file.getParentFile().mkdirs();
+        file.createNewFile();
+        CSVWriter writer = new CSVWriter(new FileWriter(file, true));
+        String[] header = {
+                "Name",
+                "cpuNumOfCores",
+                "cpuFrequency",
+                "gpuMemory",
+                "gpuMemoryBus",
+                "ramCapacity",
+                "ramType",
+                "diskCapacity"
+        };
+        writer.writeNext(header);
+
+        for (ComputerSimilarityDto computer : computers) {
+            String[] row = {
+                    computer.getName(),
+                    String.valueOf(computer.getCpuNumOfCores()),
+                    String.valueOf(computer.getCpuFrequency()),
+                    String.valueOf(computer.getGpuMemory()),
+                    String.valueOf(computer.getGpuMemoryBus()),
+                    String.valueOf(computer.getRamCapacity()),
+                    computer.getRamType(),
+                    String.valueOf(computer.getDiskCapacity())
+            };
+            writer.writeNext(row);
+        }
+
+        writer.close();
+    }
 	
 	private Computer createComputerFromIndividual(OWLNamedIndividual computerIndividual) {
 		Computer computer = new Computer();

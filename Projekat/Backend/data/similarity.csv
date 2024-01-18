@@ -1,0 +1,7 @@
+"Name","cpuNumOfCores","cpuFrequency","gpuMemory","gpuMemoryBus","ramCapacity","ramType","diskCapacity"
+"Konfiguracija1","4","3.6","2","64","8","DDR4","256"
+"Konfiguracija2","6","3.5","2","64","4","DDR3","256"
+"Konfiguracija3","8","4.5","4","128","64","DDR5","250"
+"Konfiguracija4","6","3.3","4","128","32","DDR4","500"
+"Konfiguracija5","8","2.5","20","320","32","DDR5","1000"
+"Konfiguracija6","24","3.0","16","256","32","DDR5","2000"

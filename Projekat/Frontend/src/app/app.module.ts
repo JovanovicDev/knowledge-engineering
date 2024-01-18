@@ -7,6 +7,7 @@ import { LayoutModule } from 'src/modules/layout/layout.module';
 import { SuggestionModule } from 'src/modules/suggestion/suggestion.module';
 import { ValidityModule } from 'src/modules/validity/validity.module';
 import { FailureModule } from 'src/modules/failure/failure.module';
+import { SimilarityModule } from 'src/modules/similarity/similarity.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FailureModule } from 'src/modules/failure/failure.module';
     LayoutModule,
     SuggestionModule,
     ValidityModule,
-    FailureModule
+    FailureModule,
+    SimilarityModule
   ],
   providers: [],
   bootstrap: [AppComponent]
