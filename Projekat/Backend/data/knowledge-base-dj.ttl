@@ -1173,6 +1173,10 @@
                            :maticnaImaSataSlotova 4 .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_B550M_DDR4
+:ASUS_Tuf_B550M_DDR4 rdf:type owl:NamedIndividual .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/ASUS_Tuf_B650_DDR5
 :ASUS_Tuf_B650_DDR5 rdf:type owl:NamedIndividual ,
                              :AMD_B650 ;
@@ -1727,6 +1731,146 @@
                 :imaNamenu "Kucna upotreba" .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija10
+:Konfiguracija10 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Sapphire_AMD_Radeon_RX_7900XT_20GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :AS_Rock_B660M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :Chieftec_Polaris_850W_PPS ;
+                 :konfiguracijaImaProcesor :Intel_Core_i7_11700_2.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5200MHz_CL40 ;
+                 :imaCenuURSD 175000 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija11
+:Konfiguracija11 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija12
+:Konfiguracija12 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_32GB_DDR5_7200MHz_CL38 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija13
+:Konfiguracija13 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Pro_B760M_DDR4 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_850W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 245000 ;
+                 :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija14
+:Konfiguracija14 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_MASTERBOX_MB520 ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Prime_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_8GB_DDR4_3200MHz_CL22 ;
+                 :imaCenuURSD 108000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija15
+:Konfiguracija15 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Beast_128GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija16
+:Konfiguracija16 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija17
+:Konfiguracija17 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_8GB_DDR4_3200MHz_CL22 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija18
+:Konfiguracija18 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Impact_32GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija19
+:Konfiguracija19 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 245000 ;
+                 :imaNamenu "Profesionalna" .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija2
 :Konfiguracija2 rdf:type owl:NamedIndividual ,
                          :Konfiguracija ;
@@ -1739,6 +1883,146 @@
                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
                 :imaCenuURSD 105999 ;
                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija20
+:Konfiguracija20 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :MSI_Nvidia_GeForce_GT_710_2GB_GDDR3 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Prime_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Beast_128GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 108000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija21
+:Konfiguracija21 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija22
+:Konfiguracija22 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :Kingston_SSD_256GB_mSATA_256GB ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija23
+:Konfiguracija23 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_16GB_DDR4_5000MHz_CL19 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija24
+:Konfiguracija24 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :Kingston_SSD_256GB_mSATA_256GB ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija25
+:Konfiguracija25 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 245000 ;
+                 :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija26
+:Konfiguracija26 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija27
+:Konfiguracija27 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija28
+:Konfiguracija28 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija29
+:Konfiguracija29 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_8GB_DDR4_3200MHz_CL22 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija3
@@ -1755,6 +2039,146 @@
                 :imaNamenu "Profesionalna" .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija30
+:Konfiguracija30 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija31
+:Konfiguracija31 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija32
+:Konfiguracija32 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija33
+:Konfiguracija33 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :Transcend_SSD_mSATA_256GB ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Beast_128GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija34
+:Konfiguracija34 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_16GB_DDR5_6400MHz_CL32 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija35
+:Konfiguracija35 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Rog_Strix_GeForce_RTX_4090_24GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 245000 ;
+                 :imaNamenu "Profesionalna" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija36
+:Konfiguracija36 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_8GB_DDR5_5600MHz_CL40 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija37
+:Konfiguracija37 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Green_SA920_1TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija38
+:Konfiguracija38 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :Transcend_SSD_mSATA_256GB ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_8GB_DDR4_3200MHz_CL22 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija39
+:Konfiguracija39 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                 :konfiguracijaImaMemoriju :WD_SSD_Black_SN850_2TB_M2 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                 :imaCenuURSD 198000 ;
+                 :imaNamenu "Razvoj aplikacija" .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija4
 :Konfiguracija4 rdf:type owl:NamedIndividual ,
                          :Konfiguracija ;
@@ -1767,6 +2191,48 @@
                 :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
                 :imaCenuURSD 149999 ;
                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija40
+:Konfiguracija40 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Chieftec_GL_02B_OP ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B650_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :Deepcool_DA600_M ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_7_7700X_4.5GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Beast_128GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 124999 ;
+                 :imaNamenu "Hostovanje" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija41
+:Konfiguracija41 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_GTX_1650_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :CoolerMaster_HAF_700 ;
+                 :konfiguracijaImaMaticnuPlocu :MSI_Carbon_Z690_DDR5 ;
+                 :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                 :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                 :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                 :imaCenuURSD 215999 ;
+                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija42
+:Konfiguracija42 rdf:type owl:NamedIndividual ,
+                          :Konfiguracija ;
+                 :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                 :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                 :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_B550M_DDR4 ;
+                 :konfiguracijaImaMemoriju :Transcend_SSD_mSATA_256GB ;
+                 :konfiguracijaImaNapajanje :LC_Power_300W_LC300SFX ;
+                 :konfiguracijaImaProcesor :AMD_Ryzen_3_3200G_3.6GHz ;
+                 :konfiguracijaImaRAMMemoriju :Kingston_4GB_DDR3_1600MHz_CL11 ;
+                 :imaCenuURSD 110000 ;
+                 :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija5
@@ -1795,6 +2261,48 @@
                 :konfiguracijaImaRAMMemoriju :Kingston_Fury_Renegade_32GB_DDR5_6800MHz_CL36 ;
                 :imaCenuURSD 210999 ;
                 :imaNamenu "Rudarenje kriptovaluta" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija7
+:Konfiguracija7 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :Gigabyte_Nvidia_GeForce_RTX_4080_16GB_GDDR6 ;
+                :konfiguracijaImaKuciste :CoolerMaster_MASTERBOX_MB520 ;
+                :konfiguracijaImaMaticnuPlocu :ASUS_Tuf_Z690_DDR4 ;
+                :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_500GB_M2_2280 ;
+                :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_850W ;
+                :konfiguracijaImaProcesor :Intel_Core_i5_11400F_2.6GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Renegade_32GB_DDR4_3600MHz_CL18 ;
+                :imaCenuURSD 165000 ;
+                :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija8
+:Konfiguracija8 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :Powercolor_AMD_Radeon_RX_6600_8GB_GDDR6 ;
+                :konfiguracijaImaKuciste :Antec_DF600_FLUX ;
+                :konfiguracijaImaMaticnuPlocu :Gigabyte_B550I_Aorus_Pro_DDR4 ;
+                :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_1200W ;
+                :konfiguracijaImaProcesor :AMD_Ryzen_5_5600G_3.9GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Fury_16GB_DDR4_5000MHz_CL19 ;
+                :imaCenuURSD 198000 ;
+                :imaNamenu "Razvoj aplikacija" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Konfiguracija9
+:Konfiguracija9 rdf:type owl:NamedIndividual ,
+                         :Konfiguracija ;
+                :konfiguracijaImaGraficku :ASUS_Nvidia_GeForce_GTX_1050Ti_4GB_GDDR5 ;
+                :konfiguracijaImaKuciste :Antec_P20C ;
+                :konfiguracijaImaMaticnuPlocu :ASUS_Rog_Strix_Z790F_DDR5 ;
+                :konfiguracijaImaMemoriju :Samsung_SSD_970_EVO_PLUS_250GB_M2_2242 ;
+                :konfiguracijaImaNapajanje :FSP_HYDRO_PTM_PRO_850W ;
+                :konfiguracijaImaProcesor :Intel_Core_i9_13900K_3GHz ;
+                :konfiguracijaImaRAMMemoriju :Kingston_Fury_Beast_64GB_DDR5_5600MHz_CL40 ;
+                :imaCenuURSD 220000 ;
+                :imaNamenu "Profesionalna" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/LC_Power
