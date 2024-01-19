@@ -1,6 +1,6 @@
 package com.owl.api.example.dto;
 
-public class FailureProbabilityDto {
+public class FailureProbabilityDto implements Comparable<FailureProbabilityDto>{
 	private String causeName;
 	private double probability;
 
@@ -26,6 +26,11 @@ public class FailureProbabilityDto {
 
 	public void setProbability(double probability) {
 		this.probability = probability;
+	}
+
+	@Override
+	public int compareTo(FailureProbabilityDto o) {
+		return Double.compare(o.getProbability(), probability);
 	}
 	
 }

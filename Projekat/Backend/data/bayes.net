@@ -2,6 +2,7 @@ net
 {
      node_size = (0 0);
      name = "New BN";
+     tree = "(C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C21,C22,C23,C24,C25,C26,C27,C28,C29,C31,C32)";
      UnBBayes_Color_Probabilistic_Description = "-256";
      UnBBayes_Color_Probabilistic_Explanation = "-16711936";
 }
@@ -9,35 +10,35 @@ net
 node slow_performance
 {
      label = "C1";
-     position = (690 481);
+     position = (697 508);
      states = ("yes" "no");
 }
 
 node blue_screen
 {
      label = "C2";
-     position = (219 80);
+     position = (194 110);
      states = ("yes" "no");
 }
 
 node bad_bios_settings
 {
      label = "C3";
-     position = (196 0);
+     position = (256 46);
      states = ("yes" "no");
 }
 
-node drivers
+node driver_malfunction
 {
      label = "C4";
-     position = (49 143);
+     position = (101 185);
      states = ("yes" "no");
 }
 
 node incompatible_drivers
 {
      label = "C5";
-     position = (0 68);
+     position = (38 71);
      states = ("yes" "no");
 }
 
@@ -48,38 +49,38 @@ node outdated_drivers
      states = ("yes" "no");
 }
 
-node hard_drive
+node hard_drive_malfunction
 {
      label = "C7";
-     position = (613 107);
+     position = (635 95);
      states = ("yes" "no");
 }
 
-node cpu
+node cpu_malfunction
 {
      label = "C8";
-     position = (640 337);
+     position = (599 335);
      states = ("yes" "no");
 }
 
 node cpu_overclocked_wrongly
 {
      label = "C9";
-     position = (157 151);
+     position = (214 183);
      states = ("yes" "no");
 }
 
 node cpu_overheating
 {
      label = "C10";
-     position = (479 333);
+     position = (430 308);
      states = ("yes" "no");
 }
 
 node cpu_overloaded
 {
      label = "C11";
-     position = (224 232);
+     position = (235 278);
      states = ("yes" "no");
 }
 
@@ -93,21 +94,21 @@ node inadequate_cpu_fan
 node cpu_thermal_paste
 {
      label = "C13";
-     position = (455 404);
+     position = (400 401);
      states = ("yes" "no");
 }
 
 node inadequate_cpu
 {
      label = "C14";
-     position = (407 148);
+     position = (444 161);
      states = ("yes" "no");
 }
 
 node unformatted_hard_drive
 {
      label = "C15";
-     position = (380 0);
+     position = (460 26);
      states = ("yes" "no");
 }
 
@@ -156,14 +157,14 @@ node bad_ram
 node cpu_not_properly_set
 {
      label = "C23";
-     position = (521 184);
+     position = (552 169);
      states = ("yes" "no");
 }
 
-node psu
+node psu_malfunction
 {
      label = "C24";
-     position = (1045 300);
+     position = (1024 297);
      states = ("yes" "no");
 }
 
@@ -188,7 +189,7 @@ node insufficient_voltage
      states = ("yes" "no");
 }
 
-node ram
+node ram_malfunction
 {
      label = "C28";
      position = (864 433);
@@ -198,212 +199,382 @@ node ram
 node insufficient_ram_capacity
 {
      label = "C29";
-     position = (841 514);
+     position = (842 514);
      states = ("yes" "no");
 }
 
 node corrupt_system_files
 {
      label = "C31";
-     position = (342 53);
+     position = (336 89);
      states = ("yes" "no");
 }
 
 node loose_cable
 {
      label = "C32";
-     position = (54 8);
+     position = (130 55);
      states = ("yes" "no");
 }
 
-potential (slow_performance)
+potential (slow_performance | hard_drive_malfunction malware bad_antivirus dust_inside_case ram_malfunction cpu_malfunction outdated_drivers)
 {
- data = ( 1.0 0.0 );
-}
-
-potential (blue_screen)
-{
- data = ( 1.0 0.0 );
-}
-
-potential (bad_bios_settings | blue_screen)
-{
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
-}
-
-potential (drivers | blue_screen)
-{
- data = (( 0.1 0.9 )
-( 0.0 1.0 ));
-}
-
-potential (incompatible_drivers | drivers)
-{
- data = (( 0.5 0.5 )
-( 0.0 1.0 ));
-}
-
-potential (outdated_drivers | slow_performance drivers)
-{
- data = ((( 0.6 0.4 )
+ data = (((((((( 0.99 0.01 )
+( 0.75 0.25 ))
+(( 0.7 0.3 )
+( 0.6 0.4 )))
+((( 0.7 0.3 )
+( 0.6 0.4 ))
+(( 0.7 0.3 )
+( 0.6 0.4 ))))
+(((( 0.8 0.2 )
+( 0.55 0.45 ))
+(( 0.7 0.3 )
+( 0.4 0.6 )))
+((( 0.7 0.3 )
+( 0.4 0.6 ))
+(( 0.5 0.5 )
+( 0.2 0.8 )))))
+((((( 0.8 0.2 )
+( 0.45 0.55 ))
+(( 0.6 0.4 )
+( 0.3 0.7 )))
+((( 0.75 0.25 )
+( 0.4 0.6 ))
+(( 0.6 0.4 )
+( 0.25 0.75 ))))
+(((( 0.65 0.35 )
+( 0.4 0.6 ))
+(( 0.65 0.35 )
+( 0.3 0.7 )))
+((( 0.5 0.5 )
 ( 0.2 0.8 ))
 (( 0.5 0.5 )
-( 0.0 1.0 )));
+( 0.15 0.85 ))))))
+(((((( 0.85 0.15 )
+( 0.6 0.4 ))
+(( 0.75 0.25 )
+( 0.55 0.45 )))
+((( 0.75 0.25 )
+( 0.55 0.45 ))
+(( 0.6 0.4 )
+( 0.4 0.6 ))))
+(((( 0.75 0.25 )
+( 0.4 0.6 ))
+(( 0.55 0.45 )
+( 0.25 0.75 )))
+((( 0.6 0.4 )
+( 0.25 0.75 ))
+(( 0.5 0.5 )
+( 0.15 0.85 )))))
+((((( 0.6 0.4 )
+( 0.25 0.75 ))
+(( 0.45 0.55 )
+( 0.2 0.8 )))
+((( 0.6 0.4 )
+( 0.25 0.75 ))
+(( 0.45 0.55 )
+( 0.2 0.8 ))))
+(((( 0.6 0.4 )
+( 0.25 0.75 ))
+(( 0.45 0.55 )
+( 0.2 0.8 )))
+((( 0.4 0.6 )
+( 0.15 0.85 ))
+(( 0.25 0.75 )
+( 0.1 0.9 )))))))
+((((((( 0.9 0.1 )
+( 0.6 0.4 ))
+(( 0.8 0.2 )
+( 0.45 0.55 )))
+((( 0.8 0.2 )
+( 0.45 0.55 ))
+(( 0.65 0.35 )
+( 0.4 0.6 ))))
+(((( 0.7 0.3 )
+( 0.4 0.6 ))
+(( 0.6 0.4 )
+( 0.35 0.65 )))
+((( 0.6 0.4 )
+( 0.4 0.6 ))
+(( 0.5 0.5 )
+( 0.3 0.7 )))))
+((((( 0.7 0.3 )
+( 0.45 0.55 ))
+(( 0.6 0.4 )
+( 0.4 0.6 )))
+((( 0.5 0.5 )
+( 0.25 0.75 ))
+(( 0.4 0.6 )
+( 0.15 0.85 ))))
+(((( 0.6 0.4 )
+( 0.4 0.6 ))
+(( 0.5 0.5 )
+( 0.25 0.75 )))
+((( 0.5 0.5 )
+( 0.25 0.75 ))
+(( 0.35 0.65 )
+( 0.15 0.85 ))))))
+(((((( 0.8 0.2 )
+( 0.55 0.45 ))
+(( 0.6 0.4 )
+( 0.4 0.6 )))
+((( 0.6 0.4 )
+( 0.4 0.6 ))
+(( 0.45 0.55 )
+( 0.2 0.8 ))))
+(((( 0.6 0.4 )
+( 0.4 0.6 ))
+(( 0.45 0.55 )
+( 0.2 0.8 )))
+((( 0.5 0.5 )
+( 0.2 0.8 ))
+(( 0.35 0.65 )
+( 0.15 0.85 )))))
+((((( 0.7 0.3 )
+( 0.4 0.6 ))
+(( 0.6 0.4 )
+( 0.35 0.65 )))
+((( 0.5 0.5 )
+( 0.25 0.75 ))
+(( 0.3 0.7 )
+( 0.1 0.9 ))))
+(((( 0.5 0.5 )
+( 0.2 0.8 ))
+(( 0.4 0.6 )
+( 0.15 0.85 )))
+((( 0.3 0.7 )
+( 0.1 0.9 ))
+(( 0.2 0.8 )
+( 0.01 0.99 ))))))));
 }
 
-potential (hard_drive | slow_performance blue_screen)
+potential (blue_screen | cpu_malfunction driver_malfunction corrupt_system_files bad_bios_settings loose_cable)
+{
+ data = (((((( 0.99 0.01 )
+( 0.85 0.15 ))
+(( 0.85 0.15 )
+( 0.6 0.4 )))
+((( 0.85 0.15 )
+( 0.6 0.4 ))
+(( 0.6 0.4 )
+( 0.5 0.5 ))))
+(((( 0.7 0.3 )
+( 0.55 0.45 ))
+(( 0.7 0.3 )
+( 0.4 0.6 )))
+((( 0.55 0.45 )
+( 0.4 0.6 ))
+(( 0.4 0.6 )
+( 0.2 0.8 )))))
+((((( 0.7 0.3 )
+( 0.55 0.45 ))
+(( 0.55 0.45 )
+( 0.4 0.6 )))
+((( 0.55 0.45 )
+( 0.4 0.6 ))
+(( 0.4 0.6 )
+( 0.2 0.8 ))))
+(((( 0.45 0.55 )
+( 0.3 0.7 ))
+(( 0.3 0.7 )
+( 0.15 0.85 )))
+((( 0.3 0.7 )
+( 0.15 0.85 ))
+(( 0.15 0.85 )
+( 0.01 0.99 ))))));
+}
+
+potential (bad_bios_settings)
+{
+ data = ( 0.1 0.9 );
+}
+
+potential (driver_malfunction | incompatible_drivers outdated_drivers)
 {
  data = ((( 0.7 0.3 )
-( 0.2 0.8 ))
-(( 0.2 0.8 )
-( 0.0 1.0 )));
+( 0.25 0.75 ))
+(( 0.3 0.7 )
+( 0.8 0.2 )));
 }
 
-potential (cpu | random_shut_downs slow_performance blue_screen)
+potential (incompatible_drivers)
 {
- data = (((( 0.9 0.1 )
+ data = ( 0.25 0.75 );
+}
+
+potential (outdated_drivers)
+{
+ data = ( 0.3 0.7 );
+}
+
+potential (hard_drive_malfunction | hard_drive_memory_maxed_out unformatted_hard_drive)
+{
+ data = ((( 0.9 0.1 )
+( 0.4 0.6 ))
+(( 0.2 0.8 )
+( 0.1 0.9 )));
+}
+
+potential (cpu_malfunction | cpu_not_properly_set inadequate_cpu cpu_overheating cpu_overclocked_wrongly)
+{
+ data = ((((( 0.99 0.01 )
+( 0.85 0.15 ))
+(( 0.85 0.15 )
+( 0.4 0.6 )))
+((( 0.9 0.1 )
+( 0.35 0.65 ))
+(( 0.35 0.65 )
+( 0.15 0.85 ))))
+(((( 0.85 0.15 )
+( 0.45 0.55 ))
+(( 0.45 0.55 )
+( 0.15 0.85 )))
+((( 0.5 0.5 )
+( 0.25 0.75 ))
+(( 0.2 0.8 )
+( 0.01 0.99 )))));
+}
+
+potential (cpu_overclocked_wrongly)
+{
+ data = ( 0.1 0.9 );
+}
+
+potential (cpu_overheating | cpu_thermal_paste inadequate_cpu_fan cpu_overloaded)
+{
+ data = (((( 0.99 0.01 )
 ( 0.8 0.2 ))
 (( 0.8 0.2 )
-( 0.2 0.8 )))
-((( 0.8 0.2 )
-( 0.1 0.9 ))
-(( 0.2 0.8 )
-( 0.0 1.0 ))));
+( 0.25 0.75 )))
+((( 0.4 0.6 )
+( 0.15 0.85 ))
+(( 0.15 0.85 )
+( 0.01 0.99 ))));
 }
 
-potential (cpu_overclocked_wrongly | cpu)
+potential (cpu_overloaded)
 {
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
+ data = ( 0.125 0.875 );
 }
 
-potential (cpu_overheating | cpu)
+potential (inadequate_cpu_fan)
 {
- data = (( 0.3 0.7 )
-( 0.0 1.0 ));
+ data = ( 0.125 0.875 );
 }
 
-potential (cpu_overloaded | cpu_overheating)
+potential (cpu_thermal_paste)
 {
- data = (( 0.25 0.75 )
-( 0.0 1.0 ));
+ data = ( 0.25 0.75 );
 }
 
-potential (inadequate_cpu_fan | cpu_overheating)
+potential (inadequate_cpu)
 {
- data = (( 0.25 0.75 )
-( 0.0 1.0 ));
+ data = ( 0.15 0.85 );
 }
 
-potential (cpu_thermal_paste | cpu_overheating)
+potential (unformatted_hard_drive)
 {
- data = (( 0.5 0.5 )
-( 0.0 1.0 ));
+ data = ( 0.1 0.9 );
 }
 
-potential (inadequate_cpu | cpu)
+potential (hard_drive_memory_maxed_out)
 {
- data = (( 0.3 0.7 )
-( 0.0 1.0 ));
+ data = ( 0.4 0.6 );
 }
 
-potential (unformatted_hard_drive | hard_drive)
+potential (malware)
 {
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
+ data = ( 0.1 0.9 );
 }
 
-potential (hard_drive_memory_maxed_out | hard_drive)
+potential (bad_antivirus)
 {
- data = (( 0.8 0.2 )
-( 0.0 1.0 ));
+ data = ( 0.1 0.9 );
 }
 
-potential (malware | slow_performance)
+potential (dust_inside_case)
 {
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
+ data = ( 0.15 0.85 );
 }
 
-potential (bad_antivirus | slow_performance)
+potential (random_shut_downs | cpu_malfunction dust_inside_case psu_malfunction ram_malfunction)
 {
- data = (( 0.05 0.95 )
-( 0.0 1.0 ));
-}
-
-potential (dust_inside_case | random_shut_downs slow_performance)
-{
- data = ((( 0.2 0.8 )
-( 0.1 0.9 ))
-(( 0.05 0.95 )
-( 0.0 1.0 )));
-}
-
-potential (random_shut_downs)
-{
- data = ( 1.0 0.0 );
-}
-
-potential (bad_ram | ram)
-{
- data = (( 0.7 0.3 )
-( 0.0 1.0 ));
-}
-
-potential (cpu_not_properly_set | cpu)
-{
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
-}
-
-potential (psu | random_shut_downs)
-{
- data = (( 0.5 0.5 )
-( 0.0 1.0 ));
-}
-
-potential (damaged_surge_protector | psu)
-{
- data = (( 0.6 0.4 )
-( 0.0 1.0 ));
-}
-
-potential (unplugged_power_plug | psu)
-{
- data = (( 0.1 0.9 )
-( 0.0 1.0 ));
-}
-
-potential (insufficient_voltage | psu)
-{
- data = (( 0.3 0.7 )
-( 0.0 1.0 ));
-}
-
-potential (ram | slow_performance random_shut_downs)
-{
- data = ((( 0.3 0.7 )
+ data = ((((( 0.99 0.01 )
+( 0.75 0.25 ))
+(( 0.75 0.25 )
+( 0.4 0.6 )))
+((( 0.85 0.15 )
+( 0.6 0.4 ))
+(( 0.6 0.4 )
+( 0.2 0.8 ))))
+(((( 0.75 0.25 )
+( 0.4 0.6 ))
+(( 0.4 0.6 )
+( 0.15 0.85 )))
+((( 0.6 0.4 )
 ( 0.2 0.8 ))
 (( 0.2 0.8 )
-( 0.0 1.0 )));
+( 0.01 0.99 )))));
 }
 
-potential (insufficient_ram_capacity | ram)
+potential (bad_ram)
 {
- data = (( 0.3 0.7 )
-( 0.0 1.0 ));
+ data = ( 0.35 0.65 );
 }
 
-potential (corrupt_system_files | blue_screen)
+potential (cpu_not_properly_set)
 {
- data = (( 0.2 0.8 )
-( 0.0 1.0 ));
+ data = ( 0.1 0.9 );
 }
 
-potential (loose_cable | blue_screen)
+potential (psu_malfunction | insufficient_voltage unplugged_power_plug damaged_surge_protector)
 {
- data = (( 0.1 0.9 )
-( 0.0 1.0 ));
+ data = (((( 0.99 0.01 )
+( 0.8 0.2 ))
+(( 0.85 0.15 )
+( 0.3 0.7 )))
+((( 0.6 0.4 )
+( 0.2 0.8 ))
+(( 0.3 0.7 )
+( 0.01 0.99 ))));
+}
+
+potential (damaged_surge_protector)
+{
+ data = ( 0.3 0.7 );
+}
+
+potential (unplugged_power_plug)
+{
+ data = ( 0.05 0.95 );
+}
+
+potential (insufficient_voltage)
+{
+ data = ( 0.15 0.85 );
+}
+
+potential (ram_malfunction | bad_ram insufficient_ram_capacity)
+{
+ data = ((( 0.9 0.1 )
+( 0.3 0.7 ))
+(( 0.2 0.8 )
+( 0.1 0.9 )));
+}
+
+potential (insufficient_ram_capacity)
+{
+ data = ( 0.15 0.85 );
+}
+
+potential (corrupt_system_files)
+{
+ data = ( 0.1 0.9 );
+}
+
+potential (loose_cable)
+{
+ data = ( 0.1 0.9 );
 }
 

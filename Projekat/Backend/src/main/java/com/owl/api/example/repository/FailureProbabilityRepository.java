@@ -3,9 +3,10 @@ package com.owl.api.example.repository;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Iterator;
 
 import org.springframework.stereotype.Repository;
 
@@ -21,48 +22,64 @@ import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 
 @Repository
 public class FailureProbabilityRepository {
-	private ProbabilisticNetwork network;
-	private IInferenceAlgorithm algorithm;
-	
-	public FailureProbabilityRepository() {
-		BaseIO io = new NetIO();
-		try {
-			this.network = (ProbabilisticNetwork) io.load(new File("data/bayes.net"));
-			this.algorithm = new JunctionTreeAlgorithm(this.network);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public List<FailureProbabilityDto> getFailureCauseProbabilities(List<String> failures) {
-		this.algorithm.run();
-		for(String failure : failures) {
-			ProbabilisticNode node = (ProbabilisticNode) network.getNode(failure);
-			node.addFinding(0);
-		}
-		
-		try {
-			network.updateEvidences();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		List<FailureProbabilityDto> causes = new ArrayList<>();
-		for (String failure : failures) {
-            for (Node childNode : this.network.getNode(failure).getChildren()) {
-            	causes.add(new FailureProbabilityDto(childNode.getName(), ((ProbabilisticNode) childNode).getMarginalAt(0) * 100));
-                for (Node grandchildNode : this.network.getNode(childNode.getName()).getChildren()) {
-                    causes.add(new FailureProbabilityDto(grandchildNode.getName(), ((ProbabilisticNode) grandchildNode).getMarginalAt(0) * 100));
+    private ProbabilisticNetwork net;
+    private IInferenceAlgorithm algorithm;
+
+    public FailureProbabilityRepository() throws IOException {
+        BaseIO io = new NetIO();
+        net = (ProbabilisticNetwork) io.load(new File("data/bayes.net"));
+    }
+    public List<FailureProbabilityDto> getFailureCauseProbabilities(List<String> failures) throws Exception {
+        algorithm = new JunctionTreeAlgorithm();
+        algorithm.setNetwork(net);
+        algorithm.run();
+
+        for(String failure : failures){
+            ProbabilisticNode factNode = (ProbabilisticNode)net.getNode(failure);
+            int stateIndex = 0;
+            if(factNode == null)
+                throw new Exception("Unknown cause of malfunction!");
+            factNode.addFinding(stateIndex);
+        }
+
+        try {
+            net.updateEvidences();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        List<FailureProbabilityDto> causeProbabilityDTOs = new ArrayList<>();
+
+        for(String failure : failures){
+            for (Node parent : net.getNode(failure).getParents()){
+            	FailureProbabilityDto causeProbabilityDTO1 = new FailureProbabilityDto();
+                causeProbabilityDTO1.setCauseName(parent.getName());
+                causeProbabilityDTO1.setProbability(Math.round(((ProbabilisticNode) parent).getMarginalAt(0) * 100));
+                causeProbabilityDTOs.add(causeProbabilityDTO1);
+                for (Node grandparent : net.getNode(parent.getName()).getParents()){
+                	FailureProbabilityDto causeProbabilityDTO2 = new FailureProbabilityDto();
+                    causeProbabilityDTO2.setCauseName(grandparent.getName());
+                    causeProbabilityDTO2.setProbability(Math.round(((ProbabilisticNode) grandparent).getMarginalAt(0) * 100));
+                    causeProbabilityDTOs.add(causeProbabilityDTO2);
+
                 }
             }
         }
-		
-		Collections.sort(causes, new Comparator<FailureProbabilityDto>(){
-			   public int compare(FailureProbabilityDto dto1, FailureProbabilityDto dto2){
-			      return Double.compare(dto2.getProbability(), dto1.getProbability());
-			   }
-			});
-		
-		return causes;
-	}
+
+        if(causeProbabilityDTOs.isEmpty())
+            throw new Exception("Unknown cause of malfunction!");
+
+        causeProbabilityDTOs = causeProbabilityDTOs.stream().distinct().collect(Collectors.toList());
+        for(String failure : failures) {
+            Iterator<FailureProbabilityDto> iterator = causeProbabilityDTOs.iterator();
+            while (iterator.hasNext()) {
+            	FailureProbabilityDto obj = iterator.next();
+                if (obj.getCauseName().equals(failure)) {
+                    iterator.remove();
+                }
+            }
+        }
+        Collections.sort(causeProbabilityDTOs);
+        return causeProbabilityDTOs.subList(0, Math.min(causeProbabilityDTOs.size(), 5));
+    }
 }
