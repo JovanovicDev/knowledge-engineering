@@ -136,6 +136,13 @@
                       ] .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/drajverJeJavnoDostupan
+:drajverJeJavnoDostupan rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Drajver ;
+                        rdfs:range xsd:boolean .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/grafickaImaDVIInterfejs
 :grafickaImaDVIInterfejs rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf owl:topDataProperty ;
@@ -213,6 +220,31 @@
                          rdfs:range xsd:boolean .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/igricaJeZaPlatformu
+:igricaJeZaPlatformu rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Igrica ;
+                     rdfs:range [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "PC" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "PS" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "Xbox" ;
+                                                                    rdf:rest rdf:nil
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/igricaJeZanra
+:igricaJeZanra rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Igrica ;
+               rdfs:range xsd:string .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaCenuURSD
 :imaCenuURSD rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
@@ -222,6 +254,17 @@
                                        )
                          ] ;
              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaGodinuIzdavanja
+:imaGodinuIzdavanja rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Igrica
+                                                :OperativniSistem
+                                              )
+                                ] ;
+                    rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/imaNamenu
@@ -383,6 +426,24 @@
                                                    ]
                                         ]
                             ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/operativniSistemJeZaPlatformu
+:operativniSistemJeZaPlatformu rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :OperativniSistem ;
+                               rdfs:range [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "Desktop" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "Laptop" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "Mobilni" ;
+                                                                              rdf:rest rdf:nil
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/procesorImaBrojJezgara
@@ -607,6 +668,19 @@
           rdfs:subClassOf :AMDChipset .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Android
+:Android rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :OperativniSistem
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :operativniSistemJeZaPlatformu ;
+                                                      owl:hasValue "Mobilni"
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
+         rdfs:subClassOf :OperativniSistem .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/DDR3
 :DDR3 rdf:type owl:Class ;
       owl:equivalentClass [ owl:intersectionOf ( :RAM
@@ -644,6 +718,15 @@
                             rdf:type owl:Class
                           ] ;
       rdfs:subClassOf :RAM .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Drajver
+:Drajver rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :drajverJeJavnoDostupan ;
+                               owl:someValuesFrom xsd:boolean
+                             ] ;
+         rdfs:subClassOf :Softver .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/FullTower
@@ -718,6 +801,15 @@
                                        owl:someValuesFrom xsd:string
                                      ] ;
                  rdfs:subClassOf :Komponenta .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Igrica
+:Igrica rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :igricaJeZaPlatformu ;
+                              owl:someValuesFrom xsd:string
+                            ] ;
+        rdfs:subClassOf :Softver .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/IntelChipset
@@ -936,6 +1028,15 @@
            rdfs:subClassOf :Komponenta .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/OperativniSistem
+:OperativniSistem rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :operativniSistemJeZaPlatformu ;
+                                        owl:someValuesFrom xsd:string
+                                      ] ;
+                  rdfs:subClassOf :Softver .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Procesor
 :Procesor rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -971,6 +1072,10 @@
      rdfs:subClassOf :Komponenta .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Softver
+:Softver rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Standardno
 :Standardno rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( :Napajanje
@@ -982,6 +1087,19 @@
                                   rdf:type owl:Class
                                 ] ;
             rdfs:subClassOf :Napajanje .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Windows
+:Windows rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :OperativniSistem
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :operativniSistemJeZaPlatformu ;
+                                                      owl:hasValue "Desktop"
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
+         rdfs:subClassOf :OperativniSistem .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/mSATA
@@ -997,9 +1115,36 @@
        rdfs:subClassOf :SSD .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/macOS
+:macOS rdf:type owl:Class ;
+       owl:equivalentClass [ owl:intersectionOf ( :OperativniSistem
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :operativniSistemJeZaPlatformu ;
+                                                    owl:hasValue "Laptop"
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ;
+       rdfs:subClassOf :OperativniSistem .
+
+
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#ASUS_Tuf_B550M_DDR4
+:ASUS_Tuf_B550M_DDR4 rdf:type owl:NamedIndividual ,
+                              :AMD_B550 ;
+                     :imaProizvodjaca :ASUS ;
+                     :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                     :imaCenuURSD 16999 ;
+                     :imaNamenu "Kucna upotreba" ;
+                     :maticnaImaChipset "AMD_B550" ;
+                     :maticnaImaM2Slotova 2 ;
+                     :maticnaImaPCIExpressSlotova 3 ;
+                     :maticnaImaRAMSlotova 4 ;
+                     :maticnaImaSataSlotova 4 .
+
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
 :AMD rdf:type owl:NamedIndividual ,
@@ -1225,6 +1370,27 @@
                     :maticnaImaSataSlotova 4 .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Android12
+:Android12 rdf:type owl:NamedIndividual ,
+                    :Android ;
+           :imaGodinuIzdavanja 2020 ;
+           :operativniSistemJeZaPlatformu "Mobilni" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Android13
+:Android13 rdf:type owl:NamedIndividual ,
+                    :Android ;
+           :imaGodinuIzdavanja 2022 ;
+           :operativniSistemJeZaPlatformu "Mobilni" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Android14
+:Android14 rdf:type owl:NamedIndividual ,
+                    :Android ;
+           :imaGodinuIzdavanja 2023 ;
+           :operativniSistemJeZaPlatformu "Mobilni" .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Antec
 :Antec rdf:type owl:NamedIndividual ,
                 :Proizvodjac ;
@@ -1251,6 +1417,14 @@
             :kucisteImaMestaZaPCIKartice 6 ;
             :kucisteImaNapajanje "false"^^xsd:boolean ;
             :kucisteJeTipa "MidTower" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Beach_Buggy
+:Beach_Buggy rdf:type owl:NamedIndividual ,
+                      :Igrica ;
+             :igricaJeZaPlatformu "Xbox" ;
+             :igricaJeZanra "Trkacka" ;
+             :imaGodinuIzdavanja 2014 .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Chieftec
@@ -1339,6 +1513,30 @@
                   :napajanjeImaIzlaznuSnaguUVatima 600 ;
                   :napajanjeImaPrecnikVentilatoraUCentimetrima 8 ;
                   :napajanjeJeTipa "Standardno" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Drajver_Za_Graficku_Karticu
+:Drajver_Za_Graficku_Karticu rdf:type owl:NamedIndividual ,
+                                      :Drajver ;
+                             :drajverJeJavnoDostupan "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Drajver_Za_Maticnu_Plocu
+:Drajver_Za_Maticnu_Plocu rdf:type owl:NamedIndividual ,
+                                   :Drajver ;
+                          :drajverJeJavnoDostupan "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Drajver_Za_Procesor
+:Drajver_Za_Procesor rdf:type owl:NamedIndividual ,
+                              :Drajver ;
+                     :drajverJeJavnoDostupan "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Drajver_Za_SSD
+:Drajver_Za_SSD rdf:type owl:NamedIndividual ,
+                         :Drajver ;
+                :drajverJeJavnoDostupan "true"^^xsd:boolean .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/FSP
@@ -1454,6 +1652,14 @@
                                              :grafickaImaVGAInterfejs "false"^^xsd:boolean ;
                                              :imaCenuURSD 209999 ;
                                              :imaNamenu "Gaming" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/God_Of_War_3
+:God_Of_War_3 rdf:type owl:NamedIndividual ,
+                       :Igrica ;
+              :igricaJeZaPlatformu "PS" ;
+              :igricaJeZanra "Akciona" ;
+              :imaGodinuIzdavanja 2012 .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Intel
@@ -2424,6 +2630,14 @@
                                          :imaNamenu "Hostovanje" .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Prototype
+:Prototype rdf:type owl:NamedIndividual ,
+                    :Igrica ;
+           :igricaJeZaPlatformu "PC" ;
+           :igricaJeZanra "Akciona" ;
+           :imaGodinuIzdavanja 2009 .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Samsung
 :Samsung rdf:type owl:NamedIndividual ,
                   :Proizvodjac ;
@@ -2531,14 +2745,79 @@
                 :proizvodjacImaIme "WesternDigital" .
 
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Windows10
+:Windows10 rdf:type owl:NamedIndividual ,
+                    :Windows ;
+           :imaGodinuIzdavanja 2016 ;
+           :operativniSistemJeZaPlatformu "Desktop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Windows7
+:Windows7 rdf:type owl:NamedIndividual ,
+                   :Windows ;
+          :imaGodinuIzdavanja 2010 ;
+          :operativniSistemJeZaPlatformu "Desktop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/Windows8
+:Windows8 rdf:type owl:NamedIndividual ,
+                   :Windows ;
+          :imaGodinuIzdavanja 2012 ;
+          :operativniSistemJeZaPlatformu "Desktop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/WindowsXP
+:WindowsXP rdf:type owl:NamedIndividual ,
+                    :Windows ;
+           :imaGodinuIzdavanja 2004 ;
+           :operativniSistemJeZaPlatformu "Desktop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/macOS12
+:macOS12 rdf:type owl:NamedIndividual ,
+                  :macOS ;
+         :imaGodinuIzdavanja 2021 ;
+         :operativniSistemJeZaPlatformu "Laptop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/macOS13
+:macOS13 rdf:type owl:NamedIndividual ,
+                  :macOS ;
+         :imaGodinuIzdavanja 2022 ;
+         :operativniSistemJeZaPlatformu "Laptop" .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/macOS14
+:macOS14 rdf:type owl:NamedIndividual ,
+                  :macOS ;
+         :imaGodinuIzdavanja 2023 ;
+         :operativniSistemJeZaPlatformu "Laptop" .
+
+
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Android
+                :Windows
+                :macOS
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :DDR3
                 :DDR4
                 :DDR5
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Drajver
+                :Igrica
+                :OperativniSistem
               )
 ] .
 
@@ -2585,6 +2864,7 @@
   owl:members ( :Komponenta
                 :Konfiguracija
                 :Proizvodjac
+                :Softver
               )
 ] .
 
