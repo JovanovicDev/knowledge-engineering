@@ -47,7 +47,7 @@ public class UpgradeController {
         		break;
         	}
 			case "cpu": {
-				computer.setCpu(this.cpuRepository.findUpgrade(computer.getCpu(), computer.getMotherboard().getManufacturer()));
+				computer.setCpu(this.cpuRepository.findUpgrade(computer.getCpu(), computer.getMotherboard().getCompatibleWithCPUsFrom()));
 				break;
 			}	
 			case "psu": {
