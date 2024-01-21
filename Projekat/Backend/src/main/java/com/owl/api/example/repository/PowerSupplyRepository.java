@@ -21,6 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.PowerSupply;
 import com.owl.api.example.model.PowerSupplyType;
 import com.owl.api.example.model.Purpose;
@@ -34,6 +35,7 @@ public class PowerSupplyRepository {
     
     private OWLClass psuClass;
 	private OWLObjectProperty manufacturer;
+	private OWLDataProperty compatiblePSUTypeProperty;
 	private OWLDataProperty purpose;
 	private OWLDataProperty price;
 	private OWLDataProperty type;
@@ -47,6 +49,7 @@ public class PowerSupplyRepository {
 		
 		this.psuClass = this.dataFactory.getOWLClass(IRI.create(this.ontologyIRI + "/Napajanje"));
 		this.manufacturer = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/imaProizvodjaca");
+		this.compatiblePSUTypeProperty = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaNapajanjaTipa");
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.type = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/napajanjeJeTipa");
@@ -76,16 +79,16 @@ public class PowerSupplyRepository {
 		return filteredPSUs;
 	}
 	
-	public PowerSupply findUpgrade(PowerSupply psu) {
-        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + psu.getName())), type);
-        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+	public PowerSupply findUpgrade(PowerSupply psu, Motherboard motherboard) {
+        Set<OWLLiteral> compatibleTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), compatiblePSUTypeProperty);
+        OWLLiteral compatibleType = compatibleTypeLiterals.stream().findFirst().orElse(null);
 		
         OWLDataRange exitPower = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
                 OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(psu.getExitPower()));
 
         OWLClassExpression psuQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.psuClass,
-                dataFactory.getOWLDataHasValue(this.type, type),
+                dataFactory.getOWLDataHasValue(this.type, compatibleType),
                 dataFactory.getOWLDataSomeValuesFrom(this.exitPower, exitPower)
         );
 

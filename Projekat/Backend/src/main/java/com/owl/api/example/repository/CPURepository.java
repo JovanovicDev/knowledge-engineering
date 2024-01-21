@@ -119,7 +119,9 @@ public class CPURepository {
         return filteredCPUs;
 	}
 	
-	public CPU findUpgrade(CPU cpu) {
+	public CPU findUpgrade(CPU cpu, Manufacturer compatibleCPUManufacturer) {
+		OWLNamedIndividual man = dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + compatibleCPUManufacturer.getName()));
+		
         Set<OWLLiteral> socketLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + cpu.getName())), socket);
         OWLLiteral socket = socketLiterals.stream().findFirst().orElse(null);
 		
@@ -132,6 +134,7 @@ public class CPURepository {
         OWLClassExpression cpuQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.cpuClass,
                 dataFactory.getOWLDataHasValue(this.socket, socket),
+                dataFactory.getOWLObjectHasValue(this.manufacturer, man),
                 dataFactory.getOWLDataSomeValuesFrom(this.cores, numOfCores),
                 dataFactory.getOWLDataSomeValuesFrom(this.threads, numOfThreads)
         );

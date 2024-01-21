@@ -20,10 +20,15 @@ import org.semanticweb.owlapi.vocab.OWLFacet;
 import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
+import com.owl.api.example.model.CaseType;
+import com.owl.api.example.model.GPUMemoryType;
 import com.owl.api.example.model.Manufacturer;
 import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.MotherboardChipset;
+import com.owl.api.example.model.PowerSupplyType;
 import com.owl.api.example.model.Purpose;
+import com.owl.api.example.model.RAMType;
+import com.owl.api.example.model.SSDType;
 
 @Repository
 public class MotherboardRepository {
@@ -35,6 +40,11 @@ public class MotherboardRepository {
     private OWLClass motherboardClass;
 	private OWLObjectProperty manufacturer;
 	private OWLObjectProperty compatibleWithCPUsFrom;
+	private OWLDataProperty compatibleWithGPUMemoryType;
+	private OWLDataProperty compatibleWithPSUType;
+	private OWLDataProperty compatibleWithCaseType;
+	private OWLDataProperty compatibleWithRAMType;
+	private OWLDataProperty compatibleWithSSDType;
 	private OWLDataProperty price;
 	private OWLDataProperty purpose;
 	private OWLDataProperty chipset;
@@ -42,13 +52,18 @@ public class MotherboardRepository {
 	private OWLDataProperty sataSlots;
 	private OWLDataProperty m2Slots;
 	private OWLDataProperty ramSlots;
-	
+		
 	public MotherboardRepository(OntologySetup ontologySetup) {
 		instantiateOntology(ontologySetup);
 		
 		this.motherboardClass = this.dataFactory.getOWLClass(IRI.create(this.ontologyIRI + "/MaticnaPloca"));
 		this.manufacturer = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/imaProizvodjaca");
 		this.compatibleWithCPUsFrom = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/maticnaPodrzavaProcesoreProizvodjaca");
+		this.compatibleWithGPUMemoryType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaGrafickeSaMemorijomTipa");
+		this.compatibleWithPSUType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaNapajanjaTipa");
+		this.compatibleWithCaseType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaKucistaVelicine");
+		this.compatibleWithRAMType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaRAMMemorijuTipa");
+		this.compatibleWithSSDType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaSSDTipa");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.chipset = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaImaChipset");
@@ -118,7 +133,7 @@ public class MotherboardRepository {
 		
 		OWLNamedIndividual cpuManufacturerIndividual = this.reasoner.getObjectPropertyValues(motherboardIndividual, compatibleWithCPUsFrom).getFlattened().stream().findFirst().get();
 		motherboard.setCompatibleWithCPUsFrom(new Manufacturer(cpuManufacturerIndividual.getIRI().getShortForm()));
-		
+				
         for (OWLDataPropertyAssertionAxiom assertion : this.ontology.getDataPropertyAssertionAxioms(motherboardIndividual)) {
             OWLDataProperty property = assertion.getProperty().asOWLDataProperty();
             if (this.purpose.equals(property))
@@ -177,6 +192,77 @@ public class MotherboardRepository {
 	            		break;
 	            	}
 	            }
+            else if (this.compatibleWithGPUMemoryType.equals(property)) 
+            	switch(assertion.getObject().getLiteral()) {
+	            	case "GDDR3": {
+	            		motherboard.setCompatibleWithGPUMemoryType(GPUMemoryType.GDDR3);
+	            		break;
+	            	}
+	            	case "GDDR4": {
+	            		motherboard.setCompatibleWithGPUMemoryType(GPUMemoryType.GDDR4);
+	            		break;
+	            	}
+	            	case "GDDR5": {
+	            		motherboard.setCompatibleWithGPUMemoryType(GPUMemoryType.GDDR5);
+	            		break;
+	            	}
+	            	case "GDDR6": {
+	            		motherboard.setCompatibleWithGPUMemoryType(GPUMemoryType.GDDR6);
+	            		break;
+	            	}
+            	}
+            else if (this.compatibleWithPSUType.equals(property)) 
+            	switch(assertion.getObject().getLiteral()) {
+	            	case "Modularno": {
+	            		motherboard.setCompatibleWithPSUType(PowerSupplyType.MODULAR);
+	            		break;
+	            	}
+	            	case "Standardno": {
+	            		motherboard.setCompatibleWithPSUType(PowerSupplyType.STANDARD);
+	            		break;
+	            	}
+            	}
+            else if (this.compatibleWithCaseType.equals(property)) 
+            	switch(assertion.getObject().getLiteral()) {
+	            	case "FullTower": {
+	            		motherboard.setCompatibleWithCaseType(CaseType.FULL_TOWER);
+	            		break;
+	            	}
+	            	case "MidTower": {
+	            		motherboard.setCompatibleWithCaseType(CaseType.MID_TOWER);
+	            		break;
+	            	}
+	            	case "MiniTower": {
+	            		motherboard.setCompatibleWithCaseType(CaseType.MINI_TOWER);
+	            		break;
+	            	}
+            	}
+            else if (this.compatibleWithRAMType.equals(property)) 
+            	switch(assertion.getObject().getLiteral()) {
+	            	case "DDR3": {
+	            		motherboard.setCompatibleWithRAMType(RAMType.DDR3);
+	            		break;
+	            	}
+	            	case "DDR4": {
+	            		motherboard.setCompatibleWithRAMType(RAMType.DDR4);
+	            		break;
+	            	}
+	            	case "DDR5": {
+	            		motherboard.setCompatibleWithRAMType(RAMType.DDR5);
+	            		break;
+	            	}
+            	}
+            else if (this.compatibleWithSSDType.equals(property)) 
+            	switch(assertion.getObject().getLiteral()) {
+	            	case "M.2": {
+	            		motherboard.setCompatibleWithSSDType(SSDType.M2);
+	            		break;
+	            	}
+	            	case "mSATA": {
+	            		motherboard.setCompatibleWithSSDType(SSDType.mSATA);
+	            		break;
+	            	}
+            	}
             else if (this.pciExpressSlots.equals(property))
             	motherboard.setPciExpressSlots(Integer.parseInt(assertion.getObject().getLiteral()));
             else if (this.sataSlots.equals(property))

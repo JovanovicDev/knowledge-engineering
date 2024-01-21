@@ -23,6 +23,7 @@ import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.GPU;
 import com.owl.api.example.model.GPUMemoryType;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 
 @Repository
@@ -41,6 +42,7 @@ public class GPURepository {
 	private OWLDataProperty memoryBus;
 	private OWLDataProperty pciExpressInterfaceVersion;
 	private OWLDataProperty memoryType;
+	private OWLDataProperty compatibleMemoryTypeProperty;
 	private OWLDataProperty hasDVIInterface;
 	private OWLDataProperty hasHDMIInterface;
 	private OWLDataProperty hasUSBCInterface;
@@ -56,6 +58,7 @@ public class GPURepository {
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.memoryType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/grafickaImaTipMemorije");
+		this.compatibleMemoryTypeProperty = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaGrafickeSaMemorijomTipa");
 		this.capacity = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/grafickaImaKolicinuMemorijeUGigabajtima");
 		this.memoryBus = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/grafickaImaMagistraluMemorijeUBitima");
 		this.pciExpressInterfaceVersion = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/grafickaImaPCIExpressInterfejsVerzije");
@@ -86,16 +89,16 @@ public class GPURepository {
 		return filteredGPUs;
 	}
 	
-	public GPU findUpgrade(GPU gpu) {
-        Set<OWLLiteral> memoryTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + gpu.getName())), memoryType);
-        OWLLiteral memoryType = memoryTypeLiterals.stream().findFirst().orElse(null);
+	public GPU findUpgrade(GPU gpu, Motherboard motherboard) {
+        Set<OWLLiteral> compatibleMemoryTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), compatibleMemoryTypeProperty);
+        OWLLiteral compatibleMemoryType = compatibleMemoryTypeLiterals.stream().findFirst().orElse(null);
 		
         OWLDataRange capacity = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
                 OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(gpu.getMemoryInGigabytes()));
         
         OWLClassExpression gpuQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.gpuClass,
-                dataFactory.getOWLDataHasValue(this.memoryType, memoryType),
+                dataFactory.getOWLDataHasValue(this.memoryType, compatibleMemoryType),
                 dataFactory.getOWLDataSomeValuesFrom(this.capacity, capacity)
         );
 

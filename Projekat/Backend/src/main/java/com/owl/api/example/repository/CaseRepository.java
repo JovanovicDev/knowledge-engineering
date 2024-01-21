@@ -23,6 +23,7 @@ import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.Case;
 import com.owl.api.example.model.CaseType;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 
 @Repository
@@ -34,6 +35,7 @@ public class CaseRepository {
     
     private OWLClass caseClass;
 	private OWLObjectProperty manufacturer;
+	private OWLDataProperty compatibleCaseSizeProperty;
 	private OWLDataProperty caseType;
 	private OWLDataProperty purpose;
 	private OWLDataProperty price;
@@ -45,6 +47,7 @@ public class CaseRepository {
 		
 		this.caseClass = this.dataFactory.getOWLClass(IRI.create(this.ontologyIRI + "/Kuciste"));
 		this.manufacturer = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/imaProizvodjaca");
+		this.compatibleCaseSizeProperty = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaKucistaVelicine");
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.caseType = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/kucisteJeTipa");
@@ -72,16 +75,16 @@ public class CaseRepository {
 		return filteredCases;
 	}
 	
-	public Case findUpgrade(Case boxCase) {
-        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + boxCase.getName())), caseType);
-        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+	public Case findUpgrade(Case boxCase, Motherboard motherboard) {
+        Set<OWLLiteral> compatibleTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), compatibleCaseSizeProperty);
+        OWLLiteral compatibleType = compatibleTypeLiterals.stream().findFirst().orElse(null);
 		
         OWLDataRange pciSlots = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
                 OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(boxCase.getPciSlots()));
 
         OWLClassExpression caseQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.caseClass,
-                dataFactory.getOWLDataHasValue(this.caseType, type),
+                dataFactory.getOWLDataHasValue(this.caseType, compatibleType),
                 dataFactory.getOWLDataSomeValuesFrom(this.pciCardSlots, pciSlots)
         );
 

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 import com.owl.api.example.model.SSD;
 import com.owl.api.example.model.SSDType;
@@ -34,6 +35,7 @@ public class SSDRepository {
     
     private OWLClass ssdClass;
 	private OWLObjectProperty manufacturer;
+	private OWLDataProperty compatibleSSDTypeProperty;
 	private OWLDataProperty purpose;
 	private OWLDataProperty price;
 	private OWLDataProperty type;
@@ -47,6 +49,7 @@ public class SSDRepository {
 		
 		this.ssdClass = this.dataFactory.getOWLClass(IRI.create(this.ontologyIRI + "/SSD"));
 		this.manufacturer = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/imaProizvodjaca");
+		this.compatibleSSDTypeProperty = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaSSDTipa");
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.type = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/SSDJeTipa");
@@ -76,9 +79,9 @@ public class SSDRepository {
 		return filteredSSDs;
 	}
 	
-	public SSD findUpgrade(SSD ssd) {
-        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + ssd.getName())), type);
-        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+	public SSD findUpgrade(SSD ssd, Motherboard motherboard) {
+        Set<OWLLiteral> compatibleTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), compatibleSSDTypeProperty);
+        OWLLiteral compatibleType = compatibleTypeLiterals.stream().findFirst().orElse(null);
 		
         OWLDataRange capacity = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
                 OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(ssd.getCapacity()));
@@ -91,7 +94,7 @@ public class SSDRepository {
 
         OWLClassExpression ssdQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.ssdClass,
-                dataFactory.getOWLDataHasValue(this.type, type),
+                dataFactory.getOWLDataHasValue(this.type, compatibleType),
                 dataFactory.getOWLDataSomeValuesFrom(this.capacity, capacity),
                 dataFactory.getOWLDataSomeValuesFrom(this.readSpeed, readSpeed),
                 dataFactory.getOWLDataSomeValuesFrom(this.writeSpeed, writeSpeed)

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Repository;
 
 import com.owl.api.example.configuration.OntologySetup;
 import com.owl.api.example.model.Manufacturer;
+import com.owl.api.example.model.Motherboard;
 import com.owl.api.example.model.Purpose;
 import com.owl.api.example.model.RAM;
 import com.owl.api.example.model.RAMType;
@@ -34,6 +35,7 @@ public class RAMRepository {
     
     private OWLClass ramClass;
 	private OWLObjectProperty manufacturer;
+	private OWLDataProperty compatibleRAMTypeProperty;
 	private OWLDataProperty purpose;
 	private OWLDataProperty price;
 	private OWLDataProperty type;
@@ -47,6 +49,7 @@ public class RAMRepository {
 		
 		this.ramClass = this.dataFactory.getOWLClass(IRI.create(this.ontologyIRI + "/RAM"));
 		this.manufacturer = this.dataFactory.getOWLObjectProperty(this.ontologyIRI + "/imaProizvodjaca");
+		this.compatibleRAMTypeProperty = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/maticnaPodrzavaRAMMemorijuTipa");
 		this.purpose = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaNamenu");
 		this.price = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/imaCenuURSD");
 		this.type = this.dataFactory.getOWLDataProperty(this.ontologyIRI + "/ramJeTipa");
@@ -76,16 +79,16 @@ public class RAMRepository {
 		return filteredRAMs;
 	}
 	
-	public RAM findUpgrade(RAM ram) {
-        Set<OWLLiteral> typeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + ram.getName())), type);
-        OWLLiteral type = typeLiterals.stream().findFirst().orElse(null);
+	public RAM findUpgrade(RAM ram, Motherboard motherboard) {
+        Set<OWLLiteral> compatibleTypeLiterals = reasoner.getDataPropertyValues(dataFactory.getOWLNamedIndividual(IRI.create(this.ontologyIRI + "/" + motherboard.getName())), compatibleRAMTypeProperty);
+        OWLLiteral compatibleType = compatibleTypeLiterals.stream().findFirst().orElse(null);
 		
         OWLDataRange capacity = dataFactory.getOWLDatatypeRestriction(dataFactory.getIntegerOWLDatatype(),
                 OWLFacet.MIN_EXCLUSIVE, dataFactory.getOWLLiteral(ram.getCapacity()));
 
         OWLClassExpression ramQuery = dataFactory.getOWLObjectIntersectionOf(
                 this.ramClass,
-                dataFactory.getOWLDataHasValue(this.type, type),
+                dataFactory.getOWLDataHasValue(this.type, compatibleType),
                 dataFactory.getOWLDataSomeValuesFrom(this.capacity, capacity)
         );
 

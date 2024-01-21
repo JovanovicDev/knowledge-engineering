@@ -93,6 +93,93 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaPodrzavaGrafickeSaMemorijomTipa
+:maticnaPodrzavaGrafickeSaMemorijomTipa rdf:type owl:DatatypeProperty ;
+                                        rdfs:subPropertyOf owl:topDataProperty ;
+                                        rdfs:domain :MaticnaPloca ;
+                                        rdfs:range [ rdf:type rdfs:Datatype ;
+                                                     owl:oneOf [ rdf:type rdf:List ;
+                                                                 rdf:first "GDDR3" ;
+                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                            rdf:first "GDDR4" ;
+                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                       rdf:first "GDDR5" ;
+                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                  rdf:first "GDDR6" ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                   ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaPodrzavaKucistaVelicine
+:maticnaPodrzavaKucistaVelicine rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :MaticnaPloca ;
+                                rdfs:range [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "FullTower" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "MidTower" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "MiniTower" ;
+                                                                               rdf:rest rdf:nil
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaPodrzavaNapajanjaTipa
+:maticnaPodrzavaNapajanjaTipa rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain :MaticnaPloca ;
+                              rdfs:range [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "Modularno" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "Standardno" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaPodrzavaRAMMemorijuTipa
+:maticnaPodrzavaRAMMemorijuTipa rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf owl:topDataProperty ;
+                                rdfs:domain :MaticnaPloca ;
+                                rdfs:range [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "DDR3" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "DDR4" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "DDR5" ;
+                                                                               rdf:rest rdf:nil
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#maticnaPodrzavaSSDTipa
+:maticnaPodrzavaSSDTipa rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :MaticnaPloca ;
+                        rdfs:range [ rdf:type rdfs:Datatype ;
+                                     owl:oneOf [ rdf:type rdf:List ;
+                                                 rdf:first "M.2" ;
+                                                 rdf:rest [ rdf:type rdf:List ;
+                                                            rdf:first "mSATA" ;
+                                                            rdf:rest rdf:nil
+                                                          ]
+                                               ]
+                                   ] .
+
+
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/SSDImaBrzinuCitanjaUMBPS
 :SSDImaBrzinuCitanjaUMBPS rdf:type owl:DatatypeProperty ;
                           rdfs:subPropertyOf owl:topDataProperty ;
@@ -1137,6 +1224,11 @@
                               :AMD_B550 ;
                      :imaProizvodjaca :ASUS ;
                      :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                     :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR5" ;
+                     :maticnaPodrzavaKucistaVelicine "FullTower" ;
+                     :maticnaPodrzavaNapajanjaTipa "Standardno" ;
+                     :maticnaPodrzavaRAMMemorijuTipa "DDR5" ;
+                     :maticnaPodrzavaSSDTipa "mSATA" ;
                      :imaCenuURSD 16999 ;
                      :imaNamenu "Kucna upotreba" ;
                      :maticnaImaChipset "AMD_B550" ;
@@ -1144,6 +1236,24 @@
                      :maticnaImaPCIExpressSlotova 3 ;
                      :maticnaImaRAMSlotova 4 ;
                      :maticnaImaSataSlotova 4 .
+
+
+###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4#MSI_Nvidia_GeForce_GTX_4020_4GB_GDDR4
+:MSI_Nvidia_GeForce_GTX_4020_4GB_GDDR4 rdf:type owl:NamedIndividual ,
+                                                :GDDR4 ;
+                                       :grafickaImaProizvodjacaCipa :Nvidia ;
+                                       :imaProizvodjaca :MSI ;
+                                       :grafickaImaDVIInterfejs "true"^^xsd:boolean ;
+                                       :grafickaImaDisplayPortInterfejs "true"^^xsd:boolean ;
+                                       :grafickaImaHDMIInterfejs "true"^^xsd:boolean ;
+                                       :grafickaImaKolicinuMemorijeUGigabajtima 4 ;
+                                       :grafickaImaMagistraluMemorijeUBitima 256 ;
+                                       :grafickaImaPCIExpressInterfejsVerzije 4 ;
+                                       :grafickaImaTipMemorije "GDDR4" ;
+                                       :grafickaImaUSBCInterfejs "true"^^xsd:boolean ;
+                                       :grafickaImaVGAInterfejs "true"^^xsd:boolean ;
+                                       :imaCenuURSD 29999 ;
+                                       :imaNamenu "Kucna upotreba" .
 
 
 ###  http://www.semanticweb.org/duka/ontologies/2023/4/untitled-ontology-4/AMD
@@ -1277,6 +1387,11 @@
                                 :AMD_B550 ;
                        :imaProizvodjaca :ASUS ;
                        :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                       :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR4" ;
+                       :maticnaPodrzavaKucistaVelicine "MidTower" ;
+                       :maticnaPodrzavaNapajanjaTipa "Modularno" ;
+                       :maticnaPodrzavaRAMMemorijuTipa "DDR3" ;
+                       :maticnaPodrzavaSSDTipa "M.2" ;
                        :imaCenuURSD 11999 ;
                        :imaNamenu "Kucna upotreba" ;
                        :maticnaImaChipset "AMD_B550" ;
@@ -1309,6 +1424,11 @@
                                     :Intel_Z790 ;
                            :imaProizvodjaca :ASUS ;
                            :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                           :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR3" ;
+                           :maticnaPodrzavaKucistaVelicine "FullTower" ;
+                           :maticnaPodrzavaNapajanjaTipa "Standardno" ;
+                           :maticnaPodrzavaRAMMemorijuTipa "DDR3" ;
+                           :maticnaPodrzavaSSDTipa "mSATA" ;
                            :imaCenuURSD 69999 ;
                            :imaNamenu "Rudarenje kriptovaluta" ;
                            :maticnaImaChipset "Intel_Z790" ;
@@ -1327,6 +1447,11 @@
                              :AMD_B650 ;
                     :imaProizvodjaca :ASUS ;
                     :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                    :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR3" ;
+                    :maticnaPodrzavaKucistaVelicine "MidTower" ;
+                    :maticnaPodrzavaNapajanjaTipa "Modularno" ;
+                    :maticnaPodrzavaRAMMemorijuTipa "DDR3" ;
+                    :maticnaPodrzavaSSDTipa "mSATA" ;
                     :imaCenuURSD 34999 ;
                     :imaNamenu "Gaming" ;
                     :maticnaImaChipset "AMD_B650" ;
@@ -1341,6 +1466,11 @@
                              :Intel_Z690 ;
                     :imaProizvodjaca :ASUS ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR6" ;
+                    :maticnaPodrzavaKucistaVelicine "MidTower" ;
+                    :maticnaPodrzavaNapajanjaTipa "Standardno" ;
+                    :maticnaPodrzavaRAMMemorijuTipa "DDR5" ;
+                    :maticnaPodrzavaSSDTipa "M.2" ;
                     :imaCenuURSD 43499 ;
                     :imaNamenu "Gaming" ;
                     :maticnaImaChipset "Intel_Z690" ;
@@ -1361,6 +1491,11 @@
                              :Intel_B660 ;
                     :imaProizvodjaca :AS_Rock ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR4" ;
+                    :maticnaPodrzavaKucistaVelicine "FullTower" ;
+                    :maticnaPodrzavaNapajanjaTipa "Modularno" ;
+                    :maticnaPodrzavaRAMMemorijuTipa "DDR5" ;
+                    :maticnaPodrzavaSSDTipa "mSATA" ;
                     :imaCenuURSD 14999 ;
                     :imaNamenu "Hostovanje" ;
                     :maticnaImaChipset "Intel_B660" ;
@@ -1595,6 +1730,11 @@
                                         :AMD_B550 ;
                                :imaProizvodjaca :Gigabyte ;
                                :maticnaPodrzavaProcesoreProizvodjaca :AMD ;
+                               :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR6" ;
+                               :maticnaPodrzavaKucistaVelicine "MiniTower" ;
+                               :maticnaPodrzavaNapajanjaTipa "Modularno" ;
+                               :maticnaPodrzavaRAMMemorijuTipa "DDR5" ;
+                               :maticnaPodrzavaSSDTipa "M.2" ;
                                :imaCenuURSD 27999 ;
                                :imaNamenu "Razvoj aplikacija" ;
                                :maticnaImaChipset "AMD_B550" ;
@@ -1609,6 +1749,11 @@
                               :Intel_B660 ;
                      :imaProizvodjaca :Gigabyte ;
                      :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                     :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR4" ;
+                     :maticnaPodrzavaKucistaVelicine "MiniTower" ;
+                     :maticnaPodrzavaNapajanjaTipa "Standardno" ;
+                     :maticnaPodrzavaRAMMemorijuTipa "DDR5" ;
+                     :maticnaPodrzavaSSDTipa "M.2" ;
                      :imaCenuURSD 18999 ;
                      :imaNamenu "Gaming" ;
                      :maticnaImaChipset "Intel_B660" ;
@@ -2541,6 +2686,11 @@
                                :Intel_Z690 ;
                       :imaProizvodjaca :MSI ;
                       :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                      :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR6" ;
+                      :maticnaPodrzavaKucistaVelicine "MiniTower" ;
+                      :maticnaPodrzavaNapajanjaTipa "Modularno" ;
+                      :maticnaPodrzavaRAMMemorijuTipa "DDR4" ;
+                      :maticnaPodrzavaSSDTipa "M.2" ;
                       :imaCenuURSD 64999 ;
                       :imaNamenu "Gaming" ;
                       :maticnaImaChipset "Intel_Z690" ;
@@ -2591,6 +2741,11 @@
                              :Intel_B760 ;
                     :imaProizvodjaca :MSI ;
                     :maticnaPodrzavaProcesoreProizvodjaca :Intel ;
+                    :maticnaPodrzavaGrafickeSaMemorijomTipa "GDDR6" ;
+                    :maticnaPodrzavaKucistaVelicine "FullTower" ;
+                    :maticnaPodrzavaNapajanjaTipa "Standardno" ;
+                    :maticnaPodrzavaRAMMemorijuTipa "DDR3" ;
+                    :maticnaPodrzavaSSDTipa "mSATA" ;
                     :imaCenuURSD 17999 ;
                     :imaNamenu "Profesionalna" ;
                     :maticnaImaChipset "Intel_B760" ;
